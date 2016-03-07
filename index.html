@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Bungee – Fonts for multi-color and vertical typography</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<script src="/js/jquery.min.js"></script>
+<script>
+  $(function() {
+    $('h1,h3').each(function() {
+      $(this).attr('data-content', $(this).text());
+    });
+  });
+</script>
+<script type="text/javascript">
+/* Press the ~ key to toggle the show_edges class */
+$(document).keydown(function(e) {
+    var key = e.which;
+    if (key == 192) {
+        $("html").toggleClass("debug");
+    }
+});
+</script>
+
+<link rel="stylesheet" href="/fonts.css">
+<style>
+* {
+	font-family: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	color: inherit;
+	text-decoration: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+html:before { /* BREAKPOINT INDICATOR */
+	content: 'XXS';
+	font-family: Verdana, sans-serif;
+	font-size: 9px;
+	color: rgba(0,0,0, 0.5);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+html.debug:before {display: block;}
+html.debug * {outline: 1px dashed rgba(255,0,0, 0.5);}
+
+* + * { margin-bottom: 1rem;}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	font-size: 100%;
+	margin: 0;
+}
+
+body {
+	font-family: 'Output Sans','Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', Arial, sans-serif;
+	font-weight: normal;
+	line-height: 1;
+	color: #000;
+	background-color: #FFF;
+	background-color: #f4ede0;
+	margin: 0;
+}
+a:link,
+a:visited {
+	text-decoration: underline;
+	color: #C00;
+}
+a:hover,
+a:active {
+	color: #F00;
+}
+
+article {
+	height: 100vh;
+}
+section {
+	padding: 1rem;
+	margin: 0;
+}
+section + section {
+	border-top: 1.5em solid #25839E;
+}
+h1, h2, h3 {
+	font-family: 'Bungeee Regular';
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+h1 {
+	font-family: 'Bungeee Shade';
+	line-height: .8;
+	color: #771F15;
+	font-size: 4em;
+	margin-top: 1rem;
+	margin-bottom: .15em;
+	margin-left: .05em;
+	position: relative;
+	width: 100%;
+}
+h1:after {
+	font-family: 'Bungeee Regular';
+	color: #FFF;
+	content: attr(data-content);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+h2 {
+	font-size: 1.5em;
+}
+h3 {
+	font-family: 'Bungeee Shade';
+	font-size: 2em;
+	color: #EFE446;
+	position: relative;
+}
+h3:after {
+	font-family: 'Bungeee Regular';
+	color: #DC4227;
+	content: attr(data-content);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+p {
+	line-height: 1.4;
+	max-width: 80ex;
+}
+img {
+	max-width: 100%;
+}
+strong {
+	font-weight: bold;
+}
+cite, em {
+	font-style: italic;
+}
+
+#cover {
+	background-color: #DC4227;
+}
+#tester img {
+	width: 50vw;
+}
+.specimen {
+	background-color: #EFE446;
+	padding-left: 1rem;
+}
+.specimen img {
+	margin: 0;
+}
+.collapsing_specimen {
+	margin: 0;
+}
+
+/*
+#intro {
+	background-color: red;
+}
+#tester {
+	background-color: orange;
+}
+#chromatic {
+	background-color: yellow;
+}
+#vertical {
+	background-color: green;
+}
+#alternates {
+	background-color: blue;
+}
+#ornaments {
+	background-color: purple;
+}
+#thanks {
+	background-color: violet;
+}
+*/
+
+
+@media (min-width: 20em) {
+	html:before {content: 'XS';}
+}
+@media (min-width: 30em) {
+	html:before {content: 'S';}
+	h1 {font-size: 6em;}
+	.figure_group figure {
+		margin: 0;
+		display: inline-block;
+		width: 48%;
+	}
+	.figure_group figure + figure {
+		margin-left: 4%;
+	}
+}
+@media (min-width: 48em) {
+	html:before {content: 'M';}
+}
+@media (min-width: 64em) and (min-height: 50em) {
+	html:before {content: 'L';}
+	article {
+		white-space: nowrap;
+/*
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		height: 100vh;
+*/
+	}
+	section {
+		position: relative;
+		padding-left: 10em;
+		padding-right: 5em;
+		display: inline-block;
+		vertical-align: top;
+		white-space: normal;
+		min-height: 100vh;
+	}
+	section + section {
+		border-top: none;
+		border-left: 2em solid #25839E;
+	}
+	#cover {
+		width: 80vw;
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+	#cover h2 {
+		text-align: center;
+	}
+	#cover p {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.specimen,
+	.specimen + section {
+	}
+	.collapsing_specimen {
+		white-space: nowrap;
+	}
+	.specimen img {
+		max-width: none;
+		height: calc(100vh - 3em);
+	}
+	p {
+		max-width: 40rem;
+	}
+	h3 {
+		font-family: 'Bungeee Rotated Shade';
+		font-size: 3em;
+		position: absolute;
+		left: 2em;
+		top: 0;
+		
+		-ms-transform-origin: 0 1rem;
+		-moz-transform-origin: 0 1rem;
+		-webkit-transform-origin: 0 1rem;
+		-o-transform-origin: 0 1em;
+	    
+		-ms-transform:rotate(90deg);
+		-moz-transform:rotate(90deg);
+		-webkit-transform:rotate(90deg);
+		-o-transform:rotate(90deg);
+		white-space: nowrap;
+	}
+	h3:after {
+		font-family: 'Bungeee Rotated Regular';
+	}
+}
+@media (min-width: 80em) {
+	html:before {content: 'XL';}
+}
+@media (min-width: 96em) {
+	html:before {content: 'XXL';}
+}
+</style>
+</head>
+
+<body>
+<article>
+
+<!--
+<section id="intro">
+</section>
+-->
+
+<section id="cover">
+	<h1 class="fit-to-width">Bun-<br />gee!</h1>
+	<h2>Fonts for multi-color and vertical&nbsp;typography</h2>
+    <p>In the crowded urban environment, space for signage is always at a premium. From dumpy liquor stores to majestic theaters, sometimes signs have nowhere to go but up. Bungee is a font family that celebrates urban signage. It wrangles the Latin alphabet to work vertically as well as horizontally; with separately glyphs, spacing, and kerning for each orientation. Bungee and comes equipped with chromatic inlines, outlines, shades, and ornaments, making it the perfect typeface to take your text in a new direction.</p>
+</section><section class="specimen">
+    <figure class="collapsing_specimen">
+    		<img src="/images/specimen-vertical-B.svg" /><img src="/images/specimen-vertical-A.svg" />
+    </figure>
+</section><section id="tester">
+    <h3>Tester</h3>
+    <figure>
+    		<img src="/images/img.svg" />
+    </figure>
+</section>
+
+<section id="chromatic">
+	<h3>Colors</h3>
+    <p>Chromatic typefaces have been around since the days of wood type, but the past several years have seen a renaissance of new chromatic type. Thanks to emoji, major players like Apple, Adobe, and Microsoft are coming up with color font formats, which can open up new avenues for creativity.</p>
+	<div class="figure_group">
+		<figure>
+			<img src="/images/page.jpg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure><figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure>
+	</div>
+    <p>Bungee comes with Inline, Outline, and Shade layers, that can be mixed and matched to create a wide variety of styles. These can be implemented using common design apps, or on the web with Bungee.js.</p>
+    <p><a href="">More about Bungee’s layers ></a></p>
+</section>
+
+<section class="specimen">
+    <figure class="collapsing_specimen">
+    		<img src="/images/specimen-horizontal-A.svg" /><img src="/images/specimen-horizontal-B.svg" />
+    </figure>
+</section><section id="vertical">
+	<h3>Down & Across</h3>
+    <p>Even though the Latin alphabet is meant to be writting horizontally, vertical signage is a ubiquitous element of the urban landscape. Bungee pays homage to these signs, particularly Art Deco marquees from the 1930s and 40s.</p>
+	<div class="figure_group">
+		<figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure><figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure>
+	</div>
+	<p>Bungee contains a specially drawn set of vertical forms, which are implemented using OpenType features more commonly associated with Asian scripts. These forms even have vertical proportional spacing and kerning.</p>
+	<p>Some design applications and browsers support true vertical text, while others require a special sideways version of Bungee that will simulate vertical type in a 90°-rotated text box.</p>
+	<p><a href="">More about Bungee’s Vertical forms ></a></p>
+</section>
+
+<section class="specimen">
+    <figure class="collapsing_specimen">
+    		<img src="/images/specimen-vertical-A.svg" /><img src="/images/specimen-vertical-B.svg" />
+    </figure>
+</section><section id="alternates">
+	<h3>Alts</h3>
+    <p>As a display font, Bungee is only intended for small bits of text, sometimes even single letters or words. When an individual letter can play such a big part of a composition, Bungee’s alternates can help you fine-tune the look and feel of your text.</p>
+    <p><a href="">More about Bungee’s alternates ></a></p>
+	<div class="figure_group">
+		<figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure><figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure>
+	</div>
+</section>
+
+<section id="ornaments">
+	<h3>Symbols</h3>
+    <p>Bungee contains arrows and pointing indexes, not to mention an extensive set of ornaments that you can use to assemble additional chromatic layers.</p>
+    <p><a href="">More about Bungee’s ornaments ></a></p>
+	<div class="figure_group">
+		<figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure><figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure>
+	</div>
+</section>
+
+<section id="thanks">
+	<h3>Development</h3>
+	<div class="figure_group">
+		<figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure><figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure>
+	</div>
+    <p>Thanks to support from Google and The Font Bureau, Bungee released under the SIL Open Font License, which means it is free and open source.</p>
+    <p>As a libre font, I hope that Bungee will spark further experimentation in the areas of vertical and color typography.</p>
+    <p>Special thanks to Dave Crossland, Rob Giampetro, and Omer Ziv from Google; David Berlow, Sam Berlow, Cyrus Highsmith, Jill Pichotta, and Kent Lew from The Font Bureau; the minisite team of Chris Lewis and Nick Sherman; Stephen Coles for his help with these words; Frederik Berlaen and Jens Kutilek for their tools and support; Emily Richardson, for thinking of the name; Microsoft’s Typography team, for using Bungee to test their new color font format back in 2013; and Jon Corum, John Downer, John Kramer, Indra Kupferschmid, and André Mora, for their thoughtful feedback and advice during the design process.</p>
+    <p>©2016 David Jonathan Ross.</p>
+</section>
+</article>
+<script src="/js/fit-to-width.js"></script>
+<!--
+<script src="/js/jquery.mousewheel.js"></script>
+<script>
+	$(function(){
+		$("body").mousewheel(function(event, delta) {
+			this.scrollLeft -= (delta * 30);
+			event.preventDefault();
+		});   
+	});
+	</script>
+-->
+</body>
+</html>

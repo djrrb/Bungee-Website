@@ -1,0 +1,64 @@
+
+@font-face {
+	font-family: "Bungeee Regular";
+	src: url("/fonts/BungeeLayers-Regular.eot?#ie") format("embedded-opentype"),
+		url("/fonts/BungeeLayers-Regular.woff2") format("woff2"),
+		url("/fonts/BungeeLayers-Regular.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Outline";
+	src: url("/fonts/BungeeLayers-Outline.eot?#ie") format("embedded-opentype"),
+		url("/fonts/BungeeLayers-Outline.woff2") format("woff2"),
+		url("/fonts/BungeeLayers-Outline.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Inline";
+	src: url("/fonts/BungeeLayers-Inline.eot?#ie") format("embedded-opentype"),
+		url("/fonts/BungeeLayers-Inline.woff2") format("woff2"),
+		url("/fonts/BungeeLayers-Inline.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Shade";
+	src: url("/fonts/BungeeLayers-Shade.eot?#ie") format("embedded-opentype"),
+		url("/fonts/BungeeLayers-Shade.woff2") format("woff2"),
+		url("/fonts/BungeeLayers-Shade.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Rotated Regular";
+	src: url("/fonts/BungeeLayersRotated-Regular.eot?#ie") format("embedded-opentype"),
+		url("/fonts/BungeeLayersRotated-Regular.woff2") format("woff2"),
+		url("/fonts/BungeeLayersRotated-Regular.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Rotated Outline";
+	src: url("/fonts/BungeeLayersRotated-Outline.eot?#ie") format("embedded-opentype"),
+		url("/fonts/BungeeLayersRotated-Outline.woff2") format("woff2"),
+		url("/fonts/BungeeLayersRotated-Outline.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Rotated Inline";
+	src: url("/fonts/BungeeLayersRotated-Inline.eot?#ie") format("embedded-opentype"),
+		url("/fonts/BungeeLayersRotated-Inline.woff2") format("woff2"),
+		url("/fonts/BungeeLayersRotated-Inline.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Rotated Shade";
+	src: url("/fonts/BungeeLayersRotated-Shade.eot?#ie") format("embedded-opentype"),
+		url("/fonts/BungeeLayersRotated-Shade.woff2") format("woff2"),
+		url("/fonts/BungeeLayersRotated-Shade.woff") format("woff");
+}
+
