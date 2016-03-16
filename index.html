@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <script src="/js/jquery.min.js"></script>
+<script src="/js/bungee-website.js"></script>
 <script>
   $(function() {
     $('h1,h3').each(function() {
@@ -82,7 +83,7 @@ a:active {
 }
 
 article {
-	height: 100vh;
+    /* moved height to L media query */
 }
 section {
 	padding: 1rem;
@@ -214,8 +215,9 @@ cite, em {
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		height: 100vh;
 */
+		height: 100vh;
+		overflow: auto;
 	}
 	section {
 		position: relative;
@@ -327,6 +329,24 @@ cite, em {
 	</div>
     <p>Bungee comes with Inline, Outline, and Shade layers, that can be mixed and matched to create a wide variety of styles. These can be implemented using common design apps, or on the web with Bungee.js.</p>
     <p><a href="">More about Bungee’s layers ></a></p>
+<!--
+    <p>Chromatic typefaces have been around since the days of wood type, but the past several years have seen a renaissance of new chromatic type. Thanks to emoji, major players like Apple, Adobe, and Microsoft are coming up with color font formats, which can open up new avenues for creativity.</p>
+	<div class="figure_group">
+		<figure>
+			<img src="/images/page.jpg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure><figure>
+			<img src="/images/img.svg" />
+			<figcaption>
+				<p>Caption</p>
+			</figcaption>
+		</figure>
+	</div>
+    <p>Bungee comes with Inline, Outline, and Shade layers, that can be mixed and matched to create a wide variety of styles. These can be implemented using common design apps, or on the web with Bungee.js.</p>
+    <p><a href="">More about Bungee’s layers ></a></p>
+-->
 </section>
 
 <section class="specimen">
