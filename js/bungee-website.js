@@ -14,6 +14,7 @@ $(function() {
     win.on('scroll', setScrollRatio);
 
     // do horizontal column wrapping if content overflows
+/*
     function resetColumns() {
         $('section').css({'column-count': '', 'width': ''});
     }
@@ -34,6 +35,7 @@ $(function() {
     }
 
     calculateColumns();
+*/
 
     var resizing = false;
     win.on('resize', function() {
@@ -41,7 +43,7 @@ $(function() {
             clearTimeout(resizing);
         } else {
             win.off('scroll', setScrollRatio);
-            resetColumns();
+//            resetColumns();
         }
         var scrollTop = win.scrollTop();
         var scrollLeft = win.scrollLeft();
@@ -52,7 +54,7 @@ $(function() {
         }
         resizing = setTimeout(function() {
             win.on('scroll', setScrollRatio);
-            calculateColumns();
+//            calculateColumns();
         }, 1000);
     });
 });
