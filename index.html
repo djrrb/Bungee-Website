@@ -303,7 +303,8 @@ cite, em {
 <section id="cover">
 	<h1 class="fit-to-width">Bun-<br />gee!</h1>
 	<h2>Fonts for multi-color and vertical&nbsp;typography</h2>
-    <p>In the crowded urban environment, space for signage is always at a premium. From dumpy liquor stores to majestic theaters, sometimes signs have nowhere to go but up. Bungee is a font family that celebrates urban signage. It wrangles the Latin alphabet to work vertically as well as horizontally; with separately glyphs, spacing, and kerning for each orientation. Bungee and comes equipped with chromatic inlines, outlines, shades, and ornaments, making it the perfect typeface to take your text in a new direction.</p>
+		
+<p>In the crowded urban environment, space for signage is always at a premium. From dumpy liquor stores to majestic theaters, sometimes signs have nowhere to go but up. Bungee is a font family that celebrates urban signage. It wrangles the Latin alphabet to work vertically as well as horizontally; with separately glyphs, spacing, and kerning for each orientation. Bungee and comes equipped with chromatic inlines, outlines, shades, and ornaments, making it the perfect typeface to take your text in a new direction.</p>
 </section><section class="specimen">
     <figure class="collapsing_specimen">
     		<img src="/images/specimen-vertical-B.svg" /><img src="/images/specimen-vertical-A.svg" />
@@ -317,39 +318,61 @@ cite, em {
 
 <section id="chromatic">
 	<h3>Colors</h3>
-    <p>Chromatic typefaces have been around since the days of wood type, but the past several years have seen a renaissance of new chromatic type. Thanks to emoji, major players like Apple, Adobe, and Microsoft are coming up with color font formats, which can open up new avenues for creativity.</p>
-	<div class="figure_group">
-		<figure>
-			<img src="/images/page.jpg" />
-			<figcaption>
-				<p>Caption</p>
-			</figcaption>
-		</figure><figure>
-			<img src="/images/img.svg" />
-			<figcaption>
-				<p>Caption</p>
-			</figcaption>
-		</figure>
-	</div>
-    <p>Bungee comes with Inline, Outline, and Shade layers, that can be mixed and matched to create a wide variety of styles. These can be implemented using common design apps, or on the web with Bungee.js.</p>
-    <p><a href="">More about Bungee’s layers ></a></p>
 
-    <p>Chromatic typefaces have been around since the days of wood type, but the past several years have seen a renaissance of new chromatic type. Thanks to emoji, major players like Apple, Adobe, and Microsoft are coming up with color font formats, which can open up new avenues for creativity.</p>
+<p>Chromatic typefaces are nothing new; sets of wood type intended overprinting were produced <a href="https://www.utexas.edu/cofa/rrk/chromaticstwocolormenu.php">as early as 1841</a>. This blew up </p>
+
 	<div class="figure_group">
 		<figure>
 			<img src="/images/page.jpg" />
 			<figcaption>
-				<p>Caption</p>
+				<p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p>
 			</figcaption>
 		</figure><figure>
-			<img src="/images/img.svg" />
+			<img src="/images/page2.png" />
+		</figure>
+	</div>
+	
+<p>Today we find ourselves in a renaissance of chromatic type, with more layered fonts coming out each year. Some of my personal favorites include <a href="https://www.myfonts.com/fonts/matchandkerosene/detroit/">Detroit</a>, <a href="http://www.mckltype.com/custom/eventide/">Eventide</a>, <a href="http://letterror.com/fontcatalog/ltr-federal/">Federal</a>, <a href="https://www.typotheque.com/fonts/history">History</a>, <a href="http://nittimostro.webtype.com">Nitti Mostro</a>, and <a href="http://www.typography.com/fonts/obsidian/overview/">Obsidian</a>.</p>
+
+	<div class="figure_group">
+		<figure>
+			<img src="/images/other-chromatic-fonts.jpg" />
 			<figcaption>
-				<p>Caption</p>
+				<p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p>
 			</figcaption>
 		</figure>
 	</div>
-    <p>Bungee comes with Inline, Outline, and Shade layers, that can be mixed and matched to create a wide variety of styles. These can be implemented using common design apps, or on the web with Bungee.js.</p>
-    <p><a href="">More about Bungee’s layers ></a></p>
+	
+</section>
+
+<section id="using-chromatic">
+
+	<p>Bungee’s Regular, Inline, Outline, and Shade layers can be mixed and matched to create a wide variety of styles.</p>
+
+	<p>In desktop apps, you can use these layers by styling each layer on a different line and setting the leading to zero. On the web, <code>bungee.js</code> will do the heavy lifting for you, by arranging the text into a series of layered <code>&lt;div></code>s that you can customize in your stylesheet. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">Learn more about using Bungee’s chromatic layers »</a></p>
+
+	<div class="figure_group">
+		<figure>
+			<img src="https://raw.githubusercontent.com/djrrb/Bungee/master/documentation/images/design-layers-2.png?token=AGRirQU0brv0EIxl9J37vdtIRJqX3TEPks5Wv9E0wA%3D%3D" />
+			<figcaption>
+				<p>Using Bungee’s layers in Adobe InDesign CC.</p>
+			</figcaption>
+		</figure><figure>
+			
+				<code>
+					<pre>
+&lt;script src="scripts/bungee.js" />
+&lt;h1 class="bungee shade regular inline">Hello World!&lt;/h1>
+					</pre>
+				</code>
+			
+			
+			<figcaption>
+				<p></p>
+			</figcaption>
+		</figure>
+	</div>
+    
 
 </section>
 
@@ -358,34 +381,39 @@ cite, em {
     		<img src="/images/specimen-horizontal-A.svg" /><img src="/images/specimen-horizontal-B.svg" />
     </figure>
 </section><section id="vertical">
-	<h3>Down & Across</h3>
-    <p>Even though the Latin alphabet is meant to be writting horizontally, vertical signage is a ubiquitous element of the urban landscape. Bungee pays homage to these signs, particularly Art Deco marquees from the 1930s and 40s.</p>
+	<h3>Verticals</h3>
+	
+	<p>Even though the Latin alphabet is traditionally written horizontally, vertical signage is a ubiquitous part of the urban landscape. Bungee pays homage to these signs, particularly Art Deco marquees from the 1930s and 40s.</p>
+
 	<div class="figure_group">
 		<figure>
-			<img src="/images/img.svg" />
+			<img src="/images/chicago-theatre.svg" />
 			<figcaption>
-				<p>Caption</p>
+				<p>The Chicago Theatre, photo by Daniel Schwen</p>
 			</figcaption>
 		</figure><figure>
-			<img src="/images/img.svg" />
+			<img src="/images/ruhl-photographers.svg" />
 			<figcaption>
-				<p>Caption</p>
+				<p>Ruhl Photographers, photo by David Jonathan Ross</p>
 			</figcaption>
 		</figure>
 	</div>
-	<p>Bungee contains a specially drawn set of vertical forms, which are implemented using OpenType features more commonly associated with Asian scripts. These forms even have vertical proportional spacing and kerning.</p>
-	<p>Some design applications and browsers support true vertical text, while others require a special sideways version of Bungee that will simulate vertical type in a 90°-rotated text box.</p>
-	<p><a href="">More about Bungee’s Vertical forms ></a></p>
-</section>
+	
+	<p>Bungee contains a specially drawn set of caps designed for vertical use, and implements them with OpenType features that are more commonly associated with vertical writing in East Asian scripts. These forms even have vertical proportional spacing and kerning.</p>
+	
+	<p>Some design applications and browsers can take advantage of Bungee’s vertical capabilities. For those, Bungee offers a special version of Bungee where each character lays on its side. This will simulate vertical text in a 90°-rotated text box. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">Learn more about how to use Bungee’s vertical forms »</a></p>
 
-<section class="specimen">
+	<p>Not everything is meant to be set vertically. Sign painter and type designer John Downer recommends caution with words that are long or unfamiliar, and warns against letters like I, J, L, M, and W, which have the potential to look unusually narrow or wide.</p>
+	
+</section><section class="specimen">
     <figure class="collapsing_specimen">
     		<img src="/images/specimen-vertical-A.svg" /><img src="/images/specimen-vertical-B.svg" />
     </figure>
 </section><section id="alternates">
-	<h3>Alts</h3>
-    <p>As a display font, Bungee is only intended for small bits of text, sometimes even single letters or words. When an individual letter can play such a big part of a composition, Bungee’s alternates can help you fine-tune the look and feel of your text.</p>
-    <p><a href="">More about Bungee’s alternates ></a></p>
+	<h3>Alternates</h3>
+
+	<p>Since Bungee is only intended to be used for a few words at a time, a single letterform has the potential to make a huge difference. For this reason, Bungee comes with a handful of alternate letterforms intended to help you fine-tune the look and feel of your text. These include a serifless I and L, a smaller, less obtrusive apostrophe, and a set of rounded, retro caps that are reminiscent of Art Deco signs. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">More about Bungee’s alternates »</a></p>
+
 	<div class="figure_group">
 		<figure>
 			<img src="/images/img.svg" />
@@ -403,8 +431,8 @@ cite, em {
 
 <section id="ornaments">
 	<h3>Symbols</h3>
-    <p>Bungee contains arrows and pointing indexes, not to mention an extensive set of ornaments that you can use to assemble additional chromatic layers.</p>
-    <p><a href="">More about Bungee’s ornaments ></a></p>
+	<p>Bungee also has Banner and Block shapes that can act as additional chromatic layers. You can construct variable-length banners by employing Bungee’s beginning and ending banner elements. Meanwhile, Bungee’s block shapes are designed to be set independently, encircling a single letter. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/5-ornaments.md">More about Bungee’s ornaments »</a></p>
+
 	<div class="figure_group">
 		<figure>
 			<img src="/images/img.svg" />
@@ -420,26 +448,52 @@ cite, em {
 	</div>
 </section>
 
-<section id="thanks">
-	<h3>Development</h3>
+<section id="process">
+	<h3>Process</h3>
+	
+	<p>In 2011, a crummy sign for the local liquor store got me thinking about stacked letters, and whether a typeface designed for signage could be optimized for vertical setting. I began to collect images of vertical signage wherever I could find it, both good and bad.</p>
+
 	<div class="figure_group">
 		<figure>
-			<img src="/images/img.svg" />
+			<img src="/images/djr-sideways.jpg" />
 			<figcaption>
-				<p>Caption</p>
-			</figcaption>
-		</figure><figure>
-			<img src="/images/img.svg" />
-			<figcaption>
-				<p>Caption</p>
+				<p>Kerning Bungee in <a href="http://tools.typesupply.com/metricsmachine.html">Metrics Machine</a> at a café, 2013.</p>
 			</figcaption>
 		</figure>
 	</div>
-    <p>Thanks to support from Google and The Font Bureau, Bungee released under the SIL Open Font License, which means it is free and open source.</p>
-    <p>As a libre font, I hope that Bungee will spark further experimentation in the areas of vertical and color typography.</p>
-    <p>Special thanks to Dave Crossland, Rob Giampetro, and Omer Ziv from Google; David Berlow, Sam Berlow, Cyrus Highsmith, Jill Pichotta, and Kent Lew from The Font Bureau; the minisite team of Chris Lewis and Nick Sherman; Stephen Coles for his help with these words; Frederik Berlaen and Jens Kutilek for their tools and support; Emily Richardson, for thinking of the name; Microsoft’s Typography team, for using Bungee to test their new color font format back in 2013; and Jon Corum, John Downer, John Kramer, Indra Kupferschmid, and André Mora, for their thoughtful feedback and advice during the design process.</p>
-    <p>©2016 David Jonathan Ross.</p>
+	
+	<p>The first version of Bungee was drawn, spaced, and kerned while rotated on its side, which led to a host of interesting design problems. Over the next several years, Bungee grew from a novelty font into a research project that encompassed the aesthetic demands of vertical type and technical ins-and-outs of displaying. The design was <a href="https://www.tdc.org/competitionwriteup/tdc-typeface-design-winners-2014/">honored by the Type Directors Club</a> in 2014.</p>
+
 </section>
+
+<section id="thanks">
+	<h3>Thanks</h3>
+	
+	<p>Thanks to support from <a href="https://www.google.com/fonts">Google</a> and <a href="http://www.fontbureau.com">The Font Bureau</a>, Bungee is released under the <a href="http://scripts.sil.org/OFL">SIL Open Font License</a>, meaning that it is free and open-source.</p>
+
+	<p>Bungee is well-suited to a libre license because it represents but new functionality for emerging typographic features like chromatic layers and vertical text.</p>
+	
+	<p>Bungee was <a href="http://www.economist.com/blogs/babbage/2013/08/polychromatic-digital-type">part of Microsoft’s early experiments with color fonts</a>, and I hope that as an open-source typeface, it will spark further experimentation with color fonts and foster further development in this field. More widespread use of color and verticality will only lead to better support for these features in desktop applications and on the web, and I hope that Bungee’s license allows it to be a valuable resource for typographers, designers, and developers, professional and amateur alike.</p>
+
+	<p>If you wish to support my work, please consider <a href="http://www.djr.com">purchasing a license</a> for one of my commercial typefaces.</p>
+
+	<p>This responsive website was created by Nick Sherman and Chris Lewis. Like Bungee itself, it can switch from vertical to horizontal depending on the size of your screen.</p>
+
+	<p>Special thanks to Dave Crossland, Rob Giampetro, and Omer Ziv from Google; David Berlow, Sam Berlow, Kent Lew, Cyrus Highsmith, and Jill Pichotta from The Font Bureau; Frederik Berlaen and Jens Kutílek for their tools and support; Emily Richardson, for coming up with the name; Microsoft’s Typography team for first developing the Bungee color font; and Jon Corum, John Downer, John Kramer, Indra Kupferschmid, and André Mora, for their thoughtful feedback and advice during the design process.</p>
+	
+    <p>© 2016 David Jonathan Ross.</p>
+</section>
+
+<section id="get">
+
+	<h2>Get Bungee</h2>
+
+	<p><a href="bungee.zip">Download the fonts</a></p>
+	<p><a href="http://www.github.com/djrrb/bungee">View the source</a></p>
+
+</section>
+
+
 </article>
 <script src="/js/fit-to-width.js"></script>
 <!--
