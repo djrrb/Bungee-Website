@@ -1,0 +1,84 @@
+/* controls */
+
+#tester #controls > * {
+    padding-bottom: 0.5em;
+}
+
+#tester #background-controls li {
+    list-style-type: none;
+    display: inline;
+    font-family: "Bungeee Inline";
+    font-size: 2em;
+}
+
+#tester #background-controls input {
+    display: none;
+}
+
+#tester #background-controls input + label {
+    display: inline-block;
+    padding: 0.25em;
+}
+
+#tester #background-controls input:checked + label {
+    background-color: white;
+}
+
+/* preview box */
+
+#preview {
+    display: block;
+}
+
+#preview.vertical {
+    float: left;
+    margin-right: 0.25in;
+}
+
+#preview.vertical + :not(.preview) {
+    clear: left;
+}
+
+#svg, #png {
+    display: inline-block;
+    border: 1px solid black;
+}
+
+#tester #code {
+    font-family: monospace;
+    padding: 1em;
+    border: 1px solid black;
+    white-space: pre;
+    overflow: auto;
+}
+
+#preview .layer {
+    /* cute little fade in/out when layers are toggled */
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+}
+
+/* arbitrary colors; these need to be set by UI eventually */
+#preview .regular {
+    color: white;
+}
+
+#preview .outline {
+    color: #b2c021;
+}
+
+#preview .inline {
+    color: #7e1414;
+}
+
+#preview .shade {
+    color: #513620;
+}
+
+#preview .background.regular {
+    color: #7e1414;
+}
+
+#preview .background.outline {
+    color: #b2c021;
+}
