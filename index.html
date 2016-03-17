@@ -217,7 +217,7 @@ cite, em {
 		flex-wrap: wrap;
 */
 		height: 100vh;
-		overflow: auto;
+		overflow-y: hidden;
 	}
 	section {
 		position: relative;
@@ -227,6 +227,10 @@ cite, em {
 		vertical-align: top;
 		white-space: normal;
 		min-height: 100vh;
+
+		-webkit-column-gap: 3rem;
+		-moz-column-gap: 3rem;
+		column-gap: 3rem;
 	}
 	section + section {
 		border-top: none;
@@ -329,7 +333,7 @@ cite, em {
 	</div>
     <p>Bungee comes with Inline, Outline, and Shade layers, that can be mixed and matched to create a wide variety of styles. These can be implemented using common design apps, or on the web with Bungee.js.</p>
     <p><a href="">More about Bungee’s layers ></a></p>
-<!--
+
     <p>Chromatic typefaces have been around since the days of wood type, but the past several years have seen a renaissance of new chromatic type. Thanks to emoji, major players like Apple, Adobe, and Microsoft are coming up with color font formats, which can open up new avenues for creativity.</p>
 	<div class="figure_group">
 		<figure>
@@ -346,7 +350,7 @@ cite, em {
 	</div>
     <p>Bungee comes with Inline, Outline, and Shade layers, that can be mixed and matched to create a wide variety of styles. These can be implemented using common design apps, or on the web with Bungee.js.</p>
     <p><a href="">More about Bungee’s layers ></a></p>
--->
+
 </section>
 
 <section class="specimen">
