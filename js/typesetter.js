@@ -8,7 +8,7 @@
         var allcontrols = $('#controls input');
         var layercontrols = $('#controls input[name=layer]');
         var orientationcontrols = $('#controls input[name=orientation]');
-        var rotatedcontrol = $('#controls input[name=rotated]');
+        //var rotatedcontrol = $('#controls input[name=rotated]');
         var altcontrols = $('#controls input[name=alt]');
         var sizecontrol = $('#controls input[name=size]');
         var textcontrol = $('#controls input[name=text]');
@@ -184,7 +184,7 @@
             $('.preview').removeClass('horizontal vertical').addClass(orientation);
             
             //rotated mode
-            $('html')[rotatedcontrol.prop('checked') ? 'addClass' : 'removeClass']('no-vertical-text');
+            //$('html')[rotatedcontrol.prop('checked') ? 'addClass' : 'removeClass']('no-vertical-text');
             
             preview.css('font-size', sizecontrol.val() + 'px');
 
