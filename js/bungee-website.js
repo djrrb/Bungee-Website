@@ -1,7 +1,21 @@
 $(function() {
     "use strict";
 
-    var win = $(window), page = $('body');
+    var win = $(window), page = $('body'), article = $('article');
+
+    // horizontal scroll to hash
+    function goToHash() {
+        var pos, bookmark = $(window.location.hash);
+        if (bookmark.length) {
+            pos = bookmark.offset().left + article.scrollLeft();
+            if (pos > win.width()/2) {
+                article.animate({'scrollLeft':pos}, {'duration':'0.5'});
+            }
+        }
+    }
+
+    window.location.hash && goToHash();
+    win.on('hashchange', goToHash);
 
     // limit jumping around when resizing window
     var scrollRatio=0;
