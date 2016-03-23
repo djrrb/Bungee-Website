@@ -1,46 +1,113 @@
-- red:
+- name: red
   inline:
-    hex: FED0D2
+    hex: 'FED0D2'
   regular:
-    hex: E71B26
+    hex: 'E71B26'
   outline:
-    hex: 5D0000
+    hex: '5D0000'
+    active: false
   shade:
-    hex: 000000
+    hex: '000000'
+    alpha: .4
+  sign:
+    hex: '114752'
+    active: false
+  background:
+    hex: '490000'
+
+- name: blue-on-dark
+  inline:
+    hex: 'f6eecd'
+  regular:
+    hex: '23849f'
+  outline:
+    hex: '184b57'
+    active: false
+  shade:
+    hex: '102c34'
+  sign:
+    hex: '102c34' # temp
+    active: false
+  background:
+    hex: '184b57'
+
+
+- name: blue
+  inline:
+    hex: '55A5FE'
+  regular:
+    hex: '0B5BA8'
+  outline:
+    hex: 'FFFFFF'
+  shade:
+    hex: '0B5BA8'
     alpha: .2
   sign:
-    hex: 114752
-    on: false
+    hex: 'C1E6FF'
+    active: false
   background:
-    hex: 490000
+    hex: 'FFFFFF'
 
-- blue:
+
+    
+- name: white-black-red
   inline:
-    hex: 55A5FE
+    hex: 'EAE2B1'
   regular:
-    hex: 0B5BA8
-  outline:
-    hex: FFFFFF
+    hex: 'EFBB43'
+  outline: 
+    hex: '3E0E00'
   shade:
-    hex: 0B5BA8
+    hex: 'C9060E'
   sign:
-    hex: C1E6FF
-    on: false
+    hex: '111111'
   background:
-    hex: FFFFFF
+    hex: '333333'
 
-- cool:
-  inline:
-    hex: 1E5287
+- name: red-yellow-white
+  inline: 
+    hex: 'e24d3d'
   regular:
-    hex: FFFFFF
+    hex: 'ad1622'
   outline:
-    hex: 2E77C0
+    hex: 'FFFFFF'
   shade:
-    hex: 000000
+    hex: 'efbb43'
+  sign: 
+    hex: 'efbb43'
+    active: false
+  background:
+    hex: 'FFFFFF'
+
+
+- name: cool-blues
+  inline:
+    hex: '1E5287'
+  regular:
+    hex: 'FFFFFF'
+  outline:
+    hex: '2E77C0'
+  shade:
+    hex: '000000'
     alpha: .15
-    on: false
+    active: false
   sign:
-    hex: 77B2DF
+    hex: '77B2DF'
   background:
-    hex: D7D7D7
+    hex: 'D7D7D7'
+
+- name: peach-orange-purple
+  inline: 
+    hex: 'ff5140'
+  regular:
+    hex: 'ffda99'
+  outline:
+    hex: 'ff5140'
+  shade:
+    hex: '111111'
+    active: false
+  sign: 
+    hex: '26243a'
+  background:
+    hex: '111111'
+
