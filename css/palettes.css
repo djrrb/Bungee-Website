@@ -1,0 +1,55 @@
+/* red */
+  .red .inline {color: #FED0D2;}
+  .red .regular {color: #E71B26;}
+  .red .outline {color: #5D0000; display: none;}
+  .red .shade {color: #000000; opacity: .4}
+  .red .sign {background-color: #114752; display: none;}
+  .red {background-color: #490000;}
+
+/* blue-on-dark */
+  .blue-on-dark .inline {color: #f6eecd;}
+  .blue-on-dark .regular {color: #23849f;}
+  .blue-on-dark .outline {color: #184b57; display: none;}
+  .blue-on-dark .shade {color: #102c34;}
+  .blue-on-dark .sign {background-color: #102c34; /* temp */ display: none;}
+  .blue-on-dark {background-color: #184b57;}
+
+/* blue */
+  .blue .inline {color: #55A5FE;}
+  .blue .regular {color: #0B5BA8;}
+  .blue .outline {color: #FFFFFF;}
+  .blue .shade {color: #0B5BA8; opacity: .2}
+  .blue .sign {background-color: #C1E6FF; display: none;}
+  .blue {background-color: #FFFFFF;}
+    
+/* white-black-red */
+  .white-black-red .inline {color: #EAE2B1;}
+  .white-black-red .regular {color: #EFBB43;}
+  .white-black-red .outline {color: #3E0E00;}
+  .white-black-red .shade {color: #C9060E;}
+  .white-black-red .sign {background-color: #111111;}
+  .white-black-red {background-color: #333333;}
+
+/* red-yellow-white */
+  .red-yellow-white .inline {color: #e24d3d;}
+  .red-yellow-white .regular {color: #ad1622;}
+  .red-yellow-white .outline {color: #FFFFFF;}
+  .red-yellow-white .shade {color: #efbb43;}
+  .red-yellow-white .sign {background-color: #efbb43; display: none;}
+  .red-yellow-white {background-color: #FFFFFF;}
+
+/* cool-blues */
+  .cool-blues .inline {color: #1E5287;}
+  .cool-blues .regular {color: #FFFFFF;}
+  .cool-blues .outline {color: #2E77C0;}
+  .cool-blues .shade {color: #000000; opacity: .15; display: none;}
+  .cool-blues .sign {background-color: #77B2DF;}
+  .cool-blues {background-color: #D7D7D7;}
+
+/* peach-orange-purple */
+  .peach-orange-purple .inline {color: #ff5140;}
+  .peach-orange-purple .regular {color: #ffda99;}
+  .peach-orange-purple .outline {color: #ff5140;}
+  .peach-orange-purple .shade {color: #111111; display: none;}
+  .peach-orange-purple .sign {background-color: #26243a;}
+  .peach-orange-purple {background-color: #111111;}

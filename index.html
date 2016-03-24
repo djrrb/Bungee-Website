@@ -26,12 +26,16 @@ $(document).keydown(function(e) {
     if (key == 192) {
         $("html").toggleClass("debug");
     }
+    if (key == 67) {
+        $("html").toggleClass("colorswap");
+    }
 });
 </script>
 
 <link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/bungee.css">
 <link rel="stylesheet" href="/css/typesetter.css">
+<link rel="stylesheet" href="/css/palettes.css">
 <style>
 * {
 	font-family: inherit;
@@ -62,7 +66,7 @@ html:before { /* BREAKPOINT INDICATOR */
 html.debug:before {display: block;}
 html.debug * {outline: 1px dashed rgba(255,0,0, 0.5);}
 
-* + * { margin-bottom: 1rem;}
+* + * { margin-top: 1rem;}
 
 html {
 	-webkit-text-size-adjust: 100%;
@@ -76,7 +80,7 @@ body {
 	line-height: 1;
 	color: #000;
 	background-color: #FFF;
-	background-color: #f4ede0;
+	background-color: #EFE446;
 	margin: 0;
 }
 a:link,
@@ -94,7 +98,7 @@ article {
     /* moved height to L media query */
 }
 section {
-	padding: 1rem;
+	padding: 2rem;
 	margin: 0;
 }
 section + section {
@@ -102,6 +106,7 @@ section + section {
 }
 h1, h2, h3 {
 	font-family: 'Bungeee Regular';
+	text-transform: uppercase;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -129,13 +134,14 @@ h2 {
 }
 h3 {
 	font-family: 'Bungeee Shade';
-	font-size: 2em;
-	color: #EFE446;
+	font-size: 3em;
+	color: #771F15;
+	color: #DC4227;
 	position: relative;
 }
 h3:after {
 	font-family: 'Bungeee Regular';
-	color: #DC4227;
+	color: #FFF;
 	content: attr(data-content);
 	position: absolute;
 	top: 0;
@@ -144,6 +150,12 @@ h3:after {
 p {
 	line-height: 1.4;
 	max-width: 80ex;
+}
+figure {
+	max-width: 60em;
+}
+.figure_group {
+	max-width: 80em
 }
 img {
 	max-width: 100%;
@@ -156,13 +168,14 @@ cite, em {
 }
 
 #cover {
+	padding-top: 1rem;
 	background-color: #DC4227;
 }
 #tester img {
 	width: 50vw;
 }
 .specimen {
-	background-color: #EFE446;
+	background-color: #f4ede0;
 	padding-left: 1rem;
 }
 .specimen img {
@@ -171,7 +184,6 @@ cite, em {
 .collapsing_specimen {
 	margin: 0;
 }
-
 /*
 #intro {
 	background-color: red;
@@ -182,7 +194,7 @@ cite, em {
 #chromatic {
 	background-color: yellow;
 }
-#vertical {
+#verticals {
 	background-color: green;
 }
 #alternates {
@@ -196,6 +208,53 @@ cite, em {
 }
 */
 
+html.colorswap body {background-color: #f4ede0;}
+html.colorswap .specimen {background-color: #EFE446;}
+
+html.colorswap h3 {color: #EFE446;}
+html.colorswap h3:after {color: #DC4227;}
+
+.bungeee.regular {font-family: 'Bungeee Regular';}
+.bungeee.inline {font-family: 'Bungeee Inline';}
+.bungeee.outline {font-family: 'Bungeee Outline';}
+.bungeee.shade {font-family: 'Bungeee Shade';}
+
+.alt-rounds {
+  -moz-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02";
+}
+.alt-e {
+  -moz-font-feature-settings: "ss03";
+  -webkit-font-feature-settings: "ss03";
+  font-feature-settings: "ss03";
+}
+.alt-i {
+  -moz-font-feature-settings: "ss04";
+  -webkit-font-feature-settings: "ss04";
+  font-feature-settings: "ss04";
+}
+.alt-l {
+  -moz-font-feature-settings: "ss05";
+  -webkit-font-feature-settings: "ss05";
+  font-feature-settings: "ss05";
+}
+.alt-amp {
+  -moz-font-feature-settings: "ss06";
+  -webkit-font-feature-settings: "ss06";
+  font-feature-settings: "ss06";
+}
+.alt-apos {
+  -moz-font-feature-settings: "ss07";
+  -webkit-font-feature-settings: "ss07";
+  font-feature-settings: "ss07";
+}
+.alt-ij {
+  -moz-font-feature-settings: "ss08";
+  -webkit-font-feature-settings: "ss08";
+  font-feature-settings: "ss08";
+}
+
 
 @media (min-width: 20em) {
 	html:before {content: 'XS';}
@@ -203,17 +262,23 @@ cite, em {
 @media (min-width: 30em) {
 	html:before {content: 'S';}
 	h1 {font-size: 6em;}
+	h3 {font-size: 4em;}
 	.figure_group figure {
 		margin: 0;
 		display: inline-block;
-		width: 48%;
+		max-width: 48%;
 	}
 	.figure_group figure + figure {
 		margin-left: 4%;
 	}
+	.collapsing_specimen {
+		white-space: nowrap;
+		max-width: 50%;
+	}
 }
 @media (min-width: 48em) {
 	html:before {content: 'M';}
+	h3 {font-size: 5.75em;}
 }
 @media (min-width: 64em) and (min-height: 50em) {
 	html:before {content: 'L';}
@@ -238,12 +303,16 @@ cite, em {
 		height: 100vh;
 		overflow-y: auto;
 	}
+	.chunk {
+		display: inline-block;
+		vertical-align: top;
+	}
 	section + section {
 		border-top: none;
 		border-left: 2em solid #25839E;
 	}
 	#cover {
-		width: 80vw;
+		max-width: 80vw;
 		padding-left: 2em;
 		padding-right: 2em;
 	}
@@ -254,25 +323,22 @@ cite, em {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.specimen,
-	.specimen + section {
-	}
-	.collapsing_specimen {
-		white-space: nowrap;
+	.specimen {
+		padding-left: 2rem;
+		padding-right: 2rem;
 	}
 	.specimen img {
 		max-width: none;
-		height: calc(100vh - 3em);
+		height: calc(100vh - 4em);
 	}
 	p {
 		max-width: 40rem;
 	}
 	h3 {
-		font-family: 'Bungeee Rotated Shade';
-		font-size: 3em;
+		font-family: 'Bungeee Rotated Shade', Impact;
 		position: absolute;
-		left: 2em;
-		top: 0;
+		left: 1.2em;
+		top: 1.75rem;
 		
 		-ms-transform-origin: 0 1rem;
 		-moz-transform-origin: 0 1rem;
@@ -286,7 +352,7 @@ cite, em {
 		white-space: nowrap;
 	}
 	h3:after {
-		font-family: 'Bungeee Rotated Regular';
+		font-family: 'Bungeee Rotated Regular', Impact;
 	}
 }
 @media (min-width: 80em) {
@@ -300,25 +366,15 @@ cite, em {
 
 <body>
 <article>
-
-<!--
-<section id="intro">
-</section>
--->
-
 <section id="cover">
-	<h1 class="fit-to-width">Bun-<br />gee!</h1>
+	<h1 class="fit-to-width" data-max-font-size="40vh">Bun-<br />gee!</h1>
 	<h2>Fonts for multi-color and vertical&nbsp;typography</h2>
-		
-<p>In the crowded urban environment, space for signage is always at a premium. From small liquor stores to majestic theaters, sometimes advertising has nowhere to go but up. Bungee is a font family that celebrates the urban sign: it wrangles the Latin alphabet to work vertically as well as horizontally; with separately glyphs, spacing, and kerning for each orientation. It also comes equipped with chromatic inlines, outlines, shades, and ornaments, making it the perfect toolkit to take your text in a new direction.</p>
+	<p>In the crowded urban environment, space for signage is always at a premium. From small liquor stores to majestic theaters, sometimes advertising has nowhere to go but up. Bungee is a font family that celebrates the urban sign: it wrangles the Latin alphabet to work vertically as well as horizontally; with separately glyphs, spacing, and kerning for each orientation. It also comes equipped with chromatic inlines, outlines, shades, and ornaments, making it the perfect toolkit to take your text in a new direction.</p>
 </section><section class="specimen">
     <figure class="collapsing_specimen">
     		<img src="/images/specimen-vertical-B.svg" /><img src="/images/specimen-vertical-A.svg" />
     </figure>
-</section>
-
-<section id="tester">
-    <h3>Tester</h3>
+</section><section id="tester">
     <figure id='preview'></figure>
     <form id='controls' onsubmit='return false'>
         <fieldset id='orientation-controls'>
@@ -328,11 +384,174 @@ cite, em {
         </fieldset>
         <fieldset id='layer-controls'>
             Layers:
-            <label><input type='checkbox' name='layer' value='regular' checked> Base</label>
-            <label><input type='checkbox' name='layer' value='inline' checked> Inline</label>
-            <label><input type='checkbox' name='layer' value='outline' checked> Outline</label>
-            <label><input type='checkbox' name='layer' value='shade' checked> Shade</label>
+			<div class="palettes">
+				<div class="swatch palette red">
+					<div class="bungeee sign">&nbsp;</div>
+					<div class="bungeee shade"></div>
+					<div class="bungeee outline"></div>
+					<div class="bungeee regular"></div>
+					<div class="bungeee inline"></div>
+				</div>
+				<div class="swatch palette blue-on-dark">
+					<div class="bungeee sign"></div>
+					<div class="bungeee shade"></div>
+					<div class="bungeee outline"></div>
+					<div class="bungeee regular"></div>
+					<div class="bungeee inline"></div>
+				</div>
+				<div class="swatch palette blue">
+					<div class="bungeee sign"></div>
+					<div class="bungeee shade"></div>
+					<div class="bungeee outline"></div>
+					<div class="bungeee regular"></div>
+					<div class="bungeee inline"></div>
+				</div>
+				<div class="swatch palette white-black-red">
+					<div class="bungeee sign"></div>
+					<div class="bungeee shade"></div>
+					<div class="bungeee outline"></div>
+					<div class="bungeee regular"></div>
+					<div class="bungeee inline"></div>
+				</div>
+				<div class="swatch palette active red-yellow-white">
+					<div class="bungeee sign"></div>
+					<div class="bungeee shade"></div>
+					<div class="bungeee outline"></div>
+					<div class="bungeee regular"></div>
+					<div class="bungeee inline"></div>
+				</div>
+				<div class="swatch palette cool-blues">
+					<div class="bungeee sign"></div>
+					<div class="bungeee shade"></div>
+					<div class="bungeee outline"></div>
+					<div class="bungeee regular"></div>
+					<div class="bungeee inline"></div>
+				</div>
+				<div class="swatch palette peach-orange-purple">
+					<div class="bungeee sign"></div>
+					<div class="bungeee shade"></div>
+					<div class="bungeee outline"></div>
+					<div class="bungeee regular"></div>
+					<div class="bungeee inline"></div>
+				</div>
+			</div>
+			<div>
+				<label><!-- <input type='checkbox' name='layer' value='regular' checked /> -->
+				Base: <span class="swatch bungeee regular"></span>
+				<span class="colors">
+					<span class="swatch none" style="background-color:#FFF"></span>
+					<span class="swatch" style="background-color:#FFFFFF"></span>
+					<span class="swatch" style="background-color:#000000"></span>
+					
+					<span class="swatch" style="background-color:#184B57"></span>
+					<span class="swatch active" style="background-color:#55A5FE"></span>
+					<span class="swatch" style="background-color:#C1E6FF"></span>
+					
+					<span class="swatch" style="background-color:#5D0000"></span>
+					<span class="swatch" style="background-color:#E71B26"></span>
+					<span class="swatch" style="background-color:#FED0D2"></span>
+					
+					<span class="swatch" style="background-color:#C9060E"></span>
+					<span class="swatch" style="background-color:#EFBB43"></span>
+					<span class="swatch" style="background-color:#EAE2B1"></span>
+				</span></label>
+			</div>
+			<div>
+				<label><!-- <input type='checkbox' name='layer' value='inline' checked /> -->
+				Inline: <span class="swatch bungeee inline"></span>
+				<span class="colors">
+					<span class="swatch none" style="background-color:#FFF"></span>
+					<span class="swatch" style="background-color:#000000"></span>
+					<span class="swatch" style="background-color:#0B5BA8"></span>
+					<span class="swatch" style="background-color:#1E5287"></span>
+					<span class="swatch" style="background-color:#2E77C0"></span>
+					<span class="swatch" style="background-color:#3E0E00"></span>
+					<span class="swatch" style="background-color:#5D0000"></span>
+					<span class="swatch" style="background-color:#55A5FE"></span>
+					<span class="swatch" style="background-color:#77B2DF"></span>
+					<span class="swatch" style="background-color:#102C34"></span>
+					<span class="swatch" style="background-color:#184B57"></span>
+					<span class="swatch" style="background-color:#23849F"></span>
+					<span class="swatch" style="background-color:#26243A"></span>
+					<span class="swatch" style="background-color:#111111"></span>
+					<span class="swatch" style="background-color:#114752"></span>
+					<span class="swatch" style="background-color:#333333"></span>
+					<span class="swatch" style="background-color:#490000"></span>
+					<span class="swatch" style="background-color:#AD1622"></span>
+					<span class="swatch" style="background-color:#C1E6FF"></span>
+					<span class="swatch active" style="background-color:#C9060E"></span>
+					<span class="swatch" style="background-color:#D7D7D7"></span>
+					<span class="swatch" style="background-color:#E24D3D"></span>
+					<span class="swatch" style="background-color:#E71B26"></span>
+					<span class="swatch" style="background-color:#EAE2B1"></span>
+					<span class="swatch" style="background-color:#EFBB43"></span>
+					<span class="swatch" style="background-color:#F6EECD"></span>
+					<span class="swatch" style="background-color:#FED0D2"></span>
+					<span class="swatch" style="background-color:#FF5140"></span>
+					<span class="swatch" style="background-color:#FFDA99"></span>
+					<span class="swatch" style="background-color:#FFFFFF"></span>
+				</span></label>
+			</div>
+			<div>
+				<label><!-- <input type='checkbox' name='layer' value='outline' checked /> -->
+				Outline: <span class="swatch bungeee outline"></span>
+				<span class="colors">
+					<span class="swatch-small none" style="background-color:#FFF"></span>
+					<span class="swatch-small" style="background-color:#FFFFFF"></span>
+					<span class="swatch-small" style="background-color:#CCCCCC"></span>
+					<span class="swatch-small" style="background-color:#000000"></span>
+					
+					<span class="swatch-small" style="background-color:#EAE2B1"></span>
+					<span class="swatch-small" style="background-color:#EFBB43"></span>
+					<span class="swatch-small" style="background-color:#C9060E"></span>
+					
+					<span class="swatch-small" style="background-color:#FED0D2"></span>
+					<span class="swatch-small" style="background-color:#E71B26"></span>
+					<span class="swatch-small" style="background-color:#5D0000"></span>
+					
+					<span class="swatch-small" style="background-color:#C1E6FF"></span>
+					<span class="swatch-small active" style="background-color:#55A5FE"></span>
+					<span class="swatch-small" style="background-color:#184B57"></span>
+				</span></label>
+			</div>
+			<div>
+				<label><!-- <input type='checkbox' name='layer' value='shade' checked /> -->
+				Shade: <span class="swatch bungeee shade"></span>
+				<span class="colors">
+					<span class="swatch-small none" style="background-color:#FFF"></span>
+					<span class="swatch-small" style="background-color:#000000"></span>
+					<span class="swatch-small" style="background-color:#0B5BA8"></span>
+					<span class="swatch-small" style="background-color:#1E5287"></span>
+					<span class="swatch-small" style="background-color:#2E77C0"></span>
+					<span class="swatch-small" style="background-color:#3E0E00"></span>
+					<span class="swatch-small" style="background-color:#5D0000"></span>
+					<span class="swatch-small" style="background-color:#55A5FE"></span>
+					<span class="swatch-small" style="background-color:#77B2DF"></span>
+					<span class="swatch-small" style="background-color:#102C34"></span>
+					<span class="swatch-small" style="background-color:#184B57"></span>
+					<span class="swatch-small" style="background-color:#23849F"></span>
+					<span class="swatch-small" style="background-color:#26243A"></span>
+					<span class="swatch-small" style="background-color:#111111"></span>
+					<span class="swatch-small" style="background-color:#114752"></span>
+					<span class="swatch-small" style="background-color:#333333"></span>
+					<span class="swatch-small" style="background-color:#490000"></span>
+					<span class="swatch-small" style="background-color:#AD1622"></span>
+					<span class="swatch-small" style="background-color:#C1E6FF"></span>
+					<span class="swatch-small active" style="background-color:#C9060E"></span>
+					<span class="swatch-small" style="background-color:#D7D7D7"></span>
+					<span class="swatch-small" style="background-color:#E24D3D"></span>
+					<span class="swatch-small" style="background-color:#E71B26"></span>
+					<span class="swatch-small" style="background-color:#EAE2B1"></span>
+					<span class="swatch-small" style="background-color:#EFBB43"></span>
+					<span class="swatch-small" style="background-color:#F6EECD"></span>
+					<span class="swatch-small" style="background-color:#FED0D2"></span>
+					<span class="swatch-small" style="background-color:#FF5140"></span>
+					<span class="swatch-small" style="background-color:#FFDA99"></span>
+					<span class="swatch-small" style="background-color:#FFFFFF"></span>
+				</span></label>
+			</div>
         </fieldset>
+<!--
         <fieldset id='stylistic-sets'>
             Alternates:
             <label><input type='checkbox' name='alt' value='rounded'> Round</label>
@@ -343,11 +562,24 @@ cite, em {
             <label><input type='checkbox' name='alt' value='quote'> ’</label>
             <label><input type='checkbox' name='alt' value='ij'> Ĳ</label>
         </fieldset>
+-->
+        <fieldset class="bungeee" id='stylistic-sets'>
+			Alternates:
+			<ul>
+				<li><label><input type='radio' name='round' value='0' /> AMNWXY</label>&emsp;<label class="alt-rounds"><input type='radio' name='rounds' value='1' /> AMNWXY</label></li>
+				<li><label><input type='radio' name='e' value='0' /> E</label>&emsp;<label class="alt-e"><input type='radio' name='e' value='1' /> E</label></li>
+				<li><label><input type='radio' name='i' value='0' /> I</label>&emsp;<label class="alt-i"><input type='radio' name='i' value='1' /> I</label></li>
+				<li><label><input type='radio' name='l' value='0' /> L</label>&emsp;<label class="alt-l"><input type='radio' name='l' value='1' /> L</label></li>
+				<li><label><input type='radio' name='amp' value='0' /> &</label>&emsp;<label class="alt-amp"><input type='radio' name='amp' value='1' /> &</label></li>
+				<li><label><input type='radio' name='apos' value='0' /> ’</label>&emsp;<label class="alt-apos"><input type='radio' name='apos' value='1' /> ’</label></li>
+				<li><label><input type='radio' name='ij' value='0' /> Ĳ</label>&emsp;<label class="alt-ij"><input type='radio' name='ij' value='1' /> Ĳ</label></li>
+			</ul>
+        </fieldset>
         <fieldset id='size-control'>
-            <label>Size: <input type='range' name='size' value='120' min='24' max='288'></label>
+            <label>Size: <input type='range' name='size' value='120' min='24' max='288'>&nbsp;<input type='checkbox' name='size' value='auto' checked /> Auto-fit</label>
         </fieldset>
         <fieldset id='text-control'>
-            <label>Text: <input type='text' name='text' value='Delica’s'></label>
+            <label>Text: <input type='text' name='text' value='Preview’r'></label>
         </fieldset>
         <div id='background-controls'>
             <fieldset>Banner head: <script>Bungee.backgroundInputList('begin');</script></fieldset>
@@ -356,143 +588,112 @@ cite, em {
         </div>
     </form>
 </section>
-
 <section id="chromatic">
 	<h3>Colors</h3>
-
-	<p>Chromatic typefaces are nothing new: sets of wood type intended for overprinting were produced and marketed <a href="https://www.utexas.edu/cofa/rrk/chromaticstwocolormenu.php">as early as 1841</a> and became a popular way for printers to add visual interest to their posters and broadsides. They became more and more elaborate as the nineteenth century progressed, as epitomized by the 1874 specimen by William H. Page &amp; Co. Chromatic type began to fall out of favor as typesetting became more mechanized in the twentieth century, and until recently, color was not a factor in any of the major digital font formats.</p>
-
-	<div class="figure_group">
-		<figure>
-			<img src="/images/page.jpg" />
+	<div class="chunk">
+		<p>Chromatic typefaces are nothing new: sets of wood type intended for overprinting were produced and marketed <a href="https://www.utexas.edu/cofa/rrk/chromaticstwocolormenu.php">as early as 1841</a> and became a popular way for printers to add visual interest to their posters and broadsides. They became more and more elaborate as the nineteenth century progressed, as epitomized by the 1874 specimen by William H. Page &amp; Co. Chromatic type began to fall out of favor as typesetting became more mechanized in the twentieth century, and until recently, color was not a factor in any of the major digital font formats.</p>
+		<div class="figure_group">
+			<figure>
+				<img src="/images/page.jpg" />
+			</figure><figure>
+				<img src="/images/page2.jpg" />
+			</figure>
 			<figcaption>
 				<p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p>
 			</figcaption>
-		</figure><figure>
-			<img src="/images/page2.jpg" />
-		</figure>
-	</div>
-
-</section><section>
-	
-	<p>Today we find ourselves in a renaissance of chromatic type, with more chromatic type coming out each year. Just like their wooden forbears, they are  by layering fonts on top of one another.</p>
-
-
-
-	<p>Thanks in large part to the recent popularity of Emoji, color font formats have emerged, with Apple, Microsoft, and Adobe offering their own specifications. Thanks to <a href="http://www.github.com/fontfont/robochrome">RoboChrome</a>, I have created versions of Bungee for all of these formats, and I am excited about all of the possibilities that these new formats offer.</p>
-	
-	<div class="figure_group">
-		<figure>
-			<img src="/images/other-chromatic-fonts.png" />
+		</div>
+	</div><div class="chunk">
+		<p>Today we find ourselves in a renaissance of chromatic type, with more chromatic type coming out each year. Just like their wooden forbears, they are  by layering fonts on top of one another.</p>
+		<p>Thanks in large part to the recent popularity of Emoji, color font formats have emerged, with Apple, Microsoft, and Adobe offering their own specifications. Thanks to <a href="http://www.github.com/fontfont/robochrome">RoboChrome</a>, I have created versions of Bungee for all of these formats, and I am excited about all of the possibilities that these new formats offer.</p>
+			<figure>
+				<img src="/images/other-chromatic-fonts.png" />
 			<figcaption>
 				<p><cite>Some of my personal favorites include <a href="https://www.myfonts.com/fonts/matchandkerosene/detroit/">Detroit</a>, <a href="http://www.mckltype.com/custom/eventide/">Eventide</a>, <a href="http://letterror.com/fontcatalog/ltr-federal/">Federal</a>, <a href="https://www.typotheque.com/fonts/history">History</a>, <a href="http://nittimostro.webtype.com">Nitti Mostro</a>, and <a href="http://www.typography.com/fonts/obsidian/overview/">Obsidian</a>.</p></p>
 			</figcaption>
 		</figure>
-	</div>
+	</div><div class="chunk">
+		<p>Bungee comes with Regular, Inline, Outline, and Shade layers, which you can mix and match to create a variety of styles.</p>
+		<p>In desktop apps, you can use these layers by styling each layer on a different line and setting the leading to zero. On the web, <code>bungee.js</code> will do the heavy lifting for you, by arranging the text into a series of layered <code>&lt;div></code>s that you can customize in your stylesheet. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">Learn more about using Bungee’s chromatic layers »</a></p>
 	
-</section><section>
-	
-	<p>Bungee comes with Regular, Inline, Outline, and Shade layers, which you can mix and match to create a variety of styles.</p>
-
-	<p>In desktop apps, you can use these layers by styling each layer on a different line and setting the leading to zero. On the web, <code>bungee.js</code> will do the heavy lifting for you, by arranging the text into a series of layered <code>&lt;div></code>s that you can customize in your stylesheet. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">Learn more about using Bungee’s chromatic layers »</a></p>
-
-	<div class="figure_group">
-		<figure>
-			<img src="/images/img.svg" />
-			<figcaption>
-				<p>Using Bungee’s layers in Adobe InDesign CC.</p>
-			</figcaption>
-		</figure><figure>
-			
-				<code>
-					<pre>
-&lt;script src="scripts/bungee.js" />
-&lt;h1 class="bungee shade regular inline">Hello World!&lt;/h1>
-					</pre>
-				</code>
-			
-			
-			<figcaption>
-				<p></p>
-			</figcaption>
-		</figure>
+		<div class="figure_group">
+			<figure>
+				<img src="/images/img.svg" />
+				<figcaption>
+					<p>Using Bungee’s layers in Adobe InDesign CC.</p>
+				</figcaption>
+			</figure><figure>
+					<code>
+	&lt;script src="scripts/bungee.js" />
+	&lt;h1 class="bungee shade regular inline">Hello World!&lt;/h1>
+					</code>
+				<figcaption>
+					<p></p>
+				</figcaption>
+			</figure>
+		</div>
 	</div>
-    
-
-</section>
-
-<section class="specimen">
+</section><section class="specimen">
     <figure class="collapsing_specimen">
     		<img src="/images/specimen-horizontal-A.svg" /><img src="/images/specimen-horizontal-B.svg" />
     </figure>
-</section><section id="vertical">
+</section><section id="verticals">
 	<h3>Verticals</h3>
-	
-	<p>Even though the Latin alphabet is traditionally written horizontally, vertical signage is a ubiquitous part of the urban landscape. Bungee pays homage to these signs, particularly Art Deco marquees from the 1930s and 40s.</p>
-
-	<div class="figure_group">
-		<figure>
-			<img src="/images/chicago-theatre.jpg" />
-			<figcaption>
-				<p>The Chicago Theatre, photo by Daniel Schwen</p>
-			</figcaption>
-		</figure><figure>
-			<img src="/images/ruhl-photographers.jpg" />
-			<figcaption>
-				<p>Ruhl Photographers, photo by David Jonathan Ross</p>
-			</figcaption>
-		</figure>
+	<div class="chunk">
+		<p>Even though the Latin alphabet is traditionally written horizontally, vertical signage is a ubiquitous part of the urban landscape. Bungee pays homage to these signs, particularly Art Deco marquees from the 1930s and 40s.</p>
+		<div class="figure_group">
+			<figure>
+				<img src="/images/chicago-theatre-square.jpg" />
+				<figcaption>
+					<p>The Chicago Theatre, photo by Daniel Schwen</p>
+				</figcaption>
+			</figure><figure>
+				<img src="/images/ruhl-photographers-square.jpg" />
+				<figcaption>
+					<p>Ruhl Photographers, photo by David Jonathan Ross</p>
+				</figcaption>
+			</figure>
+		</div>
+	</div><div class="chunk">
+		<p>Bungee contains a specially drawn set of caps designed for vertical use, and implements them with OpenType features that are more commonly associated with vertical writing in East Asian scripts. These forms even have vertical proportional spacing and kerning.</p>
+		<p>Some design applications and browsers can take advantage of Bungee’s vertical capabilities. For those, Bungee offers a special version of Bungee where each character lays on its side. This will simulate vertical text in a 90°-rotated text box. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">Learn more about how to use Bungee’s vertical forms »</a></p>
+		<!--<p>Not everything is meant to be set vertically. Sign painter and type designer John Downer recommends caution with words that are long or unfamiliar, and warns against letters like I, J, L, M, and W, which have the potential to look unusually narrow or wide.</p>-->
 	</div>
-	
-</section><section>
-
-	
-	<p>Bungee contains a specially drawn set of caps designed for vertical use, and implements them with OpenType features that are more commonly associated with vertical writing in East Asian scripts. These forms even have vertical proportional spacing and kerning.</p>
-	
-	<p>Some design applications and browsers can take advantage of Bungee’s vertical capabilities. For those, Bungee offers a special version of Bungee where each character lays on its side. This will simulate vertical text in a 90°-rotated text box. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">Learn more about how to use Bungee’s vertical forms »</a></p>
-
-	<!--<p>Not everything is meant to be set vertically. Sign painter and type designer John Downer recommends caution with words that are long or unfamiliar, and warns against letters like I, J, L, M, and W, which have the potential to look unusually narrow or wide.</p>-->
-	
 </section><section class="specimen">
     <figure>
     		<img src="/images/edge-cases.svg" />
     </figure>
 </section><section id="alternates">
 	<h3>Extras</h3>
-
-	<p>Since Bungee is only intended to be used for a few words at a time, a single letterform can make a huge difference. Bungee comes with a handful of alternate characters that can help you fine-tune the look and feel of your text. These include a serifless I and L, a smaller, less-obtrusive apostrophe, and a set of rounded, retro caps that are reminiscent of Art Deco signs. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">More about Bungee’s alternates »</a></p>
-
-	<div class="figure_group">
-		<figure>
-			<img src="/images/img.svg" />
-			<figcaption>
-				<p>Caption</p>
-			</figcaption>
-		</figure><figure>
-			<img src="/images/img.svg" />
-			<figcaption>
-				<p>Caption</p>
-			</figcaption>
-		</figure>
-	</div>
-
-</section><section>
-
-
-	<p>Bungee’s banner and block elements act as background layers designed to perfectly frame your text. You can construct variable-length banners by employing Bungee’s connecting banner elements, or encircle each individual in its own block. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/5-ornaments.md">More about Bungee’s ornaments »</a></p>
-
-	<div class="figure_group">
-		<figure>
-			<img src="/images/img.svg" />
-			<figcaption>
-				<p>Caption</p>
-			</figcaption>
-		</figure><figure>
-			<img src="/images/img.svg" />
-			<figcaption>
-				<p>Caption</p>
-			</figcaption>
-		</figure>
+	<div class="chunk">
+		<p>Since Bungee is only intended to be used for a few words at a time, a single letterform can make a huge difference. Bungee comes with a handful of alternate characters that can help you fine-tune the look and feel of your text. These include a serifless I and L, a smaller, less-obtrusive apostrophe, and a set of rounded, retro caps that are reminiscent of Art Deco signs. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">More about Bungee’s alternates »</a></p>
+		<div class="figure_group">
+			<figure>
+				<img src="/images/img.svg" />
+				<figcaption>
+					<p>Caption</p>
+				</figcaption>
+			</figure><figure>
+				<img src="/images/img.svg" />
+				<figcaption>
+					<p>Caption</p>
+				</figcaption>
+			</figure>
+		</div>
+	</div><div class="chunk">
+		<p>Bungee’s banner and block elements act as background layers designed to perfectly frame your text. You can construct variable-length banners by employing Bungee’s connecting banner elements, or encircle each individual in its own block. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/5-ornaments.md">More about Bungee’s ornaments »</a></p>
+		<div class="figure_group">
+			<figure>
+				<img src="/images/img.svg" />
+				<figcaption>
+					<p>Caption</p>
+				</figcaption>
+			</figure><figure>
+				<img src="/images/img.svg" />
+				<figcaption>
+					<p>Caption</p>
+				</figcaption>
+			</figure>
+		</div>
 	</div>
 </section>
 
@@ -501,14 +702,12 @@ cite, em {
 	
 	<p>In 2011, a crummy sign for the local liquor store got me thinking about stacked letters, and whether a typeface designed for signage could be optimized for vertical setting. I began to collect examples of vertical signage wherever I could find them, both good and bad.</p>
 
-	<div class="figure_group">
-		<figure>
-			<img src="/images/djr-sideways.jpg" />
-			<figcaption>
-				<p>Kerning Bungee in <a href="http://tools.typesupply.com/metricsmachine.html">Metrics Machine</a> at a café, 2013.</p>
-			</figcaption>
-		</figure>
-	</div>
+	<figure>
+		<img src="/images/djr-sideways.jpg" />
+		<figcaption>
+			<p>Kerning Bungee in <a href="http://tools.typesupply.com/metricsmachine.html">Metrics Machine</a> at a café, 2013.</p>
+		</figcaption>
+	</figure>
 	
 	<p>The first version of Bungee was drawn, spaced, and kerned while rotated on its side, which led to a host of interesting design problems. Over the next several years, Bungee grew from a novelty font into a full-fledged research project, encompassing the aesthetic demands of vertical type and technical ins-and-outs of color and vertical writing modes on the web. The design was <a href="https://www.tdc.org/competitionwriteup/tdc-typeface-design-winners-2014/">honored by the Type Directors Club</a> in 2014.</p>
 
@@ -521,9 +720,9 @@ cite, em {
 
 	<p>I sell most of my fonts commercially, but Bungee is well-suited to a libre license because of its support for emerging typographic features like chromatic layers and vertical text. Bungee was <a href="http://www.economist.com/blogs/babbage/2013/08/polychromatic-digital-type">part of Microsoft’s early experiments with color fonts</a>, and I hope that as an open-source typeface, it will spark further experimentation with color fonts and foster further development in this field. More widespread use of color and verticality will only lead to better support for these features in desktop applications and on the web, and I hope that Bungee’s license allows it to become a valuable resource for typographers, designers, and developers (professional and amateur alike).</p>
 
-	<p>If you wish to support my work, please consider <a href="http://www.djr.com">purchasing a license</a> for one of my commercial typefaces.</p>
+	<p>If you wish to support my work, please consider purchasing a license for <a href="http://www.djr.com">one of my commercial typefaces</a>.</p>
 
-	<p>This responsive website was created by Nick Sherman and Chris Lewis. Like Bungee itself, the layout can switch from vertical to horizontal (depending on the size of your screen).</p>
+	<p>This responsive website was created by Nick Sherman and Chris Lewis. Like Bungee itself, the layout can switch from vertical to horizontal (depending on the dimensions of your screen).</p>
 
 	<p>Special thanks to Dave Crossland, Rob Giampetro, and Omer Ziv from Google; David Berlow, Sam Berlow, Kent Lew, Cyrus Highsmith, and Jill Pichotta from The Font Bureau; Frederik Berlaen and Jens Kutílek for their tools and support; Emily Richardson, for coming up with the name; Microsoft’s Typography team for their early work on Bungee Color; and Jon Corum, John Downer, John Kramer, Indra Kupferschmid, and André Mora, for their thoughtful feedback and advice during the design process.</p>
 	
