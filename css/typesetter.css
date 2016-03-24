@@ -1,9 +1,5 @@
 /* controls */
 
-#preview {
-	background-color: #FFF;
-}
-
 #tester #controls > * {
     padding-bottom: 0.5em;
 }
@@ -33,6 +29,7 @@
 #preview {
     display: block;
     margin-top: 1rem;
+    background-color: #FFFFFF;
 }
 
 #preview.vertical {
@@ -65,23 +62,23 @@
 
 /* arbitrary colors; these need to be set by UI eventually */
 #preview .regular {
-    color: white;
+	color: #DC4227;
 }
 
 #preview .outline {
-    color: #b2c021;
+	color: #ad1622;
 }
 
 #preview .inline {
-    color: #7e1414;
+	color: #FFFFFF;
 }
 
 #preview .shade {
-    color: #513620;
+    color: rgba(128,128,128,0.3);
 }
 
 #preview .background.regular {
-    color: #7e1414;
+	color: #EFE446;
 }
 
 #preview .background.outline {
@@ -94,8 +91,6 @@
 	vertical-align: middle;
 	margin-top: .25em;
 	margin-bottom: .25em;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 .swatch .bungeee:not(.sign):after,
 .swatch.bungeee:not(.sign):after {
@@ -104,14 +99,17 @@
 .swatch-small {
 	font-size: 1em;
 }
-.colors span {
-	width: 1em;
-	height: 1em;
+.colors span,
+.swatch {
+	text-align: center;
+	width: 1.5em;
+	height: 1.5em;
+	padding: .25em;
+	vertical-align: middle;
 	margin-top: 0;
 	outline: 1px solid #CCC;
 	display: inline-block;
-}
-.palette {
+}.palette {
 	font-size: 4em;
 	position: relative;
 	display: inline-block;

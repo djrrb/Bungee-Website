@@ -80,7 +80,7 @@ body {
 	line-height: 1;
 	color: #000;
 	background-color: #FFF;
-	background-color: #EFE446;
+	background-color: #ede8e2;
 	margin: 0;
 }
 a:link,
@@ -102,6 +102,7 @@ section {
 	margin: 0;
 }
 section + section {
+	border-top: 1.5em solid #2E77C0;
 	border-top: 1.5em solid #25839E;
 }
 h1, h2, h3 {
@@ -135,13 +136,14 @@ h2 {
 h3 {
 	font-family: 'Bungeee Shade';
 	font-size: 3em;
-	color: #771F15;
-	color: #DC4227;
+	color: #EFE446;
 	position: relative;
+}
+h3:before {
 }
 h3:after {
 	font-family: 'Bungeee Regular';
-	color: #FFF;
+	color: #DC4227;
 	content: attr(data-content);
 	position: absolute;
 	top: 0;
@@ -175,7 +177,7 @@ cite, em {
 	width: 50vw;
 }
 .specimen {
-	background-color: #f4ede0;
+	background-color: #EFE446;
 	padding-left: 1rem;
 }
 .specimen img {
@@ -208,11 +210,11 @@ cite, em {
 }
 */
 
-html.colorswap body {background-color: #f4ede0;}
-html.colorswap .specimen {background-color: #EFE446;}
+html.colorswap body {background-color: #EFE446;}
+html.colorswap .specimen {background-color: #f4ede0;}
 
-html.colorswap h3 {color: #EFE446;}
-html.colorswap h3:after {color: #DC4227;}
+html.colorswap h3 {color: #DC4227;}
+html.colorswap h3:after {color: #FFF;}
 
 .bungeee.regular {font-family: 'Bungeee Regular';}
 .bungeee.inline {font-family: 'Bungeee Inline';}
@@ -351,8 +353,11 @@ html.colorswap h3:after {color: #DC4227;}
 		-o-transform:rotate(90deg);
 		white-space: nowrap;
 	}
-	h3:after {
+	h3:before {
 		font-family: 'Bungeee Rotated Regular', Impact;
+	}
+	h3:after {
+		font-family: 'Bungeee Rotated Inline', Impact;
 	}
 }
 @media (min-width: 80em) {
@@ -369,7 +374,7 @@ html.colorswap h3:after {color: #DC4227;}
 <section id="cover">
 	<h1 class="fit-to-width" data-max-font-size="40vh">Bun-<br />gee!</h1>
 	<h2>Fonts for multi-color and vertical&nbsp;typography</h2>
-	<p>In the crowded urban environment, space for signage is always at a premium. From small liquor stores to majestic theaters, sometimes advertising has nowhere to go but up. Bungee is a font family that celebrates the urban sign: it wrangles the Latin alphabet to work vertically as well as horizontally; with separately glyphs, spacing, and kerning for each orientation. It also comes equipped with chromatic inlines, outlines, shades, and ornaments, making it the perfect toolkit to take your text in a new direction.</p>
+	<p>In the crowded urban environment, space for signage is always at a premium. From small liquor stores to majestic theaters, sometimes advertising has nowhere to go but up. Bungee is a font family that celebrates the urban sign: it wrangles the Latin alphabet to work vertically as well as horizontally; with separate glyphs, spacing, and kerning for each orientation. It also comes equipped with chromatic inlines, outlines, shades, and ornaments, making it the perfect toolkit to take your text in a new direction.</p>
 </section><section class="specimen">
     <figure class="collapsing_specimen">
     		<img src="/images/specimen-vertical-B.svg" /><img src="/images/specimen-vertical-A.svg" />
@@ -383,7 +388,59 @@ html.colorswap h3:after {color: #DC4227;}
             <label><input type='radio' name='orientation' value='vertical'> Vertical</label>
         </fieldset>
         <fieldset id='layer-controls'>
-            Layers:
+            Colors:
+			<div>
+				<label>Base: <span class="swatch bungeee regular" style="color: #DC4227;"></span></label>
+			</div>
+			<div>
+				<label>Inline: <span class="swatch bungeee inline" style="color: #FFFFFF;"></span></label>
+			</div>
+			<div>
+				<label>Outline: <span class="swatch bungeee outline" style="color: #ad1622"></span></label>
+			</div>
+			<div>
+				<label>Shade: <span class="swatch bungeee shade" style="color: rgba(128,128,128,0.3);"></span></label>
+			</div>
+			<div>
+				<label>Banner: <span class="swatch bungeee regular sign" style="color: #EFE446;">█</span></label>
+			</div>
+			<div>
+				<label>Background: <span class="swatch color background" style="background-color: #FFFFFF;"></span></label>
+			</div>
+        </fieldset>
+        <fieldset id='presets'>
+	        Presets:
+	        <select id="preset-list" name="presents">
+		        <option>Bodega</option>
+		        <option>Motel</option>
+		        <option>Fire Truck</option>
+		        <option>Parking</option>
+		        <option>Sundaes</option>
+		        <option>Steam Boat</option>
+		        <option>Bar</option>
+		        <option>Drugs</option>
+		        <option>Antiques</option>
+		        <option>Rides</option>
+		        <option>Pizza</option>
+		        <option>Peep Show</option>
+		        <option>Laundry</option>
+		        <option>Tacos</option>
+		        <option>$1</option>
+		        <option>Repairs</option>
+		        <option>Gas</option>
+		        <option>Deli</option>
+		        <option>Sale</option>
+		        <option>Slots</option>
+		        <option>Cigars</option>
+		        <option>Theatre</option>
+		        <option>Liquor</option>
+		        <option>Hot Dogs</option>
+		        <option>Café</option>
+		        <option>Ice</option>
+		        <option>Diner</option>
+		        <option>Bowling</option>
+		        <option>Open</option>
+			</select>
 			<div class="palettes">
 				<div class="swatch palette red">
 					<div class="bungeee sign">&nbsp;</div>
@@ -434,123 +491,79 @@ html.colorswap h3:after {color: #DC4227;}
 					<div class="bungeee regular"></div>
 					<div class="bungeee inline"></div>
 				</div>
-			</div>
-			<div>
-				<label><!-- <input type='checkbox' name='layer' value='regular' checked /> -->
-				Base: <span class="swatch bungeee regular"></span>
-				<span class="colors">
-					<span class="swatch none" style="background-color:#FFF"></span>
-					<span class="swatch" style="background-color:#FFFFFF"></span>
-					<span class="swatch" style="background-color:#000000"></span>
-					
-					<span class="swatch" style="background-color:#184B57"></span>
-					<span class="swatch active" style="background-color:#55A5FE"></span>
-					<span class="swatch" style="background-color:#C1E6FF"></span>
-					
-					<span class="swatch" style="background-color:#5D0000"></span>
-					<span class="swatch" style="background-color:#E71B26"></span>
-					<span class="swatch" style="background-color:#FED0D2"></span>
-					
-					<span class="swatch" style="background-color:#C9060E"></span>
-					<span class="swatch" style="background-color:#EFBB43"></span>
-					<span class="swatch" style="background-color:#EAE2B1"></span>
-				</span></label>
-			</div>
-			<div>
-				<label><!-- <input type='checkbox' name='layer' value='inline' checked /> -->
-				Inline: <span class="swatch bungeee inline"></span>
-				<span class="colors">
-					<span class="swatch none" style="background-color:#FFF"></span>
-					<span class="swatch" style="background-color:#000000"></span>
-					<span class="swatch" style="background-color:#0B5BA8"></span>
-					<span class="swatch" style="background-color:#1E5287"></span>
-					<span class="swatch" style="background-color:#2E77C0"></span>
-					<span class="swatch" style="background-color:#3E0E00"></span>
-					<span class="swatch" style="background-color:#5D0000"></span>
-					<span class="swatch" style="background-color:#55A5FE"></span>
-					<span class="swatch" style="background-color:#77B2DF"></span>
-					<span class="swatch" style="background-color:#102C34"></span>
-					<span class="swatch" style="background-color:#184B57"></span>
-					<span class="swatch" style="background-color:#23849F"></span>
-					<span class="swatch" style="background-color:#26243A"></span>
-					<span class="swatch" style="background-color:#111111"></span>
-					<span class="swatch" style="background-color:#114752"></span>
-					<span class="swatch" style="background-color:#333333"></span>
-					<span class="swatch" style="background-color:#490000"></span>
-					<span class="swatch" style="background-color:#AD1622"></span>
-					<span class="swatch" style="background-color:#C1E6FF"></span>
-					<span class="swatch active" style="background-color:#C9060E"></span>
-					<span class="swatch" style="background-color:#D7D7D7"></span>
-					<span class="swatch" style="background-color:#E24D3D"></span>
-					<span class="swatch" style="background-color:#E71B26"></span>
-					<span class="swatch" style="background-color:#EAE2B1"></span>
-					<span class="swatch" style="background-color:#EFBB43"></span>
-					<span class="swatch" style="background-color:#F6EECD"></span>
-					<span class="swatch" style="background-color:#FED0D2"></span>
-					<span class="swatch" style="background-color:#FF5140"></span>
-					<span class="swatch" style="background-color:#FFDA99"></span>
-					<span class="swatch" style="background-color:#FFFFFF"></span>
-				</span></label>
-			</div>
-			<div>
-				<label><!-- <input type='checkbox' name='layer' value='outline' checked /> -->
-				Outline: <span class="swatch bungeee outline"></span>
-				<span class="colors">
-					<span class="swatch-small none" style="background-color:#FFF"></span>
-					<span class="swatch-small" style="background-color:#FFFFFF"></span>
-					<span class="swatch-small" style="background-color:#CCCCCC"></span>
-					<span class="swatch-small" style="background-color:#000000"></span>
-					
-					<span class="swatch-small" style="background-color:#EAE2B1"></span>
-					<span class="swatch-small" style="background-color:#EFBB43"></span>
-					<span class="swatch-small" style="background-color:#C9060E"></span>
-					
-					<span class="swatch-small" style="background-color:#FED0D2"></span>
-					<span class="swatch-small" style="background-color:#E71B26"></span>
-					<span class="swatch-small" style="background-color:#5D0000"></span>
-					
-					<span class="swatch-small" style="background-color:#C1E6FF"></span>
-					<span class="swatch-small active" style="background-color:#55A5FE"></span>
-					<span class="swatch-small" style="background-color:#184B57"></span>
-				</span></label>
-			</div>
-			<div>
-				<label><!-- <input type='checkbox' name='layer' value='shade' checked /> -->
-				Shade: <span class="swatch bungeee shade"></span>
-				<span class="colors">
-					<span class="swatch-small none" style="background-color:#FFF"></span>
-					<span class="swatch-small" style="background-color:#000000"></span>
-					<span class="swatch-small" style="background-color:#0B5BA8"></span>
-					<span class="swatch-small" style="background-color:#1E5287"></span>
-					<span class="swatch-small" style="background-color:#2E77C0"></span>
-					<span class="swatch-small" style="background-color:#3E0E00"></span>
-					<span class="swatch-small" style="background-color:#5D0000"></span>
-					<span class="swatch-small" style="background-color:#55A5FE"></span>
-					<span class="swatch-small" style="background-color:#77B2DF"></span>
-					<span class="swatch-small" style="background-color:#102C34"></span>
-					<span class="swatch-small" style="background-color:#184B57"></span>
-					<span class="swatch-small" style="background-color:#23849F"></span>
-					<span class="swatch-small" style="background-color:#26243A"></span>
-					<span class="swatch-small" style="background-color:#111111"></span>
-					<span class="swatch-small" style="background-color:#114752"></span>
-					<span class="swatch-small" style="background-color:#333333"></span>
-					<span class="swatch-small" style="background-color:#490000"></span>
-					<span class="swatch-small" style="background-color:#AD1622"></span>
-					<span class="swatch-small" style="background-color:#C1E6FF"></span>
-					<span class="swatch-small active" style="background-color:#C9060E"></span>
-					<span class="swatch-small" style="background-color:#D7D7D7"></span>
-					<span class="swatch-small" style="background-color:#E24D3D"></span>
-					<span class="swatch-small" style="background-color:#E71B26"></span>
-					<span class="swatch-small" style="background-color:#EAE2B1"></span>
-					<span class="swatch-small" style="background-color:#EFBB43"></span>
-					<span class="swatch-small" style="background-color:#F6EECD"></span>
-					<span class="swatch-small" style="background-color:#FED0D2"></span>
-					<span class="swatch-small" style="background-color:#FF5140"></span>
-					<span class="swatch-small" style="background-color:#FFDA99"></span>
-					<span class="swatch-small" style="background-color:#FFFFFF"></span>
-				</span></label>
+				<div class="swatch palette motel">
+					<div class="bungeee sign"></div>
+					<div class="bungeee shade"></div>
+					<div class="bungeee outline"></div>
+					<div class="bungeee regular"></div>
+					<div class="bungeee inline"></div>
+				</div>
 			</div>
         </fieldset>
+		<div class="colors">
+			<span class="swatch-small none" style="background-color:#FFF"></span>
+			<span class="swatch-small" style="background-color:#000000"></span>
+			<span class="swatch-small" style="background-color:#0B5BA8"></span>
+			<span class="swatch-small" style="background-color:#1E5287"></span>
+			<span class="swatch-small" style="background-color:#2E77C0"></span>
+			<span class="swatch-small" style="background-color:#3E0E00"></span>
+			<span class="swatch-small" style="background-color:#5D0000"></span>
+			<span class="swatch-small" style="background-color:#55A5FE"></span>
+			<span class="swatch-small" style="background-color:#77B2DF"></span>
+			<span class="swatch-small" style="background-color:#102C34"></span>
+			<span class="swatch-small" style="background-color:#184B57"></span>
+			<span class="swatch-small" style="background-color:#23849F"></span>
+			<span class="swatch-small" style="background-color:#26243A"></span>
+			<span class="swatch-small" style="background-color:#111111"></span>
+			<span class="swatch-small" style="background-color:#114752"></span>
+			<span class="swatch-small" style="background-color:#333333"></span>
+			<span class="swatch-small" style="background-color:#490000"></span>
+			<span class="swatch-small" style="background-color:#AD1622"></span>
+			<span class="swatch-small" style="background-color:#C1E6FF"></span>
+			<span class="swatch-small active" style="background-color:#C9060E"></span>
+			<span class="swatch-small" style="background-color:#D7D7D7"></span>
+			<span class="swatch-small" style="background-color:#E24D3D"></span>
+			<span class="swatch-small" style="background-color:#E71B26"></span>
+			<span class="swatch-small" style="background-color:#EAE2B1"></span>
+			<span class="swatch-small" style="background-color:#EFBB43"></span>
+			<span class="swatch-small" style="background-color:#F6EECD"></span>
+			<span class="swatch-small" style="background-color:#FED0D2"></span>
+			<span class="swatch-small" style="background-color:#FF5140"></span>
+			<span class="swatch-small" style="background-color:#FFDA99"></span>
+			<span class="swatch-small" style="background-color:#FFFFFF"></span>
+		</div>
+		<div class="colors">
+			<span class="swatch none" style="background-color:#FFF"></span>
+			<span class="swatch" style="background-color:#000000"></span>
+			<span class="swatch" style="background-color:#0B5BA8"></span>
+			<span class="swatch" style="background-color:#1E5287"></span>
+			<span class="swatch" style="background-color:#2E77C0"></span>
+			<span class="swatch" style="background-color:#3E0E00"></span>
+			<span class="swatch" style="background-color:#5D0000"></span>
+			<span class="swatch" style="background-color:#55A5FE"></span>
+			<span class="swatch" style="background-color:#77B2DF"></span>
+			<span class="swatch" style="background-color:#102C34"></span>
+			<span class="swatch" style="background-color:#184B57"></span>
+			<span class="swatch" style="background-color:#23849F"></span>
+			<span class="swatch" style="background-color:#26243A"></span>
+			<span class="swatch" style="background-color:#111111"></span>
+			<span class="swatch" style="background-color:#114752"></span>
+			<span class="swatch" style="background-color:#333333"></span>
+			<span class="swatch" style="background-color:#490000"></span>
+			<span class="swatch" style="background-color:#AD1622"></span>
+			<span class="swatch" style="background-color:#C1E6FF"></span>
+			<span class="swatch active" style="background-color:#C9060E"></span>
+			<span class="swatch" style="background-color:#D7D7D7"></span>
+			<span class="swatch" style="background-color:#E24D3D"></span>
+			<span class="swatch" style="background-color:#E71B26"></span>
+			<span class="swatch" style="background-color:#EAE2B1"></span>
+			<span class="swatch" style="background-color:#EFBB43"></span>
+			<span class="swatch" style="background-color:#F6EECD"></span>
+			<span class="swatch" style="background-color:#FED0D2"></span>
+			<span class="swatch" style="background-color:#FF5140"></span>
+			<span class="swatch" style="background-color:#FFDA99"></span>
+			<span class="swatch" style="background-color:#FFFFFF"></span>
+		</div>
 <!--
         <fieldset id='stylistic-sets'>
             Alternates:
@@ -566,13 +579,13 @@ html.colorswap h3:after {color: #DC4227;}
         <fieldset class="bungeee" id='stylistic-sets'>
 			Alternates:
 			<ul>
-				<li><label><input type='radio' name='round' value='0' /> AMNWXY</label>&emsp;<label class="alt-rounds"><input type='radio' name='rounds' value='1' /> AMNWXY</label></li>
-				<li><label><input type='radio' name='e' value='0' /> E</label>&emsp;<label class="alt-e"><input type='radio' name='e' value='1' /> E</label></li>
-				<li><label><input type='radio' name='i' value='0' /> I</label>&emsp;<label class="alt-i"><input type='radio' name='i' value='1' /> I</label></li>
-				<li><label><input type='radio' name='l' value='0' /> L</label>&emsp;<label class="alt-l"><input type='radio' name='l' value='1' /> L</label></li>
-				<li><label><input type='radio' name='amp' value='0' /> &</label>&emsp;<label class="alt-amp"><input type='radio' name='amp' value='1' /> &</label></li>
-				<li><label><input type='radio' name='apos' value='0' /> ’</label>&emsp;<label class="alt-apos"><input type='radio' name='apos' value='1' /> ’</label></li>
-				<li><label><input type='radio' name='ij' value='0' /> Ĳ</label>&emsp;<label class="alt-ij"><input type='radio' name='ij' value='1' /> Ĳ</label></li>
+				<li><label><input type='radio' name='round' value='0' checked /> AMNWXY</label>&emsp;<label class="alt-rounds"><input type='radio' name='rounds' value='1' /> AMNWXY</label></li>
+				<li><label><input type='radio' name='e' value='0' checked /> E</label>&emsp;<label class="alt-e"><input type='radio' name='e' value='1' /> E</label></li>
+				<li><label><input type='radio' name='i' value='0' checked /> I</label>&emsp;<label class="alt-i"><input type='radio' name='i' value='1' /> I</label></li>
+				<li><label><input type='radio' name='l' value='0' checked /> L</label>&emsp;<label class="alt-l"><input type='radio' name='l' value='1' /> L</label></li>
+				<li><label><input type='radio' name='amp' value='0' checked /> &</label>&emsp;<label class="alt-amp"><input type='radio' name='amp' value='1' /> &</label></li>
+				<li><label><input type='radio' name='apos' value='0' checked /> ’</label>&emsp;<label class="alt-apos"><input type='radio' name='apos' value='1' /> ’</label></li>
+				<li><label><input type='radio' name='ij' value='0' checked /> Ĳ</label>&emsp;<label class="alt-ij"><input type='radio' name='ij' value='1' /> Ĳ</label></li>
 			</ul>
         </fieldset>
         <fieldset id='size-control'>

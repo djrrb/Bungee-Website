@@ -53,3 +53,11 @@
   .peach-orange-purple .shade {color: #111111; display: none;}
   .peach-orange-purple .sign {background-color: #26243a;}
   .peach-orange-purple {background-color: #111111;}
+
+/* motel */
+  .motel .inline {color: #e24d3d; text-shadow: 0px 0px 3px #F00;}
+  .motel .regular {color: #600;}
+  .motel .outline {color: #666;}
+  .motel .shade {color: #333}
+  .motel .sign {background-color: #666;}
+  .motel {background-color: #000;}
