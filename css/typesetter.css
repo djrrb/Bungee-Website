@@ -77,11 +77,11 @@
     color: rgba(128,128,128,0.3);
 }
 
-#preview .background.regular {
+#preview .sign.regular {
 	color: #EFE446;
 }
 
-#preview .background.outline {
+#preview .sign.outline {
     color: #b2c021;
 }
 
@@ -92,10 +92,13 @@
 	margin-top: .25em;
 	margin-bottom: .25em;
 }
-.swatch .bungeee:not(.sign):after,
-.swatch.bungeee:not(.sign):after {
+
+/*
+.swatch .layer:not(.banner):after {
 	content: 'R';
 }
+*/
+
 .swatch-small {
 	font-size: 1em;
 }
@@ -109,7 +112,14 @@
 	margin-top: 0;
 	outline: 1px solid #CCC;
 	display: inline-block;
-}.palette {
+}
+
+#palettes > li {
+    display: inline-block;
+    margin-right: 0.33em;
+}
+
+.palette {
 	font-size: 4em;
 	position: relative;
 	display: inline-block;
@@ -119,15 +129,6 @@
 	margin-top: 0;
 	vertical-align: middle;
 	text-align: center;
-}
-.palette div {
-	position: absolute;
-	top: .2em;
-	left: .2em;
-	padding-left: .05em;
-	margin: 0;
-	width: 1.1em;
-	height: 1.1em;
 }
 .active {
 	outline: 3px solid #000 !important;

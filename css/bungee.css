@@ -172,15 +172,15 @@
     font-feature-settings: "ss01", "liga" 0, "kern" 0, "vert", "vpal";
 }
 
-.bungee.background .layer.background {
+.bungee.sign .layer.sign {
     opacity: 1;
 }
 
-.bungee .background.regular {
+.bungee .sign.regular {
     z-index: 2;
 }
 
-.bungee .background.outline {
+.bungee .sign.outline {
     z-index: 1;
 }
 

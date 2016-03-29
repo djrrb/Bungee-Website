@@ -35,7 +35,6 @@ $(document).keydown(function(e) {
 <link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/bungee.css">
 <link rel="stylesheet" href="/css/typesetter.css">
-<link rel="stylesheet" href="/css/palettes.css">
 <style>
 * {
 	font-family: inherit;
@@ -410,7 +409,7 @@ html.colorswap h3:after {color: #FFF;}
         </fieldset>
         <fieldset id='presets'>
 	        Presets:
-	        <select id="preset-list" name="presents">
+	        <select id="preset-list" name="presets">
 		        <option>Bodega</option>
 		        <option>Motel</option>
 		        <option>Fire Truck</option>
@@ -441,64 +440,8 @@ html.colorswap h3:after {color: #FFF;}
 		        <option>Bowling</option>
 		        <option>Open</option>
 			</select>
-			<div class="palettes">
-				<div class="swatch palette red">
-					<div class="bungeee sign">&nbsp;</div>
-					<div class="bungeee shade"></div>
-					<div class="bungeee outline"></div>
-					<div class="bungeee regular"></div>
-					<div class="bungeee inline"></div>
-				</div>
-				<div class="swatch palette blue-on-dark">
-					<div class="bungeee sign"></div>
-					<div class="bungeee shade"></div>
-					<div class="bungeee outline"></div>
-					<div class="bungeee regular"></div>
-					<div class="bungeee inline"></div>
-				</div>
-				<div class="swatch palette blue">
-					<div class="bungeee sign"></div>
-					<div class="bungeee shade"></div>
-					<div class="bungeee outline"></div>
-					<div class="bungeee regular"></div>
-					<div class="bungeee inline"></div>
-				</div>
-				<div class="swatch palette white-black-red">
-					<div class="bungeee sign"></div>
-					<div class="bungeee shade"></div>
-					<div class="bungeee outline"></div>
-					<div class="bungeee regular"></div>
-					<div class="bungeee inline"></div>
-				</div>
-				<div class="swatch palette active red-yellow-white">
-					<div class="bungeee sign"></div>
-					<div class="bungeee shade"></div>
-					<div class="bungeee outline"></div>
-					<div class="bungeee regular"></div>
-					<div class="bungeee inline"></div>
-				</div>
-				<div class="swatch palette cool-blues">
-					<div class="bungeee sign"></div>
-					<div class="bungeee shade"></div>
-					<div class="bungeee outline"></div>
-					<div class="bungeee regular"></div>
-					<div class="bungeee inline"></div>
-				</div>
-				<div class="swatch palette peach-orange-purple">
-					<div class="bungeee sign"></div>
-					<div class="bungeee shade"></div>
-					<div class="bungeee outline"></div>
-					<div class="bungeee regular"></div>
-					<div class="bungeee inline"></div>
-				</div>
-				<div class="swatch palette motel">
-					<div class="bungeee sign"></div>
-					<div class="bungeee shade"></div>
-					<div class="bungeee outline"></div>
-					<div class="bungeee regular"></div>
-					<div class="bungeee inline"></div>
-				</div>
-			</div>
+			<ul id="palettes">
+			</ul>
         </fieldset>
 		<div class="colors">
 			<span class="swatch-small none" style="background-color:#FFF"></span>

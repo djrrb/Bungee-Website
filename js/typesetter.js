@@ -2,10 +2,39 @@
 (function() {
     "use strict";
 
+    //populate presets from colors file
+    $.ajax('/data/bungee-colors.json', {
+        'success': function(data) {
+            $(function() {
+                window.Bungee.presets = {};
+                var preset, classes;
+                for (var i in data) {
+                    preset = data[i];
+                    classes = ['bungee', 'block-square', 'palette', 'swatch', preset.name];
+                    window.Bungee.presets[preset.name] = preset;
+                    $.each(preset, function(layer, color) {
+                        var classname;
+                        if (!color || !color.hex) {
+                            return;
+                        }
+                        classname = layer + '-' + color.hex;
+                        if (color.alpha) {
+                            classname += '-' + color.alpha.toString().replace(/^\d*\./, '');
+                        }
+                        classes.push(classname);
+                    });
+                    $('#palettes').append("<li><div class='" + classes.join(' ') + "'>R</div></li>")
+                }
+                $('#palettes .bungee').each(window.Bungee.init);
+            });
+        }
+    });
+
     $(window).on('load', function() {
         var Bungee = window.Bungee;
         var preview = $('#preview').addClass('bungee');
-        var allcontrols = $('#controls input');
+        var allcontrols = $('#controls input, #controls select');
+        var presetcontrol = $('#presets');
         var layercontrols = $('#controls input[name=layer]');
         var orientationcontrols = $('#controls input[name=orientation]');
         //var rotatedcontrol = $('#controls input[name=rotated]');
@@ -13,8 +42,7 @@
         var sizecontrol = $('#controls input[name=size]');
         var textcontrol = $('#controls input[name=text]');
         var backgroundcontrols = $('#background-controls input');
-        var temp;
-    
+        
         //process initial url
         if (window.location.hash.length > 1) {
             $('input[type=checkbox], input[type=radio]').prop('checked', false);
@@ -71,7 +99,7 @@
             if (topclass.match(allfour).length === 4) {
                 topclass = topclass.replace(allfour, ' ');
             }
-            topclass = topclass.replace(/(^|\s)(horizontal|background|block|banner)\b(?!-)/g, ' ');
+            topclass = topclass.replace(/(^|\s)(horizontal|sign|block|banner)\b(?!-)/g, ' ');
             topclass = topclass.replace(/\s\s+/g, ' ').trim();
             code += '<div class="' + topclass + '">';
             code += Bungee.cleanupText(textcontrol.val());
@@ -223,7 +251,7 @@
             preview.prop('className', classes.join(' ')).html(text);
             Bungee.init(preview);
 
-            if (evt) {
+            if (false && evt) {
                 setURL();
                 setTimeout(doCode);
                 if (evt.type !== 'input') {
@@ -238,7 +266,7 @@
         textcontrol.on('keyup', updatePreview);
 
         updatePreview();
-        doCode();
-        doSVG();
+        //doCode();
+        //doSVG();
     }); //window.onload
 })();

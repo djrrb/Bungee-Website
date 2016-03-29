@@ -12,6 +12,7 @@ $(function() {
                 article.animate({'scrollLeft':pos}, {'duration':'0.5'});
             }
         }
+        return false;
     }
 
     window.location.hash && goToHash();
