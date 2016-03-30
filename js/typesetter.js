@@ -10,11 +10,14 @@
                 var preset, classes;
                 for (var i in data) {
                     preset = data[i];
-                    classes = ['bungee', 'block-circle', 'palette', 'swatch', preset.name];
+                    classes = ['bungee', 'block-circle', 'palette', preset.name];
                     window.Bungee.presets[preset.name] = preset;
                     $.each(preset, function(layer, color) {
                         var classname;
                         if (!color || !color.hex) {
+                            return;
+                        }
+                        if (color.active === false && layer !== 'sign') {
                             return;
                         }
                         classname = layer + '-' + color.hex;
@@ -35,7 +38,7 @@
         var preview = $('#preview').addClass('bungee');
         var allcontrols = $('#controls input, #controls select');
         var presetcontrols = $('#palettes input');
-        var layercontrols = $('#controls input[name=layer]');
+        var layercontrols = $('#layer-controls .swatch');
         var orientationcontrols = $('#controls input[name=orientation]');
         //var rotatedcontrol = $('#controls input[name=rotated]');
         var altcontrols = $('#controls input[name=alt]');
@@ -203,37 +206,47 @@
             var preset = Bungee.presets[presetcontrols.filter(':checked').val()] || {};
 
             var layers = [];
+            function colorToLayerClass(layer, color) {
+                var layerclass = layer;
+                layerclass += '-' + color.toHex();
+                if (color.getAlpha() < 1) {
+                    layerclass += color.getAlpha().toString().replace(/^.*\./, '');
+                }
+                return layerclass;
+            }
             if (presetcontrols.is(actor)) {
                 //reset layer checkboxes on preset change
                 $.each(preset, function(layer, color) {
-                    var on = color.on !== false;
-                    layercontrols.filter('[value=' + layer + ']').prop('checked', on);
+                    var on = color.active !== false || layer === 'sign';
+                    var layercontrol = layercontrols.filter('.' + layer);
+                    if (!layercontrol.length || !color.hex) {
+                        return;
+                    }
+                    var newcolor = tinycolor(color.hex);
+                    if (color.alpha) {
+                        newcolor.setAlpha(color.alpha);
+                    }
+                    layercontrol.spectrum('set', newcolor);
+                    handleColor(layercontrol, on && newcolor, true);
                     if (on) {
-                        layers.push(layer);
+                        layers.push(colorToLayerClass(layer, newcolor));
                     }
                 });
             } else {
                 //otherwise read layers from checkboxes
-                layercontrols.filter(':checked').each(function() {
-                    layers.push(this.value);
+                layercontrols.filter(':not(.none)').each(function() {
+                    var layer = $(this);
+                    layers.push(colorToLayerClass(layer.data('layer'), layer.spectrum('get')));
                 });
             }
-            
+
             //no layers == all layers
             if (layers.length === 0) {
                 layers = ["inline", "outline", "regular", "shade"];
             }
             
-            if (preset) {
-                temp = /\b(regular|inline|outline|shade|sign|background)-\S+/g;
-                $.each((presetcontrols.filter(':checked').next('label').prop('className')||'').match(temp)||[], function(i, c) {
-                    classes.push(c);
-                });
-            } else {
-                //use default colors
-                for (var i in layers) {
-                    classes.push(layers[i]);
-                }
+            for (var i in layers) {
+                classes.push(layers[i]);
             }
 
             var orientation = orientationcontrols.filter(':checked').val();
@@ -289,6 +302,40 @@
                 }
             }
         }
+
+        function handleColor(layer, newcolor, silent) {
+            var cssrule = layer.hasClass('background') ? 'background-color' : 'color';
+            if (newcolor) {
+                layer.removeClass('none').css(cssrule, newcolor.toRgbString());
+            } else {
+                layer.addClass('none');
+            }
+            if (!silent) {
+                updatePreview();
+            }
+        }
+
+        layercontrols.each(function() {
+            var layer = $(this);
+            var cssrule = layer.hasClass('background') ? 'background-color' : 'color';
+            layer.spectrum({
+                'color': layer.css(cssrule),
+                'showInput': true,
+                'showAlpha': true,
+                'showButtons': false,
+                'showInitial': true,
+                'allowEmpty': true,
+                'containerClassName': 'color-picker-container',
+                'preferredFormat': 'hex',
+                'appendTo': '#tester',
+                'move': function(newcolor) {
+                    handleColor(layer, newcolor);
+                    if (!newcolor) {
+                        layer.spectrum('hide');
+                    }
+                }
+            });
+        });
 
         allcontrols.on('change', updatePreview);
         sizecontrol.on('input', updatePreview);

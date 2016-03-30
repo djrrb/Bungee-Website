@@ -12,6 +12,7 @@
 <script src="/js/bungee.js"></script>
 <script src="/js/typesetter.js"></script>
 <script src="/js/bungee-website.js"></script>
+<script src="/js/spectrum.js"></script>
 <script>
   $(function() {
     $('h1,h3').each(function() {
@@ -35,6 +36,7 @@ $(document).keydown(function(e) {
 <link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/bungee.css">
 <link rel="stylesheet" href="/css/typesetter.css">
+<link rel="stylesheet" href="/css/spectrum.css">
 <style>
 * {
 	font-family: inherit;
@@ -389,22 +391,22 @@ html.colorswap h3:after {color: #FFF;}
         <fieldset id='layer-controls'>
             Colors:
 			<div>
-				<label>Base: <span class="swatch bungeee regular" style="color: #DC4227;"></span></label>
+				<label>Base: <span data-layer='regular' class="swatch bungeee regular" style="color: #DC4227;"></span></label>
 			</div>
 			<div>
-				<label>Inline: <span class="swatch bungeee inline" style="color: #FFFFFF;"></span></label>
+				<label>Inline: <span data-layer='inline' class="swatch bungeee inline" style="color: #FFFFFF;"></span></label>
 			</div>
 			<div>
-				<label>Outline: <span class="swatch bungeee outline" style="color: #ad1622"></span></label>
+				<label>Outline: <span data-layer='outline' class="swatch bungeee outline" style="color: #ad1622"></span></label>
 			</div>
 			<div>
-				<label>Shade: <span class="swatch bungeee shade" style="color: rgba(128,128,128,0.3);"></span></label>
+				<label>Shade: <span data-layer='shade' class="swatch bungeee shade" style="color: rgba(128,128,128,0.3);"></span></label>
 			</div>
 			<div>
-				<label>Banner: <span class="swatch bungeee regular sign" style="color: #EFE446;">█</span></label>
+				<label>Banner: <span data-layer='sign' class="swatch bungeee sign" style="color: #EFE446;"></span></label>
 			</div>
 			<div>
-				<label>Background: <span class="swatch color background" style="background-color: #FFFFFF;"></span></label>
+				<label>Background: <span data-layer='background' class="swatch color background" style="background-color: #FFFFFF;"></span></label>
 			</div>
         </fieldset>
         <fieldset id='preset-controls'>

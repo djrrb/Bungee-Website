@@ -98,6 +98,10 @@
 	content: 'R';
 }
 
+.swatch.sign:after {
+    content: "█";
+}
+
 
 .swatch-small {
 	font-size: 1em;
@@ -145,6 +149,7 @@ input {
 }
 .none {
 	background-color: #FFF;
+	color: rgba(255,255,255,0) !important;
     background: 
        linear-gradient(to top left,
            rgba(255,0,0,0) 0%,
