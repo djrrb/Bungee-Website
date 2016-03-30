@@ -210,7 +210,7 @@
                 var layerclass = layer;
                 layerclass += '-' + color.toHex();
                 if (color.getAlpha() < 1) {
-                    layerclass += color.getAlpha().toString().replace(/^.*\./, '');
+                    layerclass += '-' + color.getAlpha().toString().replace(/^.*\./, '');
                 }
                 return layerclass;
             }
