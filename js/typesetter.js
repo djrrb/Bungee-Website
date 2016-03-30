@@ -304,7 +304,7 @@
         }
 
         function handleColor(layer, newcolor, silent) {
-            var cssrule = layer.hasClass('background') ? 'background-color' : 'color';
+            var cssrule = 'color'; //layer.hasClass('background') ? 'background-color' : 'color';
             if (newcolor) {
                 layer.removeClass('none').css(cssrule, newcolor.toRgbString());
             } else {
@@ -317,7 +317,7 @@
 
         layercontrols.each(function() {
             var layer = $(this);
-            var cssrule = layer.hasClass('background') ? 'background-color' : 'color';
+            var cssrule = 'background-color'; //layer.hasClass('background') ? 'background-color' : 'color';
             layer.spectrum({
                 'color': layer.css(cssrule),
                 'showInput': true,
