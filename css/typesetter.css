@@ -7,8 +7,8 @@
 #tester #background-controls li {
     list-style-type: none;
     display: inline;
-    font-family: "Bungeee Inline";
-    font-size: 2em;
+    font-family: "Bungeee Regular";
+    font-size: 1em;
 }
 
 #tester #background-controls input {
@@ -24,12 +24,25 @@
     background-color: white;
 }
 
+fieldset {
+	background-color: #CCC;
+	padding: .5em;
+}
+
 /* preview box */
 
 #preview {
     display: block;
     margin-top: 1rem;
     background-color: #FFFFFF;
+}
+
+select {
+	display: inline-block;
+	margin-top: 0;
+}
+input[type=text] {
+	padding: .25em .5em;
 }
 
 #preview.vertical {
@@ -86,7 +99,7 @@
 }
 
 .swatch {
-	font-size: 2em;
+	font-size: 1.5em;
 	line-height: 1;
 	vertical-align: middle;
 	margin-top: .25em;
@@ -94,25 +107,14 @@
 }
 
 
-.swatch:not(.palette):not(.sign):not(.background):after {
-	content: 'R';
-}
-
-.swatch.sign:after {
-    content: "█";
-}
-
-
 .swatch-small {
-	font-size: 1em;
+	font-size: .5em;
 }
 .colors span,
 .swatch {
 	text-align: center;
-	width: 1.5em;
-	height: 1.5em;
-	padding: .25em;
-	vertical-align: middle;
+	width: .75em;
+	height: .75em;
 	margin-top: 0;
 	outline: 1px solid #CCC;
 	display: inline-block;
@@ -124,7 +126,7 @@
 }
 
 .palette {
-	font-size: 4em;
+	font-size: 3em;
 	position: relative;
 	display: inline-block;
 	width: auto;
@@ -157,8 +159,4 @@ input {
            rgba(255,0,0,1) 50%,
            rgba(255,0,0,0) calc(50% + 2px),
            rgba(255,0,0,0) 100%);
-}
-#stylistic-sets ul {
-	font-family: 'Bungeee Regular';
-	font-size: 2em;
 }

@@ -150,6 +150,10 @@ h3:after {
 	top: 0;
 	left: 0;
 }
+h5 {
+	font-weight: bold;
+	display: inline;
+}
 p {
 	line-height: 1.4;
 	max-width: 80ex;
@@ -383,34 +387,52 @@ html.colorswap h3:after {color: #FFF;}
 </section><section id="tester">
     <figure id='preview'></figure>
     <form id='controls' onsubmit='return false'>
-        <fieldset id='orientation-controls'>
-            Orientation:
-            <label><input type='radio' name='orientation' value='horizontal' checked> Horizontal</label>
-            <label><input type='radio' name='orientation' value='vertical'> Vertical</label>
+	    
+        <fieldset id='text-control'>
+            <label><h5>Text:</h5> <input type='text' name='text' value='Preview’r'></label>
         </fieldset>
+        <fieldset id='orientation-controls'>
+	        <h5>Orientation:</h5>
+            <ul>
+            <li><label><input type='radio' name='orientation' value='horizontal' checked> Horizontal</label></li>
+            <li><label><input type='radio' name='orientation' value='vertical'> Vertical</label></li>
+            </ul>
+        </fieldset>
+        
         <fieldset id='layer-controls'>
-            Colors:
-			<div>
-				<label>Base: <span data-layer='regular' class="swatch bungeee regular" style="color: #DC4227;"></span></label>
-			</div>
-			<div>
-				<label>Inline: <span data-layer='inline' class="swatch bungeee inline" style="color: #FFFFFF;"></span></label>
-			</div>
-			<div>
-				<label>Outline: <span data-layer='outline' class="swatch bungeee outline" style="color: #ad1622"></span></label>
-			</div>
-			<div>
-				<label>Shade: <span data-layer='shade' class="swatch bungeee shade" style="color: rgba(128,128,128,0.3);"></span></label>
-			</div>
-			<div>
-				<label>Banner: <span data-layer='sign' class="swatch bungeee sign" style="color: #EFE446;"></span></label>
-			</div>
-			<div>
-				<label>Background: <span data-layer='background' class="swatch color background" style="background-color: #FFFFFF;"></span></label>
-			</div>
+            <h5>Colors:</h5>
+            <ul>
+				<li>
+					<label><span data-layer='regular' class="swatch regular" style="background-color: #DC4227;"></span>&ensp;Base</label>
+				</li>
+				<li>
+					<label><span data-layer='inline' class="swatch inline" style="background-color: #FFFFFF;"></span>&ensp;Inline</label>
+				</li>
+				<li>
+					<label><span data-layer='outline' class="swatch outline" style="background-color: #ad1622"></span>&ensp;Outline</label>
+				</li>
+				<li>
+					<label><span data-layer='shade' class="swatch shade" style="background-color: rgba(128,128,128,0.3);"></span>&ensp;Shade</label>
+				</li>
+				<li>
+					<label><span data-layer='sign' class="swatch sign" style="background-color: #EFE446;"></span>&ensp;Banner</label>
+				</li>
+				<li>
+					<label><span data-layer='background' class="swatch background" style="background-color: #FFFFFF;"></span>&ensp;Background</label>
+				</li>
+            </ul>
+        </fieldset>
+        <fieldset id='banner-controls'>
+            <ul>
+		        <li id='background-controls'>
+		            <fieldset><h5>Banner head:</h5> <script>Bungee.backgroundInputList('begin');</script></fieldset>
+		            <fieldset><h5>Banner tail:</h5> <script>Bungee.backgroundInputList('end');</script></fieldset>
+		            <fieldset><h5>Block shapes:</h5> <script>Bungee.backgroundInputList('block');</script></fieldset>
+		        </li>
+	        </ul>
         </fieldset>
         <fieldset id='preset-controls'>
-	        Presets:
+	        <h5>Presets: </h5>
 	        <select id="preset-list" name="presets">
 		        <option>Bodega</option>
 		        <option>Motel</option>
@@ -442,108 +464,25 @@ html.colorswap h3:after {color: #FFF;}
 		        <option>Bowling</option>
 		        <option>Open</option>
 			</select>
+<!--
 			<ul id="palettes">
 			</ul>
-        </fieldset>
-		<div class="colors">
-			<span class="swatch-small none" style="background-color:#FFF"></span>
-			<span class="swatch-small" style="background-color:#000000"></span>
-			<span class="swatch-small" style="background-color:#0B5BA8"></span>
-			<span class="swatch-small" style="background-color:#1E5287"></span>
-			<span class="swatch-small" style="background-color:#2E77C0"></span>
-			<span class="swatch-small" style="background-color:#3E0E00"></span>
-			<span class="swatch-small" style="background-color:#5D0000"></span>
-			<span class="swatch-small" style="background-color:#55A5FE"></span>
-			<span class="swatch-small" style="background-color:#77B2DF"></span>
-			<span class="swatch-small" style="background-color:#102C34"></span>
-			<span class="swatch-small" style="background-color:#184B57"></span>
-			<span class="swatch-small" style="background-color:#23849F"></span>
-			<span class="swatch-small" style="background-color:#26243A"></span>
-			<span class="swatch-small" style="background-color:#111111"></span>
-			<span class="swatch-small" style="background-color:#114752"></span>
-			<span class="swatch-small" style="background-color:#333333"></span>
-			<span class="swatch-small" style="background-color:#490000"></span>
-			<span class="swatch-small" style="background-color:#AD1622"></span>
-			<span class="swatch-small" style="background-color:#C1E6FF"></span>
-			<span class="swatch-small active" style="background-color:#C9060E"></span>
-			<span class="swatch-small" style="background-color:#D7D7D7"></span>
-			<span class="swatch-small" style="background-color:#E24D3D"></span>
-			<span class="swatch-small" style="background-color:#E71B26"></span>
-			<span class="swatch-small" style="background-color:#EAE2B1"></span>
-			<span class="swatch-small" style="background-color:#EFBB43"></span>
-			<span class="swatch-small" style="background-color:#F6EECD"></span>
-			<span class="swatch-small" style="background-color:#FED0D2"></span>
-			<span class="swatch-small" style="background-color:#FF5140"></span>
-			<span class="swatch-small" style="background-color:#FFDA99"></span>
-			<span class="swatch-small" style="background-color:#FFFFFF"></span>
-		</div>
-		<div class="colors">
-			<span class="swatch none" style="background-color:#FFF"></span>
-			<span class="swatch" style="background-color:#000000"></span>
-			<span class="swatch" style="background-color:#0B5BA8"></span>
-			<span class="swatch" style="background-color:#1E5287"></span>
-			<span class="swatch" style="background-color:#2E77C0"></span>
-			<span class="swatch" style="background-color:#3E0E00"></span>
-			<span class="swatch" style="background-color:#5D0000"></span>
-			<span class="swatch" style="background-color:#55A5FE"></span>
-			<span class="swatch" style="background-color:#77B2DF"></span>
-			<span class="swatch" style="background-color:#102C34"></span>
-			<span class="swatch" style="background-color:#184B57"></span>
-			<span class="swatch" style="background-color:#23849F"></span>
-			<span class="swatch" style="background-color:#26243A"></span>
-			<span class="swatch" style="background-color:#111111"></span>
-			<span class="swatch" style="background-color:#114752"></span>
-			<span class="swatch" style="background-color:#333333"></span>
-			<span class="swatch" style="background-color:#490000"></span>
-			<span class="swatch" style="background-color:#AD1622"></span>
-			<span class="swatch" style="background-color:#C1E6FF"></span>
-			<span class="swatch active" style="background-color:#C9060E"></span>
-			<span class="swatch" style="background-color:#D7D7D7"></span>
-			<span class="swatch" style="background-color:#E24D3D"></span>
-			<span class="swatch" style="background-color:#E71B26"></span>
-			<span class="swatch" style="background-color:#EAE2B1"></span>
-			<span class="swatch" style="background-color:#EFBB43"></span>
-			<span class="swatch" style="background-color:#F6EECD"></span>
-			<span class="swatch" style="background-color:#FED0D2"></span>
-			<span class="swatch" style="background-color:#FF5140"></span>
-			<span class="swatch" style="background-color:#FFDA99"></span>
-			<span class="swatch" style="background-color:#FFFFFF"></span>
-		</div>
-<!--
-        <fieldset id='stylistic-sets'>
-            Alternates:
-            <label><input type='checkbox' name='alt' value='rounded'> Round</label>
-            <label><input type='checkbox' name='alt' value='e'> E</label>
-            <label><input type='checkbox' name='alt' value='i'> I</label>
-            <label><input type='checkbox' name='alt' value='l'> L</label>
-            <label><input type='checkbox' name='alt' value='amp'> &amp;</label>
-            <label><input type='checkbox' name='alt' value='quote'> ’</label>
-            <label><input type='checkbox' name='alt' value='ij'> Ĳ</label>
-        </fieldset>
 -->
-        <fieldset class="bungeee" id='stylistic-sets'>
-			Alternates:
-			<ul>
-				<li><label><input type='radio' name='round' value='0' checked /> AMNWXY</label>&emsp;<label class="alt-rounds"><input type='radio' name='rounds' value='1' /> AMNWXY</label></li>
-				<li><label><input type='radio' name='e' value='0' checked /> E</label>&emsp;<label class="alt-e"><input type='radio' name='e' value='1' /> E</label></li>
-				<li><label><input type='radio' name='i' value='0' checked /> I</label>&emsp;<label class="alt-i"><input type='radio' name='i' value='1' /> I</label></li>
-				<li><label><input type='radio' name='l' value='0' checked /> L</label>&emsp;<label class="alt-l"><input type='radio' name='l' value='1' /> L</label></li>
-				<li><label><input type='radio' name='amp' value='0' checked /> &</label>&emsp;<label class="alt-amp"><input type='radio' name='amp' value='1' /> &</label></li>
-				<li><label><input type='radio' name='apos' value='0' checked /> ’</label>&emsp;<label class="alt-apos"><input type='radio' name='apos' value='1' /> ’</label></li>
-				<li><label><input type='radio' name='ij' value='0' checked /> Ĳ</label>&emsp;<label class="alt-ij"><input type='radio' name='ij' value='1' /> Ĳ</label></li>
-			</ul>
+        </fieldset>
+        <fieldset id='stylistic-sets'>
+            <h5>Alternates:</h5>
+            <ul>
+	            <li><label><input type='checkbox' name='alt' value='rounded'> Alternate A, M, N, W, X, Y</label></li>
+	            <li><label><input type='checkbox' name='alt' value='e'> Round E</label></li>
+	            <li><label><input type='checkbox' name='alt' value='i'> Simplified I</label></li>
+	            <li><label><input type='checkbox' name='alt' value='l'> Simplified L</label></li>
+	            <li><label><input type='checkbox' name='alt' value='amp'> Alternate ampersand</label></li>
+	            <li><label><input type='checkbox' name='alt' value='quote'> Small apostrophe</label></li>
+            </ul>
         </fieldset>
         <fieldset id='size-control'>
-            <label>Size: <input type='range' name='size' value='120' min='24' max='288'>&nbsp;<input type='checkbox' name='size' value='auto' checked /> Auto-fit</label>
+            <label><h5>Size:</h5> <input type='range' name='size' value='120' min='24' max='288'>&nbsp;<input type='checkbox' name='size' value='auto' checked /> Auto-fit</label>
         </fieldset>
-        <fieldset id='text-control'>
-            <label>Text: <input type='text' name='text' value='Preview’r'></label>
-        </fieldset>
-        <div id='background-controls'>
-            <fieldset>Banner head: <script>Bungee.backgroundInputList('begin');</script></fieldset>
-            <fieldset>Banner tail: <script>Bungee.backgroundInputList('end');</script></fieldset>
-            <fieldset>Block shapes: <script>Bungee.backgroundInputList('block');</script></fieldset>
-        </div>
     </form>
 </section>
 <section id="chromatic">
