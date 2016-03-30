@@ -400,38 +400,6 @@ html.colorswap h3:after {color: #FFF;}
             </ul>
         </fieldset>
         
-        <fieldset id='layer-controls'>
-            <h5>Colors:</h5>
-            <ul>
-				<li>
-					<label><span data-layer='regular' class="swatch regular" style="background-color: #DC4227;"></span>&ensp;Base</label>
-				</li>
-				<li>
-					<label><span data-layer='inline' class="swatch inline" style="background-color: #FFFFFF;"></span>&ensp;Inline</label>
-				</li>
-				<li>
-					<label><span data-layer='outline' class="swatch outline" style="background-color: #ad1622"></span>&ensp;Outline</label>
-				</li>
-				<li>
-					<label><span data-layer='shade' class="swatch shade" style="background-color: rgba(128,128,128,0.3);"></span>&ensp;Shade</label>
-				</li>
-				<li>
-					<label><span data-layer='sign' class="swatch sign" style="background-color: #EFE446;"></span>&ensp;Banner</label>
-				</li>
-				<li>
-					<label><span data-layer='background' class="swatch background" style="background-color: #FFFFFF;"></span>&ensp;Background</label>
-				</li>
-            </ul>
-        </fieldset>
-        <fieldset id='banner-controls'>
-            <ul>
-		        <li id='background-controls'>
-		            <fieldset><h5>Banner head:</h5> <script>Bungee.backgroundInputList('begin');</script></fieldset>
-		            <fieldset><h5>Banner tail:</h5> <script>Bungee.backgroundInputList('end');</script></fieldset>
-		            <fieldset><h5>Block shapes:</h5> <script>Bungee.backgroundInputList('block');</script></fieldset>
-		        </li>
-	        </ul>
-        </fieldset>
         <fieldset id='preset-controls'>
 	        <h5>Presets: </h5>
 	        <select id="preset-list" name="presets">
@@ -468,7 +436,39 @@ html.colorswap h3:after {color: #FFF;}
 			<ul id="palettes">
 			</ul>
 		</fieldset>
-        <fieldset id='stylistic-sets'>
+
+        <fieldset id='layer-controls'>
+            <h5>Colors:</h5>
+            <ul>
+				<li>
+					<label><span data-layer='regular' class="swatch regular" style="background-color: #DC4227;"></span>&ensp;Base</label>
+				</li>
+				<li>
+					<label><span data-layer='inline' class="swatch inline" style="background-color: #FFFFFF;"></span>&ensp;Inline</label>
+				</li>
+				<li>
+					<label><span data-layer='outline' class="swatch outline" style="background-color: #ad1622"></span>&ensp;Outline</label>
+				</li>
+				<li>
+					<label><span data-layer='shade' class="swatch shade" style="background-color: rgba(128,128,128,0.3);"></span>&ensp;Shade</label>
+				</li>
+				<li>
+					<label><span data-layer='sign' class="swatch sign" style="background-color: #EFE446;"></span>&ensp;Banner</label>
+				</li>
+				<li>
+					<label><span data-layer='background' class="swatch background" style="background-color: #FFFFFF;"></span>&ensp;Background</label>
+				</li>
+            </ul>
+        </fieldset>
+        <fieldset id='banner-controls'>
+            <ul>
+		        <li id='background-controls'>
+		            <fieldset><h5>Banner head:</h5> <script>Bungee.backgroundInputList('begin');</script></fieldset>
+		            <fieldset><h5>Banner tail:</h5> <script>Bungee.backgroundInputList('end');</script></fieldset>
+		            <fieldset><h5>Block shapes:</h5> <script>Bungee.backgroundInputList('block');</script></fieldset>
+		        </li>
+	        </ul>
+        </fieldset>        <fieldset id='stylistic-sets'>
             <h5>Alternates:</h5>
             <ul>
 	            <li><label><input type='checkbox' name='alt' value='rounded'> Alternate A, M, N, W, X, Y</label></li>
