@@ -149,7 +149,7 @@ input {
 	vertical-align: middle;
 	margin: 0;
 }
-.none {
+.none, .color-picker-container .sp-clear {
 	background-color: #FFF !important;
 	color: rgba(255,255,255,0) !important;
     background: 
