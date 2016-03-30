@@ -238,6 +238,9 @@
                     var layer = $(this);
                     layers.push(colorToLayerClass(layer.data('layer'), layer.spectrum('get')));
                 });
+                if (layercontrols.filter('.background.none').length) {
+                    layers.push('background-transparent');
+                }
             }
 
             //no layers == all layers
@@ -308,7 +311,7 @@
             if (newcolor) {
                 layer.removeClass('none').css(cssrule, newcolor.toRgbString());
             } else {
-                layer.addClass('none');
+                layer.addClass('none').css(cssrule, 'transparent');
             }
             if (!silent) {
                 updatePreview();
