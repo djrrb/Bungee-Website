@@ -150,7 +150,7 @@ input {
 	margin: 0;
 }
 .none {
-	background-color: #FFF;
+	background-color: #FFF !important;
 	color: rgba(255,255,255,0) !important;
     background: 
        linear-gradient(to top left,

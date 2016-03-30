@@ -48,7 +48,7 @@
         
         //process initial url
         if (window.location.hash.length > 1) {
-            $('input[type=checkbox], input[type=radio]').prop('checked', false);
+            //$('input[type=checkbox], input[type=radio]').prop('checked', false);
             $.each(window.location.hash.substr(1).split('&'), function(i,clause) {
                 var eq = clause.split('=', 2);
                 switch (eq[0]) {
