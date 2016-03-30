@@ -310,8 +310,14 @@
             var cssrule = 'background-color'; //layer.hasClass('background') ? 'background-color' : 'color';
             if (newcolor) {
                 layer.removeClass('none').css(cssrule, newcolor.toRgbString());
+                if (layer.hasClass('background')) {
+                    $('#tester').css('background-color', newcolor.toRgbString());
+                }
             } else {
                 layer.addClass('none').css(cssrule, 'transparent');
+                if (layer.hasClass('background')) {
+                    $('#tester').css('background-color', '');
+                }
             }
             if (!silent) {
                 updatePreview();
