@@ -10,7 +10,7 @@
                 var preset, classes;
                 for (var i in data) {
                     preset = data[i];
-                    classes = ['bungee', 'block-square', 'palette', 'swatch', preset.name];
+                    classes = ['bungee', 'block-circle', 'palette', 'swatch', preset.name];
                     window.Bungee.presets[preset.name] = preset;
                     $.each(preset, function(layer, color) {
                         var classname;
@@ -34,7 +34,7 @@
         var Bungee = window.Bungee;
         var preview = $('#preview').addClass('bungee');
         var allcontrols = $('#controls input, #controls select');
-        var presetcontrol = $('#presets');
+        var presetcontrols = $('#palettes input');
         var layercontrols = $('#controls input[name=layer]');
         var orientationcontrols = $('#controls input[name=orientation]');
         //var rotatedcontrol = $('#controls input[name=rotated]');
@@ -178,7 +178,7 @@
         }
     
         function updatePreview(evt) {
-            var actor;
+            var actor, temp;
             if (evt) {
                 //evt will either be a real event, or an element
                 actor = evt.target || evt;
@@ -193,24 +193,53 @@
                         
             var classes = [];
             $.each(preview.prop('className').split(/\s+/), function(i, cls) {
-                if (!/^(block|banner|background|begin-.+|end-.+|block-.+|alt-.+|horizontal|vertical|regular|inline|outline|shade)$/.test(cls)) {
+                if (!/^(?:block|banner|sign|begin|end|block|alt|horizontal|vertical|regular|inline|outline|shade|background)(?:-.+)?$/.test(cls)) {
                     classes.push(cls);
                 }
             });
 
             var text = Bungee.cleanupText(textcontrol.val());
             
-            var layers = layercontrols.filter(':checked');
-            if (layers.length < 4) {
-                layers.each(function() {
-                    classes.push(this.value);
+            var preset = Bungee.presets[presetcontrols.filter(':checked').val()] || {};
+
+            var layers = [];
+            if (presetcontrols.is(actor)) {
+                //reset layer checkboxes on preset change
+                $.each(preset, function(layer, color) {
+                    var on = color.on !== false;
+                    layercontrols.filter('[value=' + layer + ']').prop('checked', on);
+                    if (on) {
+                        layers.push(layer);
+                    }
                 });
+            } else {
+                //otherwise read layers from checkboxes
+                layercontrols.filter(':checked').each(function() {
+                    layers.push(this.value);
+                });
+            }
+            
+            //no layers == all layers
+            if (layers.length === 0) {
+                layers = ["inline", "outline", "regular", "shade"];
+            }
+            
+            if (preset) {
+                temp = /\b(regular|inline|outline|shade|sign|background)-\S+/g;
+                $.each((presetcontrols.filter(':checked').next('label').prop('className')||'').match(temp)||[], function(i, c) {
+                    classes.push(c);
+                });
+            } else {
+                //use default colors
+                for (var i in layers) {
+                    classes.push(layers[i]);
+                }
             }
 
             var orientation = orientationcontrols.filter(':checked').val();
             classes.push(orientation);
             $('.preview').removeClass('horizontal vertical').addClass(orientation);
-            
+
             //rotated mode
             //$('html')[rotatedcontrol.prop('checked') ? 'addClass' : 'removeClass']('no-vertical-text');
             

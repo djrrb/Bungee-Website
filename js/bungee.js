@@ -161,7 +161,7 @@
             //banners!
             if (begin || end || master.hasClass('banner')) {
                 //zero out any conflicting classes
-                classes = classes.replace(/\b(banner|begin|end|block|sign)(?:-\S+)?/g, ' ');
+                classes = classes.replace(/\b(banner|begin|end|block)(?:-\S+)?/g, ' ');
                 master.prop('className', classes);
                 if (!(begin in Bungee.beginChars)) { begin = 'square'; }
                 if (!(end in Bungee.endChars)) { end = 'square'; }
@@ -191,7 +191,7 @@
                 }, 10);
             } else if (block || master.hasClass('block')) {
                 //zero out any conflicting classes
-                classes = classes.replace(/\b(banner|begin|end|block|sign)(?:-\S+)?/g, ' ');
+                classes = classes.replace(/\b(banner|begin|end|block)(?:-\S+)?/g, ' ');
                 master.prop('className', classes);
                 if (!(block in Bungee.blockChars)) { block = 'square'; }
                 master.addClass('sign block block-' + block);
