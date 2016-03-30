@@ -23,7 +23,7 @@
                         }
                         classes.push(classname);
                     });
-                    $('#palettes').append("<li><div class='" + classes.join(' ') + "'>R</div></li>")
+                    $('#palettes').append("<li><input type='radio' name='preset' id='preset-" + preset.name + "' value='" + preset.name + "'><label for='preset-" + preset.name + "' class='" + classes.join(' ') + "'>R</label></li>")
                 }
                 $('#palettes .bungee').each(window.Bungee.init);
             });
