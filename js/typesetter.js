@@ -304,7 +304,7 @@
         }
 
         function handleColor(layer, newcolor, silent) {
-            var cssrule = 'color'; //layer.hasClass('background') ? 'background-color' : 'color';
+            var cssrule = 'background-color'; //layer.hasClass('background') ? 'background-color' : 'color';
             if (newcolor) {
                 layer.removeClass('none').css(cssrule, newcolor.toRgbString());
             } else {
