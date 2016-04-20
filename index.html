@@ -160,10 +160,15 @@ p {
 	max-width: 80ex;
 }
 figure {
-	max-width: 60em;
+	max-width: 40em;
+}
+figcaption {
+	font-size: .675em;
+	letter-spacing: 0.03em;
+	margin-top: .5em;
 }
 .figure_group {
-	max-width: 80em
+	max-width: 40em
 }
 img {
 	max-width: 100%;
@@ -179,8 +184,49 @@ cite, em {
 	padding-top: 1rem;
 	background-color: #DC4227;
 }
+#tester {
+	background-color: #FFF;
+	padding-left: 2em;
+}
 #tester img {
 	width: 50vw;
+}
+#preview {
+	padding: 0;
+	overflow: visible;
+}
+#controls {
+	font-size: .875em;
+}
+#text-control,
+#size-control,
+#orientation-controls,
+#layer-controls,
+#banner-controls {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0;
+}
+#text-control,
+#size-control,
+#orientation-controls {
+	width: 33.33%;
+}
+#layer-controls {
+	width: 50%;
+}
+#banner-controls {
+	width: 50%;
+}
+#background-controls ul,
+#background-controls label {
+	margin-top: .25em;
+}
+input[type="text"] {
+	width: 8em;
+}
+input[type="range"] {
+	width: 4em;
 }
 .specimen {
 	background-color: #EFE446;
@@ -286,9 +332,9 @@ html.colorswap h3:after {color: #FFF;}
 }
 @media (min-width: 48em) {
 	html:before {content: 'M';}
-	h3 {font-size: 5.75em;}
+	h3 {font-size: 5em;}
 }
-@media (min-width: 64em) and (min-height: 50em) {
+@media (min-width: 64em) and (min-height: 46em) {
 	html:before {content: 'L';}
 	article {
 		white-space: nowrap;
@@ -311,9 +357,24 @@ html.colorswap h3:after {color: #FFF;}
 		height: 100vh;
 		overflow-y: auto;
 	}
+	section.collapsing_content {
+		white-space: nowrap;
+		overflow-x: visible;
+		width: intrinsic;
+	}
+	#tester {
+		padding-left: 5em;
+	}
 	.chunk {
 		display: inline-block;
 		vertical-align: top;
+		white-space: normal;
+	}
+	.chunk + .chunk {
+		margin-left: 3em;
+	}
+	.chunk > .chunk + .chunk {
+		margin-top: 0;
 	}
 	section + section {
 		border-top: none;
@@ -335,9 +396,12 @@ html.colorswap h3:after {color: #FFF;}
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
+	.specimen figure {
+		max-width: none;
+	}
 	.specimen img {
 		max-width: none;
-		height: calc(100vh - 4em);
+		height: calc(100vh - 5em);
 	}
 	p {
 		max-width: 40rem;
@@ -360,10 +424,27 @@ html.colorswap h3:after {color: #FFF;}
 		white-space: nowrap;
 	}
 	h3:before {
-		font-family: 'Bungeee Rotated Regular', Impact;
+		font-family: 'Bungeee Rotated Inline', Impact;
 	}
 	h3:after {
-		font-family: 'Bungeee Rotated Inline', Impact;
+		font-family: 'Bungeee Rotated Regular', Impact;
+	}
+}
+@media (min-width: 64em) and (min-height: 64em) {
+	section.collapsing_content {
+		white-space: normal;
+	}
+	.chunk {
+		display: block;
+	}
+	.chunk-secondary {
+		display: inline-block;
+	}
+	.chunk + .chunk {
+		margin-left: 0;
+	}
+	.chunk + .chunk-secondary {
+		margin-left: 6em;
 	}
 }
 @media (min-width: 80em) {
@@ -378,7 +459,7 @@ html.colorswap h3:after {color: #FFF;}
 <body>
 <article>
 <section id="cover">
-	<h1 class="fit-to-width" data-max-font-size="40vh">Bun-<br />gee!</h1>
+	<h1 class="fit-to-width">Bun-<br />gee!</div>
 	<h2>Fonts for multi-color and vertical&nbsp;typography</h2>
 	<p>In the crowded urban environment, space for signage is always at a premium. From small liquor stores to majestic theaters, sometimes advertising has nowhere to go but up. Bungee is a font family that celebrates the urban sign: it wrangles the Latin alphabet to work vertically as well as horizontally; with separate glyphs, spacing, and kerning for each orientation. It also comes equipped with chromatic inlines, outlines, shades, and ornaments, making it the perfect toolkit to take your text in a new direction.</p>
 </section><section class="specimen">
@@ -391,8 +472,9 @@ html.colorswap h3:after {color: #FFF;}
 	    
         <fieldset id='text-control'>
             <label><h5>Text:</h5> <input type='text' name='text' value='Preview’r'></label>
-        </fieldset>
-        <fieldset id='orientation-controls'>
+        </fieldset><fieldset id='size-control'>
+            <label><h5>Size:</h5>&nbsp;<input type='range' name='size' value='120' min='24' max='288'>&nbsp;&nbsp; <input type='checkbox' name='size' value='auto' checked />&nbsp;Auto&#x2011;fit</label>
+        </fieldset><fieldset id='orientation-controls'>
 	        <h5>Orientation:</h5>
             <ul>
             <li><label><input type='radio' name='orientation' value='horizontal' checked> Horizontal</label></li>
@@ -459,8 +541,7 @@ html.colorswap h3:after {color: #FFF;}
 					<label><span data-layer='background' class="swatch background" style="background-color: #FFFFFF;"></span>&ensp;Background</label>
 				</li>
             </ul>
-        </fieldset>
-        <fieldset id='banner-controls'>
+        </fieldset><fieldset id='banner-controls'>
             <ul>
 		        <li id='background-controls'>
 		            <fieldset><h5>Banner head:</h5> <script>Bungee.backgroundInputList('begin');</script></fieldset>
@@ -468,7 +549,8 @@ html.colorswap h3:after {color: #FFF;}
 		            <fieldset><h5>Block shapes:</h5> <script>Bungee.backgroundInputList('block');</script></fieldset>
 		        </li>
 	        </ul>
-        </fieldset>        <fieldset id='stylistic-sets'>
+        </fieldset>
+        <fieldset id='stylistic-sets'>
             <h5>Alternates:</h5>
             <ul>
 	            <li><label><input type='checkbox' name='alt' value='rounded'> Alternate A, M, N, W, X, Y</label></li>
@@ -479,59 +561,62 @@ html.colorswap h3:after {color: #FFF;}
 	            <li><label><input type='checkbox' name='alt' value='quote'> Small apostrophe</label></li>
             </ul>
         </fieldset>
-        <fieldset id='size-control'>
-            <label><h5>Size:</h5> <input type='range' name='size' value='120' min='24' max='288'>&nbsp;<input type='checkbox' name='size' value='auto' checked /> Auto-fit</label>
+        <fieldset id='save-share'>
+	        <h5>Save/Share</h5>
+            <ul>
+	            <li><a href="">Permalink</a></li>
+	            <li><a href="">Download</a></li>
+	            <li><a href="">View code</a></li>
+            </ul>
         </fieldset>
     </form>
 </section>
-<section id="chromatic">
+<section class="collapsing_content" id="chromatic">
 	<h3>Colors</h3>
-	<div class="chunk">
-		<p>Chromatic typefaces are nothing new: sets of wood type intended for overprinting were produced and marketed <a href="https://www.utexas.edu/cofa/rrk/chromaticstwocolormenu.php">as early as 1841</a> and became a popular way for printers to add visual interest to their posters and broadsides. They became more and more elaborate as the nineteenth century progressed, as epitomized by the 1874 specimen by William H. Page &amp; Co. Chromatic type began to fall out of favor as typesetting became more mechanized in the twentieth century, and until recently, color was not a factor in any of the major digital font formats.</p>
-		<div class="figure_group">
-			<figure>
-				<img src="/images/page.jpg" />
-			</figure><figure>
-				<img src="/images/page2.jpg" />
-			</figure>
-			<figcaption>
-				<p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p>
-			</figcaption>
+	<div class="chunk chunk-secondary">
+		<div class="chunk">
+			<p>Chromatic typefaces are nothing new: sets of wood type intended for overprinting were produced and marketed <a href="https://www.utexas.edu/cofa/rrk/chromaticstwocolormenu.php">as early as 1841</a> and became a popular way for printers to add visual interest to their posters and broadsides. They became more and more elaborate as the nineteenth century progressed, as epitomized by the 1874 specimen by William H. Page &amp; Co. Chromatic type began to fall out of favor as typesetting became more mechanized in the twentieth century, and until recently, color was not a factor in any of the major digital font formats.</p>
+			<div class="figure_group">
+				<figure>
+					<img src="/images/page.jpg" />
+				</figure><figure>
+					<img src="/images/page2.jpg" />
+				</figure>
+				<figcaption>
+					<p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p>
+				</figcaption>
+			</div>
+		</div><div class="chunk">
+			<p>Today we find ourselves in a renaissance of chromatic type, with more chromatic type coming out each year. Just like their wooden forbears, they are  by layering fonts on top of one another.</p>
+			<p>Thanks in large part to the recent popularity of Emoji, color font formats have emerged, with Apple, Microsoft, and Adobe offering their own specifications. Thanks to <a href="http://www.github.com/fontfont/robochrome">RoboChrome</a>, I have created versions of Bungee for all of these formats, and I am excited about all of the possibilities that these new formats offer.</p>
+			<figure><a href="http://myfonts.com/fonts/matchandkerosene/detroit/"><img src="/images/other-fonts/detroit-temp.png" /></a></figure>
+			<figure><a href="http://www.mckltype.com/custom/eventide/"><img src="/images/other-fonts/eventide_uc.svg" /></a></figure>
 		</div>
-	</div><div class="chunk">
-		<p>Today we find ourselves in a renaissance of chromatic type, with more chromatic type coming out each year. Just like their wooden forbears, they are  by layering fonts on top of one another.</p>
-		<p>Thanks in large part to the recent popularity of Emoji, color font formats have emerged, with Apple, Microsoft, and Adobe offering their own specifications. Thanks to <a href="http://www.github.com/fontfont/robochrome">RoboChrome</a>, I have created versions of Bungee for all of these formats, and I am excited about all of the possibilities that these new formats offer.</p>
-			<figure>
-				<a href="http://myfonts.com/fonts/matchandkerosene/detroit/"><img src="/images/other-fonts/detroit-temp.png" /></a>
-				
-				<a href="http://www.mckltype.com/custom/eventide/"><img src="/images/other-fonts/eventide_lc.svg" /></a>
-				
-				<a href="http://letterror.com/fontcatalog/ltr-federal/"><img src="/images/other-fonts/federal.svg" /></a>
-				
-				<a href="https://www.typotheque.com/fonts/history"><img src="/images/other-fonts/history-temp.png" /></a>
-				
-				<a href="https://www.boldmonday.com/typeface/nitti-mostro/"><img src="/images/other-fonts/nitti-mostro-temp.png" /></a>
-
-		</figure>
-	</div><div class="chunk">
-		<p>Bungee comes with Regular, Inline, Outline, and Shade layers, which you can mix and match to create a variety of styles.</p>
-		<p>In desktop apps, you can use these layers by styling each layer on a different line and setting the leading to zero. On the web, <code>bungee.js</code> will do the heavy lifting for you, by arranging the text into a series of layered <code>&lt;div></code>s that you can customize in your stylesheet. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">Learn more about using Bungee’s chromatic layers »</a></p>
-	
-		<div class="figure_group">
-			<figure>
-				<img src="/images/img.svg" />
-				<figcaption>
-					<p>Using Bungee’s layers in Adobe InDesign CC.</p>
-				</figcaption>
-			</figure><figure>
-					<code>
-	&lt;script src="scripts/bungee.js" />
-	&lt;h1 class="bungee shade regular inline">Hello World!&lt;/h1>
-					</code>
-				<figcaption>
-					<p></p>
-				</figcaption>
-			</figure>
+	</div><div class="chunk chunk-secondary">
+		<div class="chunk">
+			<figure><a href="http://letterror.com/fontcatalog/ltr-federal/"><img src="/images/other-fonts/federal.svg" /></a></figure>
+			<figure><a href="https://www.typotheque.com/fonts/history"><img src="/images/other-fonts/history-temp.png" /></a></figure>
+			<figure><a href="https://www.boldmonday.com/typeface/nitti-mostro/"><img src="/images/other-fonts/nitti-mostro-temp.png" /></a></figure>
+		</div><div class="chunk">
+			<p>Bungee comes with Regular, Inline, Outline, and Shade layers, which you can mix and match to create a variety of styles.</p>
+			<p>In desktop apps, you can use these layers by styling each layer on a different line and setting the leading to zero. On the web, <code>bungee.js</code> will do the heavy lifting for you, by arranging the text into a series of layered <code>&lt;div></code>s that you can customize in your stylesheet. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">Learn more about using Bungee’s chromatic layers »</a></p>
+		
+			<div class="figure_group">
+				<figure>
+					<img src="/images/img.svg" />
+					<figcaption>
+						<p>Using Bungee’s layers in Adobe InDesign CC.</p>
+					</figcaption>
+				</figure><figure>
+						<code>
+&lt;script src="scripts/bungee.js" />
+&lt;h1 class="bungee shade regular inline">Hello World!&lt;/h1>
+						</code>
+					<figcaption>
+						<p></p>
+					</figcaption>
+				</figure>
+			</div>
 		</div>
 	</div>
 </section><section class="specimen">
@@ -540,31 +625,29 @@ html.colorswap h3:after {color: #FFF;}
     </figure>
 </section><section id="verticals">
 	<h3>Verticals</h3>
-	<div class="chunk">
-		<p>Even though the Latin alphabet is traditionally written horizontally, vertical signage is a ubiquitous part of the urban landscape. Bungee pays homage to these signs, particularly Art Deco marquees from the 1930s and 40s.</p>
-		<div class="figure_group">
-			<figure>
-				<img src="/images/chicago-theatre-square.jpg" />
-				<figcaption>
-					<p>The Chicago Theatre, photo by Daniel Schwen</p>
-				</figcaption>
-			</figure><figure>
-				<img src="/images/ruhl-photographers-square.jpg" />
-				<figcaption>
-					<p>Ruhl Photographers, photo by David Jonathan Ross</p>
-				</figcaption>
-			</figure>
-		</div>
-	</div><div class="chunk">
-		<p>Bungee contains a specially drawn set of caps designed for vertical use, and implements them with OpenType features that are more commonly associated with vertical writing in East Asian scripts. These forms even have vertical proportional spacing and kerning.</p>
-		<p>Some design applications and browsers can take advantage of Bungee’s vertical capabilities. For those, Bungee offers a special version of Bungee where each character lays on its side. This will simulate vertical text in a 90°-rotated text box. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">Learn more about how to use Bungee’s vertical forms »</a></p>
-		<!--<p>Not everything is meant to be set vertically. Sign painter and type designer John Downer recommends caution with words that are long or unfamiliar, and warns against letters like I, J, L, M, and W, which have the potential to look unusually narrow or wide.</p>-->
+	<p>Even though the Latin alphabet is traditionally written horizontally, vertical signage is a ubiquitous part of the urban landscape. Bungee pays homage to these signs, particularly Art Deco marquees from the 1930s and 40s.</p>
+	<div class="figure_group">
+		<figure>
+			<img src="/images/chicago-theatre-square.jpg" />
+			<figcaption>
+				<p>The Chicago Theatre, photo by Daniel Schwen</p>
+			</figcaption>
+		</figure><figure>
+			<img src="/images/ruhl-photographers-square.jpg" />
+			<figcaption>
+				<p>Ruhl Photographers, photo by David Jonathan Ross</p>
+			</figcaption>
+		</figure>
+	</div>
+	<p>Bungee contains a specially drawn set of caps designed for vertical use, and implements them with OpenType features that are more commonly associated with vertical writing in East Asian scripts. These forms even have vertical proportional spacing and kerning.</p>
+	<p>Some design applications and browsers can take advantage of Bungee’s vertical capabilities. For those, Bungee offers a special version of Bungee where each character lays on its side. This will simulate vertical text in a 90°-rotated text box. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">Learn more about how to use Bungee’s vertical forms »</a></p>
+	<!--<p>Not everything is meant to be set vertically. Sign painter and type designer John Downer recommends caution with words that are long or unfamiliar, and warns against letters like I, J, L, M, and W, which have the potential to look unusually narrow or wide.</p>-->
 	</div>
 </section><section class="specimen">
     <figure>
     		<img src="/images/edge-cases.svg" />
     </figure>
-</section><section id="alternates">
+</section><section class="collapsing_content" id="alternates">
 	<h3>Extras</h3>
 	<div class="chunk">
 		<p>Since Bungee is only intended to be used for a few words at a time, a single letterform can make a huge difference. Bungee comes with a handful of alternate characters that can help you fine-tune the look and feel of your text. These include a serifless I and L, a smaller, less-obtrusive apostrophe, and a set of rounded, retro caps that are reminiscent of Art Deco signs. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">More about Bungee’s alternates »</a></p>
