@@ -205,7 +205,7 @@
                 //wrapper.prepend('<div class="layer sign block outline">' + str + '</div>');
 
                 //turn on block features
-                ffs['ss01'] = '1';
+                ffs[orientation === 'vertical' ? 'ss12' : 'ss11'] = '1';
                 ffs['liga'] = '0';
                 ffs['kern'] = '0';
             }

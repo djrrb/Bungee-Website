@@ -161,15 +161,15 @@
 /* manipulations for block shapes and banners */
 
 .bungee.block {
-    -moz-font-feature-settings: "ss01", "liga" 0, "kern" 0;
-    -webkit-font-feature-settings: "ss01", "liga" 0, "kern" 0;
-    font-feature-settings: "ss01", "liga" 0, "kern" 0;
+    -moz-font-feature-settings: "ss11", "liga" 0, "kern" 0;
+    -webkit-font-feature-settings: "ss11", "liga" 0, "kern" 0;
+    font-feature-settings: "ss11", "liga" 0, "kern" 0;
 }
 
 .bungee.vertical.block {
-    -moz-font-feature-settings: "ss01", "liga" 0, "kern" 0, "vkrn", "vpal";
-    -webkit-font-feature-settings: "ss01", "liga" 0, "kern" 0, "vkrn", "vpal";
-    font-feature-settings: "ss01", "liga" 0, "kern" 0, "vert", "vpal";
+    -moz-font-feature-settings: "ss12", "liga" 0, "kern" 0, "vkrn", "vpal";
+    -webkit-font-feature-settings: "ss12", "liga" 0, "kern" 0, "vkrn", "vpal";
+    font-feature-settings: "ss12", "liga" 0, "kern" 0, "vert", "vpal";
 }
 
 .bungee.sign .layer.sign {
@@ -200,27 +200,29 @@
 /* block shapes */
 
 .bungee.block span {
+    font-feature-settings: "ss11"; /* this will be done by JS */
     font-size: 0.9em;
-    letter-spacing: 0.4222em ; /* 1.28/fontsize - 1 */
-    left: 0.2111em; /* letterspacing/2 */
+    letter-spacing: 0.1422em ; /* (1/fontsize - 1)*1.28 */
+    left: 0.0711em; /* letterspacing/2 */
     top: -0.04em; /* -(1-fontsize)/2 * 80% */
 }
 
 .bungee.block.shade span {
     /* offset slightly to compensate for shade */
-    left: 0.2311em; /* left + 0.02 */
+    left: 0.0911em; /* left + 0.02 */
     top: -0.06em; /* top - 0.02 */
 }
 
 .bungee.vertical.block span {
-    letter-spacing: 0.56em; /* this is a mystery */
+    font-feature-settings: "ss12"; /* this will be done by JS */
+    letter-spacing: 0; /* this is a mystery, should match above? */
     left: 0;
-    top: 0.28em; /* letterspacing/2 */
+    top: 0; /* letterspacing/2 */
 }
 
 .bungee.vertical.block.shade span {
     left: 0.02em; /* left + 0.02 */
-    top: 0.26em; /* top - 0.02 */
+    top: -0.02em; /* top - 0.02 */
 }
 
 /* banners */
