@@ -22,7 +22,7 @@
                         }
                         classname = layer + '-' + color.hex;
                         if (color.alpha) {
-                            classname += '-' + color.alpha.toString().replace(/^\d*\./, '');
+                            classname += '-' + (color.alpha*100);
                         }
                         classes.push(classname);
                     });
@@ -210,7 +210,7 @@
                 var layerclass = layer;
                 layerclass += '-' + color.toHex();
                 if (color.getAlpha() < 1) {
-                    layerclass += '-' + color.getAlpha().toString().replace(/^.*\./, '');
+                    layerclass += '-' + (color.getAlpha()*100);
                 }
                 return layerclass;
             }

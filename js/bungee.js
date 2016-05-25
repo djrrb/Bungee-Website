@@ -88,7 +88,7 @@
             var orientation = master.hasClass('vertical') ? 'vertical' : 'horizontal';
 
             function setLayerColor(layer, classname, cssname) {
-                var match = classname.match(/^(\w+)-(\w+)(?:-(\d+))?/);
+                var match = classname.match(/^(\w+)-(\w+)(?:-([\d\.]+))?/);
                 
                 if (match) {
                     master.addClass(match[1]);
@@ -96,7 +96,7 @@
                     layer.addClass(match[1]);
                     layer.css(cssname || 'color', (match[2].match(/^([0-9a-f]{3}|[0-9a-f]{6})$/i) ? '#' : '') + match[2]);
                     if (match[3]) {
-                        layer.css('opacity', '0.' + match[3]);
+                        layer.css('opacity', (parseFloat(match[3])/100).toString());
                     }
                 } else {
                     layer.addClass(classname);
