@@ -815,9 +815,19 @@ html.colorswap h3:after {color: #FFF;}
 	<p>Setting the latin alphabet vertically is not always a good idea. The Latin alphabet is designed for horizontal writing, and readability experts would tell you to leave verticality to the writing systems that are well-suited to it, like Chinese or Korean. But in display typography, readability isn't everything. When used deftly and sparingly, stacked letters can stand out among the crowd.</p>
 </section>
 
+<section id="stack-edges">
+	<figure class="big_img">
+		<img src="images/bungee-alts.gif" />
+		<figcaption><p>&nbsp;</p></figcaption>
+	</figure>
+
+	<p>It is important that each word has well-defined left and right edges, as well as a strong center line. Special care must be given to letters that are unusually wide or narrow, such as I, L, M, and W.</p>
+</section>
+
+
 <section id="stack-implementation">
 	<figure class="big_img">
-		<img src="images/img.svg" alt="" />
+		<img src="images/bungee-spacing.png" alt="" />
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 	<p>Bungee implements its vertical forms with <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">OpenType features</a> that are more commonly used for vertical text in East Asian scripts. These are activated by Vertical Type tools in some desktop design applications, or using CSS <code>writing-mode</code> and <code>text-orientation</code>.</p>
@@ -836,14 +846,7 @@ html.colorswap h3:after {color: #FFF;}
 
 </section>
 
-<section id="stack-edges">
-	<figure class="big_img">
-		<img src="images/img.svg" />
-		<figcaption><p>&nbsp;</p></figcaption>
-	</figure>
 
-	<p>It is important that each word has well-defined left and right edges, as well as a strong center line. Special care must be given to letters that are unusually wide or narrow, such as I, L, M, and W.</p>
-</section>
 
 
 <!-- HORIZONTAL SPECIMEN -->
@@ -860,7 +863,7 @@ html.colorswap h3:after {color: #FFF;}
 <section id="test_image">
 	<h3>Color</h3>
 	<figure class="big_img">
-		<img src="images/page.jpg" />
+		<img src="images/page-both.jpg" />
 		<figcaption><p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p></figcaption>
 	</figure>
 
@@ -869,15 +872,15 @@ html.colorswap h3:after {color: #FFF;}
 </section><section id="test_image">
 	<figure class="big_img">
 		<img src="images/img.svg" />
-		<figcaption><p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p></figcaption>
+		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 
 	<p>Bungee comes with Regular, Inline, Outline, and Shade layers, which you can mix and match to create a variety of chromatic effects. In desktop apps, you can use these layers by styling each layer on a different line and setting the leading to zero. On the web, <code>bungee.js</code> will do the heavy lifting for you, by arranging the text into a series of layered <code>&lt;div></code>s that you can customize in your stylesheet.</p>
 	
 </section><section id="test_image">
 	<figure class="big_img">
-		<img src="images/img.svg" />
-		<figcaption><p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p></figcaption>
+		<img src="images/bungee-color.gif" />
+		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 
 	<p>Thanks in large part to the popularity of Emoji, color font formats are now in use, with Apple, Microsoft, and Adobe offering their own specifications. I am hopeful that Bungee can help users experiment with these formats, and am excited about all of the possibilities that color fonts have to offer.</p>
