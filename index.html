@@ -37,6 +37,139 @@ $(document).keydown(function(e) {
 <link rel="stylesheet" href="css/bungee.css">
 <link rel="stylesheet" href="css/typesetter.css">
 <link rel="stylesheet" href="css/spectrum.css">
+
+
+<!-- porting over DJR.com styling -->
+
+<style>
+
+@font-face {
+    font-family: InputSansNarrowWeb;
+    src: url("http://www.djr.com/assets/fonts-custom/InputSansNarrow-Light_TRIAL.eot");
+    src: url("http://www.djr.com/assets/fonts-custom/InputSansNarrow-Light_TRIAL.eot?#iefix") format("embedded-opentype"), url("http://www.djr.com/assets/fonts-custom/InputSansNarrow-Light_TRIAL.woff2") format("woff2"), url("http://www.djr.com/assets/fonts-custom/InputSansNarrow-Light_TRIAL.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: InputSansNarrowWeb;
+    src: url("http://www.djr.com/assets/fonts-custom/InputSansNarrow-Medium_TRIAL.eot");
+    src: url("http://www.djr.com/assets/fonts-custom/InputSansNarrow-Medium_TRIAL.eot?#iefix") format("embedded-opentype"), url("http://www.djr.com/assets/fonts-custom/InputSansNarrow-Medium_TRIAL.woff2") format("woff2"), url("http://www.djr.com/assets/fonts-custom/InputSansNarrow-Medium_TRIAL.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+nav {
+    height: 1.7em;
+	position: absolute;
+    top: .04em;
+	left: 0;
+	width: 100%;
+	background-color: #771F15;
+	z-index: 100;
+	margin: 0;
+	padding: .2em 1em;
+	font-family: "InputSansNarrowWeb";
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+nav li {
+	display: inline-block;
+	margin-top: 0;
+}
+nav a:link,
+nav a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.site-nav a, .title a {
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.site-nav a:hover, .title a:hover {
+    color: #e6e6e6;
+    text-decoration: none;
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    left: 2em;
+}
+
+.site-nav {
+    position: absolute;
+    right: 1.5em;
+}
+
+.site-nav .hidden-menu {
+    display: none;
+}
+
+.site-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.site-nav ul li {
+    display: inline-block;
+    margin: 0 .5em;
+}
+
+.site-nav ul li ul {
+    position: absolute;
+    visibility: hidden;
+    display: absolute;
+    text-align: left;
+    margin: 0;
+    margin-top: .3em;
+    z-index: 2;
+    padding-bottom: 0.5em #771F15 solid;
+}
+
+.site-nav ul li ul li {
+    display: block;
+    margin: 0;
+    background: #771F15;
+}
+
+.site-nav ul li ul li a {
+    display: block;
+    width: 8em;
+    padding: .1em 1.2em .5em 1.2em;
+    text-transform: none;
+    letter-spacing: -.025em;
+    font-size: 11px;
+}
+
+#m1, #m2 {
+    margin-left: -.9em;
+    /*box-shadow: 1px 1px 0px $infobar-color;*/
+}
+
+#m2 {
+    width: 5.2em;
+}
+
+
+
+
+</style>
+
+
+
+
+
 <style>
 * {
 	font-family: inherit;
@@ -155,25 +288,7 @@ h5 {
 	font-weight: bold;
 	display: inline;
 }
-nav {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-}
-nav ul {
-	padding: .5em;
-	background-color: #771F15;
-}
-nav li {
-	display: inline-block;
-	margin-top: 0;
-}
-nav a:link,
-nav a:visited {
-	color: #FFF;
-	text-decoration: none;
-}
+
 p {
 	line-height: 1.4;
 	max-width: 80ex;
@@ -507,29 +622,34 @@ html.colorswap h3:after {color: #FFF;}
 <body>
 <article>
 <section id="cover">
-	<nav>
-		<ul>
-			<li><a href="https://djr.com/">DJR</a></li>
-			<li>
-				<a href="https://djr.com/">Typefaces</a>
-<!--
-				<ul>
-					<li>Bungee</li>
-					<li>Condor</li>
-					<li>Fern</li>
-					<li>Gimlet</li>
-					<li>Input</li>
-					<li>Manicotti</li>
-					<li>Output</li>
-					<li>Trilby</li>
-					<li>Turnip</li>
-				</ul>
--->
-			</li>
-			<li><a href="https://djr.com/notes">Notes</a></li>
-			<li><a href="https://djr.com/about">About</a></li>
-		</ul>
-	</nav>
+
+
+	
+	<nav class="site-nav">
+	<ul>
+		<li><a href="https://djr.com">DJR</a></li>
+		<li><a class="typefaces" href="" onmouseover="mopen('m1')" onmouseout="mclosetime()">Typefaces</a>
+			<ul id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+                <li><a href="https://djr.com/bungee/">Bungee</a></li>
+                <li><a href="https://djr.com/condor/">Condor</a></li>
+                <li><a href="https://djr.com/fern/">Fern</a></li>
+                <li><a href="https://djr.com/gimlet/">Gimlet</a></li>
+                <li><a href="https://djr.com/input/">Input</a></li>
+                <li><a href="https://djr.com/manicotti/">Manicotti</a></li>
+                <li><a href="https://djr.com/output/">Output</a></li>
+                <li><a href="https://djr.com/trilby/">Trilby</a></li>
+                <li><a href="https://djr.com/turnip/">Turnip</a></li>
+			</ul>
+		</li>
+		<li class="site-nav-notes">
+			<a href="https://djr.com/notes">Notes</a>
+		</li>
+		<li>
+			<a href="https://djr.com/about">About</a>
+		</li>
+	</ul>
+    </nav>
+    
 	<h1 class="fit-to-width">Bun-<br />gee!</div>
 	<h2>Fonts for multi-color and vertical typography</h2>
 	<p>From crummy liquor stores to majestic theaters, Bungee is a font that celebrates the urban sign. Its deco-inspired forms and chromatic layers are designed for eye-catching displays. And when text has nowhere to go but up, Bungee wrangles the Latin alphabet to work vertically as well as horizontally. Bungee is the perfect font to take your text in a new direction!</p>
@@ -797,5 +917,54 @@ html.colorswap h3:after {color: #FFF;}
 	});
 	</script>
 -->
+
+<script type="text/javascript">
+
+//MAIN MENU
+// eventually should probably do this via jQuery
+
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+</script>
+
+
+
 </body>
 </html>
