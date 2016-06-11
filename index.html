@@ -362,7 +362,7 @@ cite, em {
 #tester {
 	background-color: #FFF;
 	padding-left: 2em;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 #tester img {
 	width: 50vw;
@@ -554,6 +554,7 @@ html.colorswap h3:after {color: #FFF;}
 	}
 	#tester {
 		padding-left: 5em;
+		width: 95vw;
 	}
 	.chunk {
 		display: inline-block;
@@ -691,14 +692,13 @@ html.colorswap h3:after {color: #FFF;}
     		<img src="images/specimen-vertical-B.svg" /><img src="images/specimen-vertical-A.svg" />
     </figure>
 </section><section id="tester">
-    <figure id='preview'></figure>
+    <figure id='preview' data-max-font-size='288px'></figure>
     <form id='controls' onsubmit='return false'>
 	    
         <fieldset id='text-control'>
             <label><h5>Text:</h5> <input type='text' name='text' value='Examiner'></label>
-        </fieldset><fieldset id='size-control'>
-            <label><h5>Size:</h5>&nbsp;<input type='range' name='size' value='120' min='24' max='288'>&nbsp;&nbsp; <input type='checkbox' name='size' value='auto' checked />&nbsp;Auto&#x2011;fit</label>
-        </fieldset><fieldset id='orientation-controls'>
+        </fieldset>
+        <fieldset id='orientation-controls'>
 	        <h5>Orientation:</h5>
             <ul>
             <li><label><input type='radio' name='orientation' value='horizontal' checked>&nbsp;Horizontal</label></li>

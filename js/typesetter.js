@@ -2,6 +2,8 @@
 (function() {
     "use strict";
 
+    var win = $(window);
+
     //populate presets from colors file
     $.ajax('data/bungee-colors.json', {
         'success': function(data) {
@@ -33,7 +35,7 @@
         }
     });
 
-    $(window).on('load', function() {
+    win.on('load', function() {
         var Bungee = window.Bungee;
         var preview = $('#preview').addClass('bungee');
         var allcontrols = $('#controls input, #controls select');
@@ -42,7 +44,8 @@
         var orientationcontrols = $('#controls input[name=orientation]');
         //var rotatedcontrol = $('#controls input[name=rotated]');
         var altcontrols = $('#controls input[name=alt]');
-        var sizecontrol = $('#controls input[name=size]');
+        //var sizecontrol = $('#controls input[name=size]');
+        //var autofit = $('#controls input[name=autofit]');
         var textcontrol = $('#controls input[name=text]');
         var backgroundcontrols = $('#background-controls input');
         
@@ -55,9 +58,14 @@
                     case 'text':
                         textcontrol.val(Bungee.cleanupText(decodeURIComponent(eq[1].replace(/\+/g, '%20'))));
                         break;
+/*
                     case 'size':
                         sizecontrol.val(eq[1]);
                         break;
+                    case 'fit':
+                        autofit.prop('checked', !eq[1].match(/false|0|no/i));
+                        break;
+*/
                     default:
                         allcontrols.filter('[name=' + eq[0] + '][value="' + eq[1] + '"]').prop('checked', true);
                         break;
@@ -133,7 +141,7 @@
             var reference = preview.find('.layer.text');
             var req = {};
             req.text = Bungee.cleanupText(textcontrol.val()); //reference.find('span').first().text().trim();
-            req.size = sizecontrol.val();
+            req.size = 144; //sizecontrol.val();
             req.orientation = orientationcontrols.filter(':checked').val();
             req.layers = {};
             layercontrols.filter(':checked').each(function() {
@@ -259,7 +267,7 @@
             //rotated mode
             //$('html')[rotatedcontrol.prop('checked') ? 'addClass' : 'removeClass']('no-vertical-text');
             
-            preview.css('font-size', sizecontrol.val() + 'px');
+            //preview.css('font-size', sizecontrol.val() + 'px');
 
             //backgrounds
             if (backgroundcontrols.is(actor)) {
@@ -295,6 +303,23 @@
             //update the preview!
             preview.prop('className', classes.join(' ')).html(text);
             Bungee.init(preview);
+            
+            if (true) { // autofit.prop('checked')) {
+                if (orientation === "horizontal") {
+                    sizeToWidth(preview);
+                } else {
+                    preview.css('font-size', (parseFloat(preview.data('max-font-size')) || 288) + 'px');
+                    var padding = preview.offset().top;
+                    var pheight = preview.height();
+                    var wheight = win.height() - padding*2;
+                    var ratio = wheight / pheight;
+                    if (ratio < 1) {
+                        var newsize = parseFloat(preview.css('font-size')) * ratio;
+                        console.log(newsize);
+                        preview.css('font-size', newsize+'px');
+                    }
+                }
+            }
 
             if (false && evt) {
                 setURL();
@@ -347,8 +372,14 @@
         });
 
         allcontrols.on('change', updatePreview);
-        sizecontrol.on('input', updatePreview);
         textcontrol.on('keyup', updatePreview);
+
+        // while sliding size slider, don't do a full update but just modify size
+        /*
+        sizecontrol.on('input', function() {
+            preview.css('font-size', this.value + 'px');
+        });
+        */
 
         updatePreview();
         //doCode();
