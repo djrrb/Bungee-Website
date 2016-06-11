@@ -8,13 +8,51 @@ $(function() {
         return $(el).offset().left + article.scrollLeft();
     }
 
+    // limit jumping around when resizing window
+    var scrollRatio=0;
+    var sectionOffsets = [];
+    var ignoreScroll = false;
+    function doScrollStuff() {
+        if (ignoreScroll) return;
+        var scrollTop = win.scrollTop();
+        var scrollLeft = article.scrollLeft();
+        var pageWidth = article.prop('scrollWidth');
+        var pageHeight = article.prop('scrollHeight');
+        scrollRatio = pageWidth > pageHeight ? scrollLeft / pageWidth : scrollTop / pageHeight;
+    
+        //set URL hash for current section
+        for (var i in sectionOffsets) {
+            if (sectionOffsets[i][1] > scrollLeft+win.width()*0.1) {
+                if (i > 0 && window.location.hash !== sectionOffsets[i-1][0]) {
+                    history.replaceState({}, "", sectionOffsets[i-1][0]);
+                }
+                break;
+            }
+        }
+    }
+
+    function watchScroll() {
+        $('article').add(window).on('scroll', doScrollStuff);
+        doScrollStuff();
+    }
+    
+    function unwatchScroll() {
+        $('article').add(window).off('scroll', doScrollStuff);
+    }
+    
+    //don't need to call watchScroll here; resize does it on window load
+    
     // horizontal scroll to hash
-    function goToHash() {
-        var pos, bookmark = $(window.location.hash);
+    function goToHash(hash) {
+        var pos, bookmark = $(typeof hash==="string" ? hash : window.location.hash);
         if (bookmark.length) {
             pos = elementOffset(bookmark);
             if (Math.abs(article.scrollLeft()-pos) > win.width()/2) {
-                article.animate({'scrollLeft':pos}, {'duration':'0.5'});
+                ignoreScroll = true;
+                article.animate({'scrollLeft':pos}, {
+                    'duration':'0.5',
+                    'complete': function() { ignoreScroll = false; }
+                });
             }
         }
         return false;
@@ -49,42 +87,15 @@ $(function() {
     calculateColumns();
 */
 
-    // limit jumping around when resizing window
-    var scrollRatio=0;
-    var sectionOffsets = [];
-    function doScrollStuff() {
-        var scrollTop = win.scrollTop();
-        var scrollLeft = article.scrollLeft();
-        var pageWidth = article.prop('scrollWidth');
-        var pageHeight = article.prop('scrollHeight');
-        scrollRatio = pageWidth > pageHeight ? scrollLeft / pageWidth : scrollTop / pageHeight;
-    
-        //set URL hash for current section
-        for (var i in sectionOffsets) {
-            if (sectionOffsets[i][1] > scrollLeft) {
-                if (i > 0) {
-                    history.replaceState({}, "", sectionOffsets[i-1][0]);
-                }
-                break;
-            }
-        }
-    }
-
-    function watchScroll() {
-        $('article').add(window).on('scroll', doScrollStuff);
-    }
-    
-    function unwatchScroll() {
-        $('article').add(window).off('scroll', doScrollStuff);
-    }
-    
-    watchScroll();
 
     var resizing = false;
     function doResizeStuff() {
+        resizing = false;
         sectionOffsets = [];
         $('section').each(function() {
-            sectionOffsets.push(['#' + this.id, elementOffset(this)]);
+            if (this.id) {
+                sectionOffsets.push(['#' + this.id, elementOffset(this)]);
+            }
         });
         watchScroll();
 //        calculateColumns();
