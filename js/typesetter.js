@@ -3,7 +3,7 @@
     "use strict";
 
     //populate presets from colors file
-    $.ajax('/data/bungee-colors.json', {
+    $.ajax('data/bungee-colors.json', {
         'success': function(data) {
             $(function() {
                 window.Bungee.presets = {};
