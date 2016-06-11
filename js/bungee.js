@@ -104,7 +104,7 @@ Alternate characters:
             el = $(el);
             el.css('font-feature-settings', '');
             if (el.find('.layer').length > 0) {
-                el.html(el.find('span').first().html().trim());
+                el.text(el.find('span').first().text().trim());
             }
             return el;
         },
@@ -140,7 +140,7 @@ Alternate characters:
 
 
             //remember the content and then get rid of it
-            var text = Bungee.cleanupText(master.html());
+            var text = Bungee.cleanupText(master.text());
             master.html('<div></div>');
             var wrapper = master.children();
 
@@ -176,7 +176,8 @@ Alternate characters:
 
             var layer;
             for (var i in layers) {
-                layer = $("<div class='layer text'><span>" + text + "</span></div>");
+                layer = $("<div class='layer text'><span></span></div>");
+                layer.children().text(text); //to avoid special HTML chars
                 master.addClass(layers[i]);
                 setLayerColor(layer, layers[i]);
                 wrapper.append(layer);

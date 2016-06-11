@@ -301,7 +301,7 @@
             });
             
             //update the preview!
-            preview.prop('className', classes.join(' ')).html(text);
+            preview.prop('className', classes.join(' ')).text(text);
             Bungee.init(preview);
             
             if (true) { // autofit.prop('checked')) {
@@ -315,7 +315,6 @@
                     var ratio = wheight / pheight;
                     if (ratio < 1) {
                         var newsize = parseFloat(preview.css('font-size')) * ratio;
-                        console.log(newsize);
                         preview.css('font-size', newsize+'px');
                     }
                 }
