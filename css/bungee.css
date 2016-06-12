@@ -100,9 +100,9 @@
     -ms-text-orientation: upright;
     text-orientation: upright;
     /* implement spacing and kerning */
-    -moz-font-feature-settings: "vkrn", "vpal";
-    -webkit-font-feature-settings: "vkrn", "vpal";
-    font-feature-settings: "vkrn", "vpal";
+    -moz-font-feature-settings: "vpal";
+    -webkit-font-feature-settings: "vpal";
+    font-feature-settings: "vpal";
 }
 
 .bungee * {
@@ -160,16 +160,16 @@
 
 /* manipulations for block shapes and banners */
 
-.bungee.block {
-    -moz-font-feature-settings: "ss11", "liga" 0, "kern" 0;
-    -webkit-font-feature-settings: "ss11", "liga" 0, "kern" 0;
-    font-feature-settings: "ss11", "liga" 0, "kern" 0;
+.bungee.block .block {
+    -moz-font-feature-settings: "ss11";
+    -webkit-font-feature-settings: "ss11";
+    font-feature-settings: "ss11";
 }
 
-.bungee.vertical.block {
-    -moz-font-feature-settings: "ss12", "liga" 0, "kern" 0, "vkrn", "vpal";
-    -webkit-font-feature-settings: "ss12", "liga" 0, "kern" 0, "vkrn", "vpal";
-    font-feature-settings: "ss12", "liga" 0, "kern" 0, "vert", "vpal";
+.bungee.vertical.block .block {
+    -moz-font-feature-settings: "vpal";
+    -webkit-font-feature-settings: "vpal";
+    font-feature-settings: "vpal";
 }
 
 .bungee.sign .layer.sign {
@@ -201,46 +201,34 @@
 
 .bungee.block span {
     font-feature-settings: "ss11"; /* this will be done by JS */
-    font-size: 0.9em;
-    letter-spacing: 0.1422em ; /* (1../fontsize - 1)*1.28 */
-    left: 0.0711em; /* letterspacing/2 */
-    top: -0.04em; /* -(1-fontsize)/2 * 80% */
 }
 
 .bungee.block.shade span {
     /* offset slightly to compensate for shade */
-    left: 0.0911em; /* left + 0.02 */
-    top: -0.06em; /* top - 0.02 */
+    position: relative;
+    left: 0.02em;
+    top: -0.02em;
 }
 
 .bungee.vertical.block span {
-    font-feature-settings: "ss12"; /* this will be done by JS */
-    letter-spacing: 0; /* this is a mystery, should match above? */
-    left: 0;
-    top: 0; /* letterspacing/2 */
+    font-feature-settings: "ss12", "vpal"; /* this will be done by JS */
 }
 
 .bungee.vertical.block.shade span {
-    left: 0.02em; /* left + 0.02 */
-    top: -0.02em; /* top - 0.02 */
+    left: 0.02em;
+    top: -0.02em;
 }
 
 /* banners */
 .bungee.banner span {
-    font-size: 0.9em;
-    left: 0;
-    top: -0.04em; /* -(1-fontsize)/2 * 80% */
 }
 
 .bungee.banner.shade span {
-    /* offset slightly to compensate for shade */
-    left: 0.02em; /* left + 0.02 */
-    top: -0.06em; /* top - 0.02 */
+    left: 0.02em;
+    top: -0.02em;
 }
 
 .bungee.vertical.banner span {
-    left: 0;
-    top: 0;
 }
 
 .bungee.vertical.banner.shade span {

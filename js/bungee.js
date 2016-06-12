@@ -239,9 +239,12 @@ Alternate characters:
                 //wrapper.prepend('<div class="layer sign block outline">' + str + '</div>');
 
                 //turn on block features
-                ffs[orientation === 'vertical' ? 'ss12' : 'ss11'] = '1';
-                ffs['liga'] = '0';
-                ffs['kern'] = '0';
+                if (orientation === 'horizontal') {
+                    ffs.ss11 = '1';
+                } else {
+                    ffs.ss12 = '1';
+                    ffs.vpal = '1';
+                }
             }
             
             if (signcolor) {
