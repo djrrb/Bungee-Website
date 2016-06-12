@@ -40,9 +40,12 @@ $(document).keydown(function(e) {
 <link rel="stylesheet" href="css/spectrum.css">
 
 
-<!-- porting over DJR.com styling -->
+<!--<link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Inline|Bungee+Outline|Bungee+Shade" rel="stylesheet">-->
+
 
 <style>
+
+/* porting over DJR.com styling */
 
 @font-face {
     font-family: InputSansNarrowWeb;
@@ -80,15 +83,6 @@ $(document).keydown(function(e) {
     font-family: OutputSansWebCaptionX;
     src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Italic_TRIAL.eot");
     src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Italic_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Italic_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Italic_TRIAL.woff") format("woff");
-    font-weight: normal;
-    font-style: italic;
-}
-
-
-@font-face {
-    font-family: OutputSansWebX;
-    src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-LightItalic_TRIAL.eot");
-    src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-LightItalic_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-LightItalic_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-LightItalic_TRIAL.woff") format("woff");
     font-weight: normal;
     font-style: italic;
 }
@@ -228,49 +222,54 @@ code {
 }
 
 
+#color-styles {
+    max-width: 65em;
+
+}
+
 .color-styles-inline, .color-styles-outline, .color-styles-regular, .color-styles-shade {
-    line-height: .96em;
-    margin: 0;
+    line-height: 1em;
     padding: 0;
+    margin-bottom: -.25em;
+    font-size: 20vh;
 } 
-
-
 
 
 @keyframes translate-a {
     from {transform: translateY(0px);}
-    to {transform: translateY(-1.44em);}
+    to {transform: translateY(-1.35em);}
 }
 @keyframes translate-b {
     from {transform: translateY(0px);}
-    to {transform: translateY(-.48em);}
+    to {transform: translateY(-.5em);}
 }
 @keyframes translate-c {
     from {transform: translateY(0px);}
-    to {transform: translateY(.48em);}
+    to {transform: translateY(.35em);}
 }
 @keyframes translate-d {
     from {transform: translateY(0px);}
-    to {transform: translateY(1.44em);}
+    to {transform: translateY(1.2em);}
 }
 
 
 @keyframes translate-a-off {
     to {transform: translateY(0px);}
-    from {transform: translateY(-1.44em);}
+    from {transform: translateY(-1.35em);}
 }
 @keyframes translate-b-off {
     to {transform: translateY(0px);}
-    from {transform: translateY(-.48em);}
+    from {transform: translateY(-.5em);}
 }
 @keyframes translate-c-off {
     to {transform: translateY(0px);}
-    from {transform: translateY(.48em);}
+    from {transform: translateY(.35em);}
 }
 @keyframes translate-d-off {
     to {transform: translateY(0px);}
-    from {transform: translateY(1.44em);}
+    from {transform: translateY(1.2em);}
 }
+
 
 
 
@@ -279,68 +278,72 @@ code {
     color: #f28f8f;
     z-index: 20;
     animation-fill-mode: forwards;
-    animation: translate-a-off .2s;
 }
 .color-styles-regular {
     font-family: "Bungeee Regular";
     color: #d9432e;
     z-index: 9;
     animation-fill-mode: forwards;
-    animation: translate-b-off .2s;
 }
 .color-styles-outline {
     font-family: "Bungeee Outline";
     color: #762019;
     z-index: 8;
     animation-fill-mode: forwards;
-    animation: translate-c-off .2s;
 
 }
 .color-styles-shade {
     font-family: "Bungeee Shade";
-    color: black;
-    opacity: .05;
+    color: #e2ddd7;
     z-index: 7;
     animation-fill-mode: forwards;
-    animation: translate-d-off .2s;
 
 }
 #bungee-layers-figure:hover .color-styles-inline {
-    animation: translate-a .2s;
+    animation: translate-a .1s;
     animation-direction: normal;
     animation-delay: .1s;
+    animation-fill-mode: forwards;
+
 }
 #bungee-layers-figure:hover .color-styles-regular {
     animation: translate-b .1s;
     animation-direction: normal;
+    animation-fill-mode: forwards;
+
 }
 #bungee-layers-figure:hover .color-styles-outline {
-    animation: translate-c .2s;
+    animation: translate-c .1s;
     animation-direction: normal;
     animation-delay: .2s;
+    animation-fill-mode: forwards;
+
 }
 #bungee-layers-figure:hover .color-styles-shade {
-    animation: translate-d .2s;
+    animation: translate-d .1s;
     animation-direction: normal;
-    animation-delay: .3s;
+    animation-delay: .2s;
+    animation-fill-mode: forwards;
+
 }
 
 
 
 
-.bungee-basic figure {
+#color-basic figure div {
     line-height: .8em;
+    font-size: 10vh;
 }
-.bungee-basic-regular {
+#color-basic .bungee-basic-regular {
     font-family: "Bungeee Regular";
 }
-.bungee-basic-hairline {
+#color-basic .bungee-basic-hairline {
     font-family: "Bungeee Inline";
 }
-.bungee-basic-inline {
+#color-basic .bungee-basic-inline {
     font-family: "Bungeee Basic Inline";
 }
-.bungee-basic-outline {
+#color-basic .bungee-basic-outline {
     font-family: "Bungeee Basic Outline";
 }
 .bungee-basic-shade {
@@ -349,6 +352,25 @@ code {
 
 
 
+
+
+/*
+#color-basic {
+    background: #dc4227;
+    color: #fff;
+}
+
+#color {
+	background-color: #25839E;
+	color: #fff;
+}
+#color h3 {
+    color: #1E444E;
+}
+#color h3:after {
+    color: #fff;
+}
+*/
 
 </style>
 
@@ -955,13 +977,13 @@ html.colorswap h3:after {color: #FFF;}
 <section id="stack">
 	<h3>Stack</h3>
 	<figure class="big_img collapsing_specimen">
-		<!--<img src="images/chicago-theatre.jpg" alt="" />-->
+		<!--<img src="images/photos/chicago-theatre.jpg" alt="" />-->
 		
-		<!--<img src="images/hollywood-premiere-motel.jpg" alt="Hollywood Premiere Motel, Los Angeles, CA" />-->
+		<!--<img src="images/photos/hollywood-premiere-motel.jpg" alt="Hollywood Premiere Motel, Los Angeles, CA" />-->
 
-        <img src="images/g-g-hardware.jpg" alt="G & G Hardware, Oakland, CA" />
-		<img src="images/tower-theater.jpg" alt="Tower Theater, Los Angeles, CA" />
-		<img src="images/little-city.jpg" alt="Little City, San Francisco, CA" />
+        <img src="images/photos/g-g-hardware.jpg" alt="G & G Hardware, Oakland, CA" />
+		<img src="images/photos/tower-theater.jpg" alt="Tower Theater, Los Angeles, CA" />
+		<img src="images/photos/little-city.jpg" alt="Little City, San Francisco, CA" />
 		
 		<figcaption><p>Signs from Oakland, Los Angeles, and San Francisco.</p></figcaption>
 	</figure>
@@ -974,10 +996,10 @@ html.colorswap h3:after {color: #FFF;}
 <section id="stack-issues">
 	<figure class="big_img collapsing_specimen">
 	
-		<img src="images/martin-bros.jpg" alt="Martin Bros. Liquors, Cambridge, MA" />
-		<img src="images/street-sign.jpg" alt="Street sign, Manchester, NH" />
+		<img src="images/photos/martin-bros.jpg" alt="Martin Bros. Liquors, Cambridge, MA" />
+		<img src="images/photos/street-sign.jpg" alt="Street sign, Manchester, NH" />
 
-		<img src="images/telephone.jpg" alt="Telephone box, Philadelphia, PA" />
+		<img src="images/photos/telephone.jpg" alt="Telephone box, Philadelphia, PA" />
 		
 		<figcaption><p>Signs from Cambridge, MA, Manchester, NH, and Philadelphia.</p></figcaption>
 	</figure>
@@ -1006,7 +1028,7 @@ html.colorswap h3:after {color: #FFF;}
 <section id="stack-process">
 	
 	<figure class="big_img">
-		<img src="images/djr-sideways.jpg" alt="Kerning Bungee sideways." />
+		<img src="images/photos/djr-sideways.jpg" alt="Kerning Bungee sideways." />
 		<figcaption>
 			<p>&nbsp;</p>
 		</figcaption>
@@ -1041,12 +1063,10 @@ html.colorswap h3:after {color: #FFF;}
 
 </section><section id="color-styles">
 	<figure class="big_img" id="bungee-layers-figure">
-		<div class="fit-to-width color-styles-shade">Bungee</div>
-		<div class="fit-to-width color-styles-outline">Bungee</div>
-		<div class="fit-to-width color-styles-regular">Bungee</div>
-
-
-		<div class="fit-to-width color-styles-inline">Bungee</div>
+		<div class="color-styles-shade fit-to-width">Bungee!</div>
+		<div class="color-styles-outline fit-to-width">Bungee!</div>
+		<div class="color-styles-regular fit-to-width">Bungee!</div>
+		<div class="color-styles-inline fit-to-width">Bungee!</div>
 
 		
 		<figcaption><p>&nbsp;</p></figcaption>
@@ -1054,19 +1074,19 @@ html.colorswap h3:after {color: #FFF;}
 
 	<p>Bungee comes with four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> them to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can use absolutely-positioned content in <code>:before</code> and <code>:after</code> to place the layers, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> will do the heavy lifting for you.</p>
 	
-</section><section id="basic-styles">
+</section><section id="color-basic">
 	<figure class="big_img" id="bungee-basic-figure">
-		<div class="fit-to-width bungee-basic-regular">Bungee Regular</div>
-		<div class="fit-to-width bungee-basic-hairline">Bungee Hairline</div>
-		<div class="fit-to-width bungee-basic-inline">Bungee Inline</div>
-		<div class="fit-to-width bungee-basic-outline">Bungee Outline</div>
-        <div class="fit-to-width bungee-basic-shade">Bungee Shade</div>
+		<div class="bungee-basic-regular">Regular</div>
+		<div class="bungee-basic-hairline">Hairline</div>
+		<div class="bungee-basic-inline">Inline</div>
+		<div class="bungee-basic-outline">Outline</div>
+        <div class="bungee-basic-shade">Shade</div>
 
 		
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 
-	<p>Bungee also comes with five basic standalone fonts: Regular, Hairline, Inline, Outline, and Shade. These are black and white combinations of Bungee Layers that can be used in any typesetting software without advanced features. These five fonts are <a href="http://fonts.google.com/?selection.family=Bungee&query=bungee">available on Google Fonts</a>.</p>
+	<p>Bungee also comes with a basic set of five standalone fonts: Regular, Hairline, Inline, Outline, and Shade. These are black and white combinations of Bungee Layers that can be used in any typesetting software without advanced features. These five fonts are <a href="http://fonts.google.com/?selection.family=Bungee&query=bungee">available on Google Fonts</a>.</p>
 	
 </section><section id="color-formats">
 	<figure class="big_img">
@@ -1119,10 +1139,11 @@ html.colorswap h3:after {color: #FFF;}
 
 </section>
 
+<!--
 <section id="footer">
     <p>© 2016 David Jonathan Ross.</p>
-
 </section>
+-->
 
 </article>
 <script src="https://chrislewis.codes/js/size-to-width.js"></script>

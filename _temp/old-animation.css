@@ -1,0 +1,89 @@
+
+
+@keyframes translate-a {
+    from {transform: translateY(0px);}
+    to {transform: translateY(-1.44em);}
+}
+@keyframes translate-b {
+    from {transform: translateY(0px);}
+    to {transform: translateY(-.48em);}
+}
+@keyframes translate-c {
+    from {transform: translateY(0px);}
+    to {transform: translateY(.48em);}
+}
+@keyframes translate-d {
+    from {transform: translateY(0px);}
+    to {transform: translateY(1.44em);}
+}
+
+
+@keyframes translate-a-off {
+    to {transform: translateY(0px);}
+    from {transform: translateY(-1.44em);}
+}
+@keyframes translate-b-off {
+    to {transform: translateY(0px);}
+    from {transform: translateY(-.48em);}
+}
+@keyframes translate-c-off {
+    to {transform: translateY(0px);}
+    from {transform: translateY(.48em);}
+}
+@keyframes translate-d-off {
+    to {transform: translateY(0px);}
+    from {transform: translateY(1.44em);}
+}
+
+
+
+.color-styles-inline {
+    font-family: "Bungeee Inline";
+    color: #f28f8f;
+    z-index: 20;
+    animation-fill-mode: forwards;
+    animation: translate-a-off .2s;
+}
+.color-styles-regular {
+    font-family: "Bungeee Regular";
+    color: #d9432e;
+    z-index: 9;
+    animation-fill-mode: forwards;
+    animation: translate-b-off .2s;
+}
+.color-styles-outline {
+    font-family: "Bungeee Outline";
+    color: #762019;
+    z-index: 8;
+    animation-fill-mode: forwards;
+    animation: translate-c-off .2s;
+
+}
+.color-styles-shade {
+    font-family: "Bungeee Shade";
+    color: black;
+    opacity: .05;
+    z-index: 7;
+    animation-fill-mode: forwards;
+    animation: translate-d-off .2s;
+
+}
+#bungee-layers-figure:hover .color-styles-inline {
+    animation: translate-a .2s;
+    animation-direction: normal;
+    animation-delay: .1s;
+}
+#bungee-layers-figure:hover .color-styles-regular {
+    animation: translate-b .1s;
+    animation-direction: normal;
+}
+#bungee-layers-figure:hover .color-styles-outline {
+    animation: translate-c .2s;
+    animation-direction: normal;
+    animation-delay: .2s;
+}
+#bungee-layers-figure:hover .color-styles-shade {
+    animation: translate-d .2s;
+    animation-direction: normal;
+    animation-delay: .3s;
+}

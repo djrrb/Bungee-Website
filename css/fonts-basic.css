@@ -1,0 +1,41 @@
+
+
+@font-face {
+	font-family: "Bungeee Basic Regular";
+	src: url("../fonts/Bungee-Regular.eot?#ie") format("embedded-opentype"),
+		url("../fonts/Bungee-Regular.woff2") format("woff2"),
+		url("../fonts/Bungee-Regular.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Basic Outline";
+	src: url("../fonts/Bungee-Outline.eot?#ie") format("embedded-opentype"),
+		url("../fonts/Bungee-Outline.woff2") format("woff2"),
+		url("../fonts/Bungee-Outline.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Basic Inline";
+	src: url("../fonts/Bungee-Inline.eot?#ie") format("embedded-opentype"),
+		url("../fonts/Bungee-Inline.woff2") format("woff2"),
+		url("../fonts/Bungee-Inline.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Basic Shade";
+	src: url("../fonts/Bungee-Shade.eot?#ie") format("embedded-opentype"),
+		url("../fonts/Bungee-Shade.woff2") format("woff2"),
+		url("../fonts/Bungee-Shade.woff") format("woff");
+}
+
+
+@font-face {
+	font-family: "Bungeee Basic Hairline";
+	src: url("../fonts/Bungee-Hairline.eot?#ie") format("embedded-opentype"),
+		url("../fonts/Bungee-Hairline.woff2") format("woff2"),
+		url("../fonts/Bungee-Hairline.woff") format("woff");
+}
+
