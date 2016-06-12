@@ -161,15 +161,9 @@
 /* manipulations for block shapes and banners */
 
 .bungee.block .block {
-    -moz-font-feature-settings: "ss11";
-    -webkit-font-feature-settings: "ss11";
-    font-feature-settings: "ss11";
 }
 
 .bungee.vertical.block .block {
-    -moz-font-feature-settings: "vpal";
-    -webkit-font-feature-settings: "vpal";
-    font-feature-settings: "vpal";
 }
 
 .bungee.sign .layer.sign {
@@ -200,23 +194,28 @@
 /* block shapes */
 
 .bungee.block span {
-    font-feature-settings: "ss11"; /* this will be done by JS */
+    position: relative;
+    font-feature-settings: "ss01";
+    top: 0;
+    left: 0.14em;
+    letter-spacing: 0.28em;
 }
 
 .bungee.block.shade span {
     /* offset slightly to compensate for shade */
     position: relative;
-    left: 0.02em;
-    top: -0.02em;
+    left: 0.16em; /* left + 0.02 */
+    top: -0.02em; /* top - 0.02 */
 }
 
 .bungee.vertical.block span {
-    font-feature-settings: "ss12", "vpal"; /* this will be done by JS */
+    left: 0;
+    top: 0.14em;
 }
 
 .bungee.vertical.block.shade span {
     left: 0.02em;
-    top: -0.02em;
+    top: 0.12em;
 }
 
 /* banners */

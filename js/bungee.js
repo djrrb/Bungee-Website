@@ -240,10 +240,8 @@ Alternate characters:
 
                 //turn on block features
                 if (orientation === 'horizontal') {
-                    ffs.ss11 = '1';
+                    ffs.ss01 = '1';
                 } else {
-                    ffs.ss12 = '1';
-                    ffs.vpal = '1';
                 }
             }
             
