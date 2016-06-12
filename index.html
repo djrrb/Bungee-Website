@@ -312,6 +312,7 @@ code {
 .color-styles-shade {
     font-family: "Bungeee Shade";
     color: #e2ddd7;
+    color: #19586b;
     z-index: 7;
     animation-fill-mode: forwards;
 
@@ -409,6 +410,46 @@ code {
     margin-top: -7vw;
 }
 
+
+
+
+
+#get a.button {
+	font-family: 'Bungeee Regular';
+	line-height: .8;
+    text-decoration: none;
+    color: #fff;
+    background: #942b1f;
+    padding: .5em;
+    
+    display: block;
+
+	font-size: 4em;
+	margin-top: 1rem;
+	margin-bottom: .15em;
+	margin-left: .05em;
+	position: relative;
+	width: 100%;
+	z-index: 30;
+}
+#get a.button:hover {
+    background: #771F15;
+}
+#get a.button:after {
+	font-family: 'Bungeee Inline';
+    text-decoration: none;
+	color: #000;
+	opacity: .75;
+	content: attr(data-content);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 35;
+}
+
+
+
+
 </style>
 
 
@@ -492,6 +533,8 @@ h1, h2, h3 {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+/*
 h1 {
 	font-family: 'Bungeee Shade';
 	line-height: .8;
@@ -511,8 +554,7 @@ h1:after {
 	top: 0;
 	left: 0;
 }
-
-
+*/
 
 h1 {
 	font-family: 'Bungeee Shade';
@@ -622,7 +664,7 @@ cite, em {
 	font-style: italic;
 }
 
-#cover {
+#cover, #get {
 	padding-top: 2rem;
 	background-color: #DC4227;
 	position: relative;
@@ -667,6 +709,7 @@ cite, em {
 	margin-top: .25em;
 }
 
+/*
 #get {
 	background-color: #25839E;
 }
@@ -679,6 +722,7 @@ cite, em {
 #get a {
 	color: #FFF;
 }
+*/
 
 input[type="text"] {
 	width: 8em;
@@ -1199,13 +1243,14 @@ html.colorswap h3:after {color: #FFF;}
 	<p>Special thanks to Dave Crossland, Rob Giampetro, and Omer Ziv from <a href="http://www.google.com">Google</a>; David Berlow, Sam Berlow, Kent Lew, Cyrus Highsmith, and Jill Pichotta from <a href="http://fontbureau.typenetwork.com">The Font Bureau</a>; <a href="http://typemytype.com">Frederik Berlaen</a> for his tools and support, <a href="https://www.kutilek.de">Jens Kutílek</a> for RoboChrome; <a href="https://pixelambacht.nl">Roel Nieskens</a> for spelunking in Bungee Color; <a href="https://www.microsoft.com/en-us/Typography/default.aspx">Microsoft’s Typography team</a> for their early work on Bungee Color; Emily Richardson for coming up with the name; and <a href="http://13pt.com/corum/">Jon Corum</a>, John Downer, <a href="http://www.johnkramerdesign.biz">John Kramer</a>, <a href="http://kupferschrift.de/cms/">Indra Kupferschmid</a>, and <a href="http://andremora.com">André Mora</a>, for their thoughtful feedback and advice during the design process.</p>
 	
 </section><section id="get">
-
-	<h1>Get Bungee</h1>
+    <h3>Get Bungee</h3>
 	<ul>
-		<li><a href="bungee.zip">Download the fonts</a></li>
-		<li><a href="http://www.github.com/djrrb/bungee">View the source</a></li>
-		<li><a href="http://fonts.google.com/?selection.family=Bungee&query=bungee">Google Fonts</a></li>
+		<li><a href="bungee.zip" class="button fit-to-width">Download</a></li>
+		<li><a href="http://www.github.com/djrrb/bungee" class="button">Clone on GitHub</a></li>
+		<li><a href="http://fonts.google.com/?selection.family=Bungee&query=bungee" class="button fit-to-width">Bungee on Google Fonts</a></li>
 	</ul>
+
+
 
 
 </section></article>
