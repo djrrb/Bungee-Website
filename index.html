@@ -11,6 +11,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bungee.js"></script>
 <script src="js/typesetter.js"></script>
+<script src="js/fit-to-width.js"></script>
 <script src="js/bungee-website.js"></script>
 <script src="js/spectrum.js"></script>
 <script>
@@ -45,8 +46,8 @@ $(document).keydown(function(e) {
 
 @font-face {
     font-family: InputSansNarrowWeb;
-    src: url("https://djr.com/assets/fonts-custom/InputSansNarrow-Light_TRIAL.eot");
-    src: url("https://djr.com/assets/fonts-custom/InputSansNarrow-Light_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts-custom/InputSansNarrow-Light_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts-custom/InputSansNarrow-Light_TRIAL.woff") format("woff");
+    src: url("https://djr.com/assets/fonts/Input/ascii/InputSansNarrow-ExtraLight_TRIAL.eot");
+    src: url("https://djr.com/assets/fonts/Input/ascii/InputSansNarrow-ExtraLight_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Input/ascii/InputSansNarrow-ExtraLight_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Input/ascii/InputSansNarrow-ExtraLight_TRIAL.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
@@ -65,6 +66,31 @@ $(document).keydown(function(e) {
     src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Light_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Light_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Light_TRIAL.woff") format("woff");
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: OutputSansWebCaptionX;
+    src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Regular_TRIAL.eot");
+    src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Regular_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Regular_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Regular_TRIAL.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: OutputSansWebCaptionX;
+    src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Italic_TRIAL.eot");
+    src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Italic_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Italic_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Italic_TRIAL.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: OutputSansWebX;
+    src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-LightItalic_TRIAL.eot");
+    src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-LightItalic_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-LightItalic_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-LightItalic_TRIAL.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
 }
 
 @font-face {
@@ -195,9 +221,110 @@ nav a:visited {
 
 
 code {
-    font-size: .9;
+    font-family: InputSansNarrowWeb;
+    font-size: .85;
     background: #fff;
-    padding: 0em;
+    padding: 0em .2em .2em .2em;
+}
+
+
+.color-styles-inline, .color-styles-outline, .color-styles-regular, .color-styles-shade {
+    line-height: .96em;
+    margin: 0;
+    padding: 0;
+} 
+
+
+
+
+@keyframes translate-a {
+    from {transform: translateY(0px);}
+    to {transform: translateY(-1.44em);}
+}
+@keyframes translate-b {
+    from {transform: translateY(0px);}
+    to {transform: translateY(-.48em);}
+}
+@keyframes translate-c {
+    from {transform: translateY(0px);}
+    to {transform: translateY(.48em);}
+}
+@keyframes translate-d {
+    from {transform: translateY(0px);}
+    to {transform: translateY(1.44em);}
+}
+
+
+@keyframes translate-a-off {
+    to {transform: translateY(0px);}
+    from {transform: translateY(-1.44em);}
+}
+@keyframes translate-b-off {
+    to {transform: translateY(0px);}
+    from {transform: translateY(-.48em);}
+}
+@keyframes translate-c-off {
+    to {transform: translateY(0px);}
+    from {transform: translateY(.48em);}
+}
+@keyframes translate-d-off {
+    to {transform: translateY(0px);}
+    from {transform: translateY(1.44em);}
+}
+
+
+
+.color-styles-inline {
+    font-family: BungeeLayers-Inline;
+    color: #f28f8f;
+    z-index: 20;
+    animation-fill-mode: forwards;
+    animation: translate-a-off .3s;
+}
+.color-styles-regular {
+    font-family: BungeeLayers-Regular;
+    color: #d9432e;
+    z-index: 9;
+    animation-fill-mode: forwards;
+    animation: translate-b-off .3s;
+}
+.color-styles-outline {
+    font-family: BungeeLayers-Outline;
+    color: #762019;
+    z-index: 8;
+    animation-fill-mode: forwards;
+    animation: translate-c-off .3s;
+
+}
+.color-styles-shade {
+    font-family: BungeeLayers-Shade;
+    color: black;
+    opacity: .05;
+    z-index: 7;
+    animation-fill-mode: forwards;
+    animation: translate-d-off .3s;
+
+}
+
+
+#bungee-layers-figure:hover .color-styles-inline {
+    animation: translate-a .3s;
+    animation-direction: normal;
+    animation-delay: .1s;
+}
+#bungee-layers-figure:hover .color-styles-regular {
+    animation: translate-b .2s;
+    animation-direction: normal;
+}
+#bungee-layers-figure:hover .color-styles-outline {
+    animation: translate-c .3s;
+    animation-direction: normal;
+    animation-delay: .2s;
+}
+#bungee-layers-figure:hover .color-styles-shade {
+    animation: translate-d .3s;
+    animation-direction: normal;
+    animation-delay: .3s;
 }
 
 
@@ -337,6 +464,7 @@ figcaption {
 	font-size: .675em;
 	letter-spacing: 0.03em;
 	margin-top: .5em;
+	font-family: OutputSansWebCaptionX;
 }
 .figure_group {
 	max-width: 40em
@@ -801,11 +929,13 @@ html.colorswap h3:after {color: #FFF;}
 	<figure class="big_img collapsing_specimen">
 		<!--<img src="images/chicago-theatre.jpg" alt="" />-->
 		
-		<img src="images/martin-bros.jpg" alt="Martin Bros. Liquors, Cambridge, MA" />
+		<!--<img src="images/hollywood-premiere-motel.jpg" alt="Hollywood Premiere Motel, Los Angeles, CA" />-->
+
+        <img src="images/g-g-hardware.jpg" alt="G & G Hardware, Oakland, CA" />
 		<img src="images/tower-theater.jpg" alt="Tower Theater, Los Angeles, CA" />
 		<img src="images/little-city.jpg" alt="Little City, San Francisco, CA" />
 		
-		<figcaption><p>Signs from Cambridge, MA, Los Angeles and San Francisco.</p></figcaption>
+		<figcaption><p>Signs from Oakland, Los Angeles, and San Francisco.</p></figcaption>
 	</figure>
 
 	<p>Bungee is a typeface that celebrates the urban sign. From crummy liquor stores to majestic theaters, our cities are packed with vertical signage that stacks Latin letters, one on top of the other, in order to make dramatic use of limited space. Bungee has a specially-drawn vertical-use alphabet that will take your text in a new direction.</p>
@@ -815,14 +945,15 @@ html.colorswap h3:after {color: #FFF;}
 
 <section id="stack-issues">
 	<figure class="big_img collapsing_specimen">
+	
+		<img src="images/martin-bros.jpg" alt="Martin Bros. Liquors, Cambridge, MA" />
 		<img src="images/street-sign.jpg" alt="Street sign, Manchester, NH" />
 
 		<img src="images/telephone.jpg" alt="Telephone box, Philadelphia, PA" />
-		<img src="images/hollywood-premiere-motel.jpg" alt="Hollywood Premiere Motel, Los Angeles, CA" />
 		
-		<figcaption><p>&nbsp;</p></figcaption>
+		<figcaption><p>Signs from Cambridge, MA, Manchester, NH, and Philadelphia.</p></figcaption>
 	</figure>
-	<p>Setting the latin alphabet vertically is not always a good idea. The Latin alphabet is designed for horizontal writing, and readability experts would tell you to leave verticality to the writing systems that are well-suited to it, like Chinese or Korean. But in display typography, readability isn't everything. When used deftly and sparingly, stacked letters can stand out among the crowd.</p>
+	<p>Let’s get one thing straight: setting the Latin alphabet vertically is not always a great idea. The Latin alphabet is designed for horizontal writing, and readability experts would tell you to leave verticality to scripts like Chinese or Korean. But in display typography, readability isn't everything. When used deftly and sparingly, stacked letters can help your words stand out among the crowd.</p>
 </section>
 
 <section id="stack-edges">
@@ -831,7 +962,7 @@ html.colorswap h3:after {color: #FFF;}
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 
-	<p>It is important that each word has well-defined left and right edges, as well as a strong center line. Special care must be given to letters that are unusually wide or narrow, such as I, L, M, and W.</p>
+	<p>In vertical type, the downward flow of text takes precedence over than the proportions of any individual letter. In Bungee, round characters like <em>O</em> and diagonal characters like <em>A</em> have straight sides, reinforcing this flow and giving each word a well-defined left and right edge. Letters that are unusually wide, narrow, or asymmetric (such as <em>I</em>, <em>L</em>, <em>M</em>, and <em>W</em>) must receive special care.</p>
 </section>
 
 
@@ -840,7 +971,7 @@ html.colorswap h3:after {color: #FFF;}
 		<img src="images/bungee-spacing.png" alt="" />
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
-	<p>Bungee implements its vertical forms with <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">OpenType features</a> that are more commonly used for vertical text in East Asian scripts. These are activated by Vertical Type tools in some desktop design applications, or using CSS <code>writing-mode</code> and <code>text-orientation</code>.</p>
+	<p>Bungee implements its vertical forms with <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">OpenType features</a> that are more commonly used for vertical text in East Asian scripts. These are activated by Vertical Type tools in some desktop design applications, or using CSS <code>writing-mode: vertical-rl</code> and <code>text-orientation: upright</code>.</p>
 </section>
 
 
@@ -852,7 +983,7 @@ html.colorswap h3:after {color: #FFF;}
 			<p>&nbsp;</p>
 		</figcaption>
 	</figure>
-	<p>Bungee was drawn, spaced, and kerned while rotated on its side, which led to a host of interesting design challenges. For applications that cannot take advantage of Bungee’s OpenType vertical abilities, this special Rotated version can be rotated counter-clockwise to simulate vertical text.</p>
+	<p>I began drawing Bungee by rotating it rotated 90° clockwise, which led to a host of interesting design challenges. I offer this special Rotated version for applications that cannot take advantage of Bungee’s OpenType capabilities. By rotating the text block 90° counter-clockwise, you can simulate vertical text in any application.</p>
 
 </section>
 
@@ -878,15 +1009,22 @@ html.colorswap h3:after {color: #FFF;}
 		<figcaption><p><cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p></figcaption>
 	</figure>
 
-<p>Chromatic typefaces are nothing new: sets of wood type intended for overprinting were produced as early as 1841, and quickly became a popular way to add visual interest to posters and broadsides. Today we find ourselves in a renaissance of chromatic type, with many <a href="https://www.boldmonday.com/typeface/nitti-mostro/">incredible</a> <a href="http://www.photolettering.com">digital</a> <a href="https://www.myfonts.com/fonts/matchandkerosene/detroit/">fonts</a> released each year with layers for chromatic typesetting.</p>
+<p>Chromatic typefaces are nothing new: sets of wood type intended for overprinting were produced as early as 1841, and quickly became a popular way to add visual interest to posters and broadsides. Today we find ourselves in a renaissance of chromatic type, with many <a href="https://www.boldmonday.com/typeface/nitti-mostro/">incredible</a> <a href="http://www.photolettering.com">digital</a> <a href="https://www.myfonts.com/fonts/matchandkerosene/detroit/">fonts</a> released each year that come with layers for chromatic typesetting.</p>
 
 </section><section id="color-styles">
-	<figure class="big_img">
-		<img src="images/img.svg" />
+	<figure class="big_img" id="bungee-layers-figure">
+		<div class="fit-to-width color-styles-shade">Bungee</div>
+		<div class="fit-to-width color-styles-outline">Bungee</div>
+		<div class="fit-to-width color-styles-regular">Bungee</div>
+
+
+		<div class="fit-to-width color-styles-inline">Bungee</div>
+
+		
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 
-	<p>Bungee comes with Regular, Inline, Outline, and Shade layers, <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">which you can mix and match</a> to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can use absolutely-positioned content in <code>:before</code> and <code>:after</code> to place the layers, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> will do the heavy lifting for you.</p>
+	<p>Bungee comes with four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> them to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can use absolutely-positioned content in <code>:before</code> and <code>:after</code> to place the layers, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> will do the heavy lifting for you.</p>
 	
 </section><section id="color-formats">
 	<figure class="big_img">
@@ -903,7 +1041,9 @@ html.colorswap h3:after {color: #FFF;}
 <section class="specimen">
     <figure class="collapsing_specimen"><img src="images/specimen-features-A.svg" alt="Feature Specimen" /><img src="images/specimen-features-B.svg" alt="Feature Specimen" />
     </figure>
-    <p>As a display font <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">retro alternates</a>, <a href="https://github.com/djrrb/Bungee/blob/master/documentation/5-ornaments.md">ornaments</a> such as banner shapes (for connecting) and block shapes for encircling individual letters), pointing fists, arrows, and double-II and Dutch Ĳ ligatures.</p>
+    <p>In large displays, every letter counts. Bungee’s <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">stylistic alternates</a> include simplified Deco forms, unserifed forms, and vertical ligatures for double-II and Dutch Ĳ ligatures. Bungee also ships with a large set of arrows, pointing fists, and background shapes that are inspired by the shapes and decorations on old commercial signs. Some of these background shapes will connect to form decorative banners, while other block shapes are meant to encircle a single letter.
+    
+</p>
     
 </section>
 
