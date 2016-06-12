@@ -369,7 +369,7 @@ code {
 
 /* color sections */
 
-#stack figure img, #stack-issues figure img, #color figure img {
+#stack figure img, #stack-issues figure img, #stack-process figure img, #color figure img {
     border: 1px solid #19586b;
 }
 
@@ -1097,11 +1097,11 @@ html.colorswap h3:after {color: #FFF;}
 
 </section><section id="stack-edges">
 	<figure class="big_img">
-		<img src="images/bungee-alts.gif" />
+		<img src="images/bungee-alpha.svg" />
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 
-	<p>In vertical type, the downward flow of text takes precedence over than the proportions of any individual letter. I drew Bungee’s round and diagonal characters with straight sides (see <em>O</em> and <em>A</em>), which reinforces their verticality and helps to define the left and right edge of the word. Letters that are unusually wide, narrow, or asymmetrical (such as <em>I</em>, <em>L</em>, <em>M</em>, and <em>W</em>) tend to be especially tricky. Bungee offers alternates for these letters so that you have options in your design.</p>
+	<p>In vertical type, the downward flow of text becomes more important than the proportions of any individual letter. I drew Bungee’s round and diagonal characters with straight sides (see <em>O</em> and <em>A</em>), which reinforces their verticality and creates a well-defined the left and right edge. Letters that are unusually wide, narrow, or asymmetrical (such as <em>I</em>, <em>L</em>, <em>M</em>, and <em>W</em>) tend to be especially tricky. You can <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md#stylistic-set-09-john-downers-recommendations">avoid these letters</a> or use Bungee’s alternates to get the best results for your design.</p>
 </section><section id="stack-issues">
 	<figure class="big_img collapsing_specimen">
 	
@@ -1155,7 +1155,7 @@ html.colorswap h3:after {color: #FFF;}
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
     <br />
-	<p>Bungee comes with four text layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> them to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can use absolutely-positioned content in <code>:before</code> and <code>:after</code> to place the layers, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> will do the heavy lifting for you.</p>
+	<p>Bungee comes with four text layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> them to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned <code>content: attr(data-content);</code> in a <code>:before</code> or <code>:after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
 	
 </section><section id="color-basic">
 	<figure class="big_img" id="bungee-basic-figure">
