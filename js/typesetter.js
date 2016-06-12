@@ -283,7 +283,7 @@
                     sizeToWidth(preview);
                 } else {
                     preview.css('font-size', (parseFloat(preview.data('max-font-size')) || 288) + 'px');
-                    var padding = preview.offset().top;
+                    var padding = preview.position().top;
                     var pheight = preview.height();
                     var wheight = win.height() - padding*2;
                     var ratio = wheight / pheight;
