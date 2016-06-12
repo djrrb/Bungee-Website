@@ -275,57 +275,79 @@ code {
 
 
 .color-styles-inline {
-    font-family: BungeeLayers-Inline;
+    font-family: "Bungeee Inline";
     color: #f28f8f;
     z-index: 20;
     animation-fill-mode: forwards;
-    animation: translate-a-off .3s;
+    animation: translate-a-off .2s;
 }
 .color-styles-regular {
-    font-family: BungeeLayers-Regular;
+    font-family: "Bungeee Regular";
     color: #d9432e;
     z-index: 9;
     animation-fill-mode: forwards;
-    animation: translate-b-off .3s;
+    animation: translate-b-off .2s;
 }
 .color-styles-outline {
-    font-family: BungeeLayers-Outline;
+    font-family: "Bungeee Outline";
     color: #762019;
     z-index: 8;
     animation-fill-mode: forwards;
-    animation: translate-c-off .3s;
+    animation: translate-c-off .2s;
 
 }
 .color-styles-shade {
-    font-family: BungeeLayers-Shade;
+    font-family: "Bungeee Shade";
     color: black;
     opacity: .05;
     z-index: 7;
     animation-fill-mode: forwards;
-    animation: translate-d-off .3s;
+    animation: translate-d-off .2s;
 
 }
-
-
 #bungee-layers-figure:hover .color-styles-inline {
-    animation: translate-a .3s;
+    animation: translate-a .2s;
     animation-direction: normal;
     animation-delay: .1s;
 }
 #bungee-layers-figure:hover .color-styles-regular {
-    animation: translate-b .2s;
+    animation: translate-b .1s;
     animation-direction: normal;
 }
 #bungee-layers-figure:hover .color-styles-outline {
-    animation: translate-c .3s;
+    animation: translate-c .2s;
     animation-direction: normal;
     animation-delay: .2s;
 }
 #bungee-layers-figure:hover .color-styles-shade {
-    animation: translate-d .3s;
+    animation: translate-d .2s;
     animation-direction: normal;
     animation-delay: .3s;
 }
+
+
+
+
+.bungee-basic figure {
+    line-height: .8em;
+}
+.bungee-basic-regular {
+    font-family: "Bungeee Regular";
+}
+.bungee-basic-hairline {
+    font-family: "Bungeee Inline";
+}
+.bungee-basic-inline {
+    font-family: "Bungeee Basic Inline";
+}
+.bungee-basic-outline {
+    font-family: "Bungeee Basic Outline";
+}
+.bungee-basic-shade {
+    font-family: "Bungeee Basic Shade";
+}
+
+
 
 
 </style>
@@ -755,6 +777,12 @@ html.colorswap h3:after {color: #FFF;}
 	#get h1 {
 		top: -.5rem;
 	}
+	
+	/* the svg has a big bottom margin, so we can pull this one up - a little too hacky? */
+	#feature-specimen p {
+	    margin-top: -5.5em;
+	}
+	
 }
 @media (min-width: 64em) and (min-height: 64em) {
 	#get h1 {
@@ -1026,22 +1054,36 @@ html.colorswap h3:after {color: #FFF;}
 
 	<p>Bungee comes with four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> them to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can use absolutely-positioned content in <code>:before</code> and <code>:after</code> to place the layers, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> will do the heavy lifting for you.</p>
 	
+</section><section id="basic-styles">
+	<figure class="big_img" id="bungee-basic-figure">
+		<div class="fit-to-width bungee-basic-regular">Bungee Regular</div>
+		<div class="fit-to-width bungee-basic-hairline">Bungee Hairline</div>
+		<div class="fit-to-width bungee-basic-inline">Bungee Inline</div>
+		<div class="fit-to-width bungee-basic-outline">Bungee Outline</div>
+        <div class="fit-to-width bungee-basic-shade">Bungee Shade</div>
+
+		
+		<figcaption><p>&nbsp;</p></figcaption>
+	</figure>
+
+	<p>Bungee also comes with five basic standalone fonts: Regular, Hairline, Inline, Outline, and Shade. These are black and white combinations of Bungee Layers that can be used in any typesetting software without advanced features. These five fonts are <a href="http://fonts.google.com/?selection.family=Bungee&query=bungee">available on Google Fonts</a>.</p>
+	
 </section><section id="color-formats">
 	<figure class="big_img">
 		<img src="images/bungee-color.gif" />
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 
-	<p>Bungee also comes in 3 new color font formats: SVG (<a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">Mozilla</a>), COLR/CPAL (<a href="https://www.microsoft.com/typography/otspec/colr.htm">Microsoft</a>) and SBIX (<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">Apple</a>). Support for these formats is far from universal, but I am excited about all of the possibilities that color fonts have to offer. I am hopeful that Bungee Color can help users and developers experiment with these formats.</p>
+	<p>Bungee is also available in 3 new color font formats: SVG (<a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">Mozilla</a>), COLR/CPAL (<a href="https://www.microsoft.com/typography/otspec/colr.htm">Microsoft</a>) and SBIX (<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">Apple</a>). These formats store color information in the font itself, allowing for effortless chromatic typesetting in even the most basic of applications. Support for these formats is far from universal, but I am excited about all of the possibilities that color fonts have to offer. I am hopeful that Bungee Color can help users and developers experiment with these formats.</p>
 </section>
 
 
 <!-- EDGE CASES -->
 
-<section class="specimen">
+<section id="feature-specimen" class="specimen">
     <figure class="collapsing_specimen"><img src="images/specimen-features-A.svg" alt="Feature Specimen" /><img src="images/specimen-features-B.svg" alt="Feature Specimen" />
     </figure>
-    <p>In large displays, every letter counts. Bungee’s <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">stylistic alternates</a> include simplified Deco forms, unserifed forms, and vertical ligatures for double-II and Dutch Ĳ ligatures. Bungee also ships with a large set of arrows, pointing fists, and background shapes that are inspired by the shapes and decorations on old commercial signs. Some of these background shapes will connect to form decorative banners, while other block shapes are meant to encircle a single letter.
+    <p>Bungee’s <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">stylistic alternates</a> include simplified Deco forms, unserifed forms, and vertical ligatures for double-II and Dutch Ĳ. Bungee also ships with a large set of <a href="https://github.com/djrrb/Bungee/blob/master/documentation/5-ornaments.md">arrows, pointing fists, and background shapes</a> that are inspired by the shapes and decorations on old commercial signs. Some of these background shapes will connect to form decorative banners, while other block shapes are meant to encircle a single letter.
     
 </p>
     
