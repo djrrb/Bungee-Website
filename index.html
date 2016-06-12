@@ -873,6 +873,9 @@ html.colorswap h3:after {color: #FFF;}
     <figure id='preview' data-max-font-size='288px'></figure>
     <form id='controls' onsubmit='return false'>
 	    
+	    <!-- this size control is only used for generating images -->
+	    <input type='hidden' name='size' value='144'>
+	    
         <fieldset id='text-control'>
             <label><h5>Text:</h5> <input type='text' name='text' value='Examiner'></label>
         </fieldset>
@@ -886,6 +889,7 @@ html.colorswap h3:after {color: #FFF;}
         
         <fieldset id='preset-controls'>
 	        <h5>Presets: </h5>
+	        <!--
 	        <select id="preset-list" name="presets">
 		        <option>Bodega</option>
 		        <option>Motel</option>
@@ -917,6 +921,7 @@ html.colorswap h3:after {color: #FFF;}
 		        <option>Bowling</option>
 		        <option>Open</option>
 			</select>
+			-->
 			<ul id="palettes">
 			</ul>
 		</fieldset>
@@ -966,8 +971,10 @@ html.colorswap h3:after {color: #FFF;}
         <fieldset id='save-share'>
 	        <h5>Save/Share</h5>
             <ul>
-	            <li><a href="">Permalink</a></li>
-	            <li><a href="">Download</a></li>
+	            <li><a href="" id='permalink'>Permalink</a></li>
+	            <li><a href="">Download SVG</a></li>
+	            <li><a href="">Download PNG</a></li>
+	            <li><a href="">Download PDF</a></li>
 	            <li><a href="">View code</a></li>
             </ul>
         </fieldset>
@@ -1203,6 +1210,7 @@ function mcancelclosetime()
 		closetimer = null;
 	}
 }
+
 </script>
 
 
