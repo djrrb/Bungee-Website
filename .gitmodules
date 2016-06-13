@@ -1,0 +1,3 @@
+[submodule "Bungee"]
+	path = Bungee
+	url = git@github.com:djrrb/Bungee
