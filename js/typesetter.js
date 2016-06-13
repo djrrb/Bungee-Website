@@ -87,32 +87,20 @@
         }
     
         function setURL() {
-            var url = $('#controls').serialize(); // + '&text=' + encodeURIComponent(preview.find('span').first().text().trim());
+            var url = $('#controls').serialize();
             $('#permalink').prop('href', '?' + url + '#' + preview.closest('section').prop('id'));
         }
         
         function doSVG() {
-            var reference = preview.find('.layer.text');
             var req = {};
-            req.text = Bungee.cleanupText(textcontrol.val()); //reference.find('span').first().text().trim();
+            req.text = Bungee.cleanupText(textcontrol.val());
             req.size = 144;
             req.orientation = orientationcontrols.filter(':checked').val();
-            req.layers = {};
-            layercontrols.filter(':checked').each(function() {
-                var color = reference.filter('.' + this.value).css('color');
-                if (/(\d+),\s*(\d+),\s*(\d+)/.test(color)) {
-                    var red = RegExp.$1;
-                    var green = RegExp.$2;
-                    var blue = RegExp.$3;
-                    red = Number(red).toString(16);
-                    green = Number(green).toString(16);
-                    blue = Number(blue).toString(16);
-                    if (red.length===1) { red = '0' + red; }
-                    if (green.length===1) { green = '0' + green; }
-                    if (blue.length===1) { blue = '0' + blue; }
-                    color = red + green + blue;
-                }
-                req.layers[this.value] = color;
+            layercontrols.not('.none').each(function() {
+                var swatch = $(this);
+                var layer = swatch.data('layer');
+                var color = swatch.spectrum('get').toHex8();
+                req[layer] = color;
             });
             backgroundcontrols.filter(':checked').each(function() {
                 req[this.name] = Bungee[this.name + 'Chars'][this.value];
@@ -123,23 +111,7 @@
             });
             req.ss = req.ss.join(',');
             
-            $('#svg').html('<img src="/svg.php?' + $.param(req) + '" alt="SVG rendition">');
-
-            req.format = 'png';
-            var png = $('<img src="/svg.php?' + $.param(req) + '" alt="PNG rendition">');
-
-            png.on('load', function() {
-                var img = $(this);
-                img.css({
-                    'width': (img.width()/2) + 'px',
-                    'height': (img.height()/2) + 'px'
-                });
-            });
-
-            $('#png').html(png);
-            
-            req.format='pdf';
-            $('#pdf').attr('href', '/svg.php?' + $.param(req));
+            $('#download-svg').attr('href', 'svg/svg.php?' + $.param(req));
         }
 
         function updatePreview(evt) {
@@ -271,8 +243,9 @@
                 }, 10);
             }
 
-            setURL();
             $('#code').remove();
+            setURL();
+            doSVG();
 
             if (false && evt) {
                 if (evt.type !== 'input') {
