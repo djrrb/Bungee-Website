@@ -487,6 +487,7 @@ h2 {
 	position: relative;
 	font-family: "Bungeee Regular";
 	font-size: 1.5em;
+	text-align: center;
 	/*color: #f1e888;*/
 	/*color: #fff;*/
 	color: #771F15;
@@ -530,7 +531,7 @@ h5 {
 
 p {
 	line-height: 1.4;
-	max-width: 80ex;
+	max-width: 40rem;
 }
 figure {
 	max-width: 60em;
@@ -541,19 +542,16 @@ figcaption {
 	margin-top: .5em;
 	font-family: OutputSansWebCaptionX;
 }
-.figure_group {
-	max-width: 40em
-}
 .triptych {
 	white-space: nowrap;
 }
 .triptych img {
-	max-width: 33%;
+	max-width: 32%;
 	height: auto;
 	margin: 0;
 }
 .triptych img + img {
-	margin-left: 1rem;
+	margin-left: 2%;
 }
 img {
 	max-width: 100%;
@@ -803,14 +801,6 @@ html.colorswap h3:after {color: #FFF;}
 	html:before {content: 'S';}
 	h1 {font-size: 5em;}
 	h3 {font-size: 4em;}
-	.figure_group figure {
-		margin: 0;
-		display: inline-block;
-		max-width: 48%;
-	}
-	.figure_group figure + figure {
-		margin-left: 4%;
-	}
 	.collapsing_specimen {
 		white-space: nowrap;
 		max-width: 50%;
@@ -844,25 +834,9 @@ html.colorswap h3:after {color: #FFF;}
 		height: 100vh;
 		overflow-y: auto;
 	}
-	section.collapsing_content {
-		white-space: nowrap;
-		overflow-x: visible;
-		width: intrinsic;
-	}
 	#tester {
 		padding-left: 5em;
 		width: 95vw;
-	}
-	.chunk {
-		display: inline-block;
-		vertical-align: top;
-		white-space: normal;
-	}
-	.chunk + .chunk {
-		margin-left: 3em;
-	}
-	.chunk > .chunk + .chunk {
-		margin-top: 0;
 	}
 	section + section {
 		border-top: none;
@@ -892,6 +866,7 @@ html.colorswap h3:after {color: #FFF;}
 	}
 	#cover h2 {
 		/*text-align: center;*/
+		word-spacing: .25em;
 	}
 	#cover p {
 		margin-left: auto;
@@ -904,9 +879,6 @@ html.colorswap h3:after {color: #FFF;}
 	.specimen img {
 		max-width: none;
 		height: calc(100vh - 5em);
-	}
-	p {
-		max-width: 40rem;
 	}
 	h2 {
 		font-size: 2em;
@@ -947,21 +919,6 @@ html.colorswap h3:after {color: #FFF;}
 	h3 {
 		font-size: 7em;
 	}
-	section.collapsing_content {
-		white-space: normal;
-	}
-	.chunk {
-		display: block;
-	}
-	.chunk-secondary {
-		display: inline-block;
-	}
-	.chunk + .chunk {
-		margin-left: 0;
-	}
-	.chunk + .chunk-secondary {
-		margin-left: 6em;
-	}
 }
 @media (min-width: 80em) {
 	html:before {content: 'XL';}
@@ -1000,7 +957,7 @@ html.colorswap h3:after {color: #FFF;}
 		</ul>
 	</nav>
 	<h1 class="fit-to-width">Bun-<br />gee!</div>
-	<h2>Fonts for vertical and multi-color typography</h2>
+	<h2>Fonts for vertical and multicolor typography</h2>
 </section><section class="specimen yellow">
 	<figure class="collapsing_specimen">
 			<img src="images/specimen-vertical-B.svg" /><img src="images/specimen-vertical-A.svg" />
