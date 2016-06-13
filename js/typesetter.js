@@ -86,12 +86,12 @@
             return layerclass;
         }
     
-        function setURL() {
+        function getPermalink() {
             var url = $('#controls').serialize();
-            $('#permalink').prop('href', '?' + url + '#' + preview.closest('section').prop('id'));
+            return '?' + url + '#' + preview.closest('section').prop('id');
         }
         
-        function doSVG() {
+        function getSvgURL() {
             var req = {};
             req.text = Bungee.cleanupText(textcontrol.val());
             req.size = 144;
@@ -111,7 +111,15 @@
             });
             req.ss = req.ss.join(',');
             
-            $('#download-svg').attr('href', 'svg/svg.php?' + $.param(req));
+            return 'svg/svg.php?' + $.param(req) + '&download';
+        }
+
+        function getPngURL() {
+            return getSvgURL() + '&format=png';
+        }
+
+        function getPdfURL() {
+            return getSvgURL() + '&format=pdf';
         }
 
         function updatePreview(evt) {
@@ -244,15 +252,10 @@
             }
 
             $('#code').remove();
-            setURL();
-            doSVG();
-
-            if (false && evt) {
-                if (evt.type !== 'input') {
-                    // don't update SVG while slider is moving
-                    setTimeout(doSVG);
-                }
-            }
+            $('#permalink').prop('href', getPermalink());
+            $('#download-svg').prop('href', getSvgURL());
+            $('#download-png').prop('href', getPngURL());
+            $('#download-pdf').prop('href', getPdfURL());
         }
 
         function handleColor(layer, newcolor, silent) {
@@ -330,7 +333,6 @@
         }
 
         updatePreview();
-        //doSVG();
 
         allcontrols.on('change', updatePreview);
         textcontrol.on('keyup', updatePreview);
@@ -346,6 +348,11 @@
             $('#save-share').after(out);
             return false;
         })
+
+        $('a[id^="download-"]').on('click', function() {
+            window.history.replaceState({}, "", getPermalink());
+            return true;
+        });
 
     }); //window.onload
 })();

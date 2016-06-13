@@ -76,10 +76,11 @@ if ($ss01 !== false) {
 }
 
 #calculate size
-$padding = round($size*0.1 + 18);
-$height = round($size + $padding*2);
-//width will be determined by text length
+$xpadding = round($size*0.1 + 18);
+$ypadding = $begin == 'e15a' || $end == '27a1' ? $xpadding + $size*0.1 : $xpadding;
 
+$height = round($size + $ypadding*2);
+//width will be determined by text length
 
 
 #what characters do we actually need?
@@ -225,8 +226,8 @@ if ($block and isset($layers['sign'])) {
     if (!isset($charwidths[$style][$block])) {
         continue;
     }
-    $x = $padding;
-    $y = $height-$padding-$baseline*$em2px;
+    $x = $xpadding;
+    $y = $height-$ypadding-$baseline*$em2px;
     for ($i=0,$l=mb_strlen($text); $i<$l; $i++) {
         print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#regular-$block' style='" . color2CSS($color) . "' />";
         $x += $charwidths[$style][$block]*$em2px;
@@ -244,14 +245,14 @@ foreach ($layers as $style => $color) {
             break;
         
         default:
-            $x = $padding;
+            $x = $xpadding;
             if ($block) {
                 if ($orientation === 'vertical') {
                 } else {
                     $x += $blockwidth*$em2px*0.109375;
                 }
             }
-            $y = $height-$padding - $baseline*$em2px;
+            $y = $height-$ypadding - $baseline*$em2px;
             $x += $shadenudge * ($orientation === 'vertical' ? -1 : 1);
             $y -= $shadenudge;
             for ($i=0,$l=mb_strlen($text); $i<$l; $i++) {
@@ -277,7 +278,7 @@ foreach ($layers as $style => $color) {
                 $x += $block ? $blockwidth*$em2px - $ss01fudge : $charwidths[$style][$id]*$em2px;
                 $prev = $id;
             }
-            $textwidth = $x - $padding;
+            $textwidth = $x - $xpadding;
             break;
     }
 
@@ -295,8 +296,8 @@ if (($begin or $end) and isset($layers['sign'])) {
         $beginwidth = $charwidths['regular'][$begin];
     }
     $color = $layers['sign'];
-    $x = $padding;
-    $y = $height-$padding-$baseline*$em2px;
+    $x = $xpadding;
+    $y = $height-$ypadding-$baseline*$em2px;
     if ($begin) {
         print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#regular-$begin' style='" . color2CSS($color) . "' />";
         $x += $charwidths[$style][$begin]*$em2px;
@@ -321,7 +322,7 @@ if (($begin or $end) and isset($layers['sign'])) {
         print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#regular-$end' style='" . color2CSS($color) . "' />";
         $x += $charwidths[$style][$end]*$em2px;
     }
-    $bannerwidth = $x - $padding;
+    $bannerwidth = $x - $xpadding;
 }
 
 $bannercontent = ob_get_clean();
@@ -329,7 +330,7 @@ $bannercontent = ob_get_clean();
 ob_start();
 
 #now we have all the information we need to calculate the final dimensions
-$width = round(max($textwidth, $bannerwidth) + 2*$padding);
+$width = round(max($textwidth, $bannerwidth) + 2*$xpadding);
 
 if ($orientation === 'vertical') {
     print "<g transform='rotate(90) translate(0,-$height)'>";
@@ -417,7 +418,7 @@ $safetext = "Bungee-" . preg_replace('/[^\w-]+/u', '-', $text);
 
 clearstatcache();
 
-header("Content-disposition: inline; filename=$safetext.$format");
+header("Content-disposition: " . (isset($_GET['download']) ? 'attachment' : 'inline') . "; filename=$safetext.$format");
 
 if (DEBUG) {
     header("Cache-control: no-cache");
