@@ -63,31 +63,6 @@ $(function() {
     }
     win.on('hashchange', goToHash);
 
-    // do horizontal column wrapping if content overflows
-/*
-    function resetColumns() {
-        $('section').css({'column-count': '', 'width': ''});
-    }
-
-    function calculateColumns() {
-        $('section').each(function() {
-            var section = $(this);
-            var contentHeight = section.height();
-            var windowHeight = page.height();
-            var columns = Math.ceil(contentHeight / windowHeight);
-            if (columns > 1) {
-            console.log(this.id, columns, section.width());
-                var gap = parseFloat(section.css('column-gap'));
-                section.width(section.width()*columns + gap*(columns-1));
-                section.css('column-count', columns);
-            }
-        });
-    }
-
-    calculateColumns();
-*/
-
-
     var resizing = false;
     function doResizeStuff() {
         resizing = false;
@@ -98,7 +73,6 @@ $(function() {
             }
         });
         watchScroll();
-//        calculateColumns();
     }
     
     $(window).on('load', doResizeStuff);
@@ -108,7 +82,6 @@ $(function() {
             clearTimeout(resizing);
         } else {
             unwatchScroll();
-//            resetColumns();
         }
         var scrollTop = win.scrollTop();
         var scrollLeft = article.scrollLeft();
