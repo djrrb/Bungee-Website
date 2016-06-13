@@ -630,6 +630,17 @@ cite, em {
 }
 */
 
+/*
+.CTA li {
+	display: inline-block;
+	-moz-border-radius: .5em;
+	-webkit-border-radius: .5em;
+	border-radius: .5em;
+	padding: .25em .5em .75em 1em;
+	background-color: #666;
+}
+*/
+
 .button:link,
 .button:visited {
 	font-family: 'Bungeee Shade';
@@ -637,7 +648,15 @@ cite, em {
 	white-space: nowrap;
 	font-size: 3em;
 	color: black;
+	color: #771F15;
 	position: relative;
+	text-shadow:
+		-1px -1px 0 #771F15,  
+		1px -1px 0 #771F15,
+		-1px 1px 0 #771F15,
+		1px 1px 0 #771F15;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 .button:before {
 	font-family: 'Bungeee Regular';
@@ -646,24 +665,25 @@ cite, em {
 	position: absolute;
 	top: 0;
 	left: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
-.button:hover {
+li:hover .button {
 	font-family: 'Bungeee Shade';
 	font-family: 'Bungeee Outline';
 	color: black;
+	color: #771F15;
 	content: attr(data-content);
 	top: .12em;
 	left: -.12em;
+/* 	text-shadow: 0 0 .1em #771F15; */
 }
+/*
 .button:hover:before {
 	font-family: 'Bungeee Regular';
+	font-family: 'Bungeee Inline';
 	color: white;
 	content: attr(data-content);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
+*/
 
 
 
@@ -1184,10 +1204,10 @@ html.colorswap h3:after {color: #FFF;}
 	
 </section><section class="red" id="get">
 	<h3>Get Bungee</h3>
-	<ul>		
-		<li><a class="button" href="bungee.zip">Download</a></li>
-		<li><a class="button" href="http://www.github.com/djrrb/bungee">Clone on GitHub</a></li>
-		<li><a class="button" href="http://fonts.google.com/?selection.family=Bungee&query=bungee">Bungee on Google Fonts</a></li>
+	<ul class="CTA">		
+		<li class="fit-to-width"><a class="button" href="bungee.zip">Download now↓</a></li>
+		<li class="fit-to-width"><a class="button" href="http://www.github.com/djrrb/bungee">Clone on GitHub→</a></li>
+		<li class="fit-to-width"><a class="button" href="http://fonts.google.com/?selection.family=Bungee&query=bungee">Bungee on Google Fonts→</a></li>
 	</ul>
 
 
