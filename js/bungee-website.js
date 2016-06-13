@@ -12,13 +12,12 @@ $(function() {
     var scrollRatio=0;
     var sectionOffsets = [];
     var ignoreScroll = false;
+    var scrollMode = 'vertical', pageWidth, pageHeight;
     function doScrollStuff() {
         if (ignoreScroll) return;
         var scrollTop = win.scrollTop();
         var scrollLeft = article.scrollLeft();
-        var pageWidth = article.prop('scrollWidth');
-        var pageHeight = article.prop('scrollHeight');
-        scrollRatio = pageWidth > pageHeight ? scrollLeft / pageWidth : scrollTop / pageHeight;
+        scrollRatio = scrollMode==='horizontal' ? scrollLeft / pageWidth : scrollTop / pageHeight;
     
         //set URL hash for current section
         for (var i in sectionOffsets) {
@@ -32,7 +31,7 @@ $(function() {
     }
 
     function watchScroll() {
-        $('article').add(window).on('scroll', doScrollStuff);
+        $('article').add(window).off('scroll', doScrollStuff).on('scroll', doScrollStuff);
         doScrollStuff();
     }
     
@@ -66,6 +65,9 @@ $(function() {
     var resizing = false;
     function doResizeStuff() {
         resizing = false;
+        pageWidth = article.prop('scrollWidth');
+        pageHeight = article.prop('scrollHeight');
+        scrollMode = pageWidth > pageHeight ? 'horizontal' : 'vertical';
         sectionOffsets = [];
         $('section').each(function() {
             if (this.id) {
@@ -75,6 +77,7 @@ $(function() {
         watchScroll();
     }
     
+    doResizeStuff();
     $(window).on('load', doResizeStuff);
     
     win.on('resize', function() {
@@ -91,5 +94,17 @@ $(function() {
             win.scrollTop(page.height() * scrollRatio);
         }
         resizing = setTimeout(doResizeStuff, 1000);
+    });
+    
+    //scrollwheel jacking to turn vertical scroll into horizontal
+    $(document).on('wheel', function(evt) {
+        if (scrollMode === 'horizontal') {
+            var underMouse = $(evt.target).closest('section');
+            article.scrollLeft(article.scrollLeft() + evt.originalEvent.deltaX + evt.originalEvent.deltaY);
+            if (underMouse.prop('scrollHeight') > win.height()) {
+                underMouse.scrollTop(underMouse.scrollTop() + evt.originalEvent.deltaY);
+            }
+            evt.preventDefault();
+        }
     });
 });
