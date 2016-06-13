@@ -123,6 +123,28 @@ $(document).keydown(function(e) {
 	font-style: normal;
 }
 
+#full-name {
+
+}
+
+	#short-name { display: inline-block }
+	#full-name { display: none }
+
+
+@media (min-width: 48em) {
+	#short-name { 
+	    display: none ;
+	    }
+	#full-name { 
+	    display: block;
+	    position: absolute; 
+    	text-align: left;
+	}
+	nav { 
+	    text-align: right; 
+	    }
+}
+
 
 nav {
 	height: 1.7em;
@@ -136,6 +158,8 @@ nav {
 	padding: .2em 1em;
 	font-family: "InputSansNarrowWeb";
 }
+
+
 
 nav ul {
 	margin: 0;
@@ -235,103 +259,8 @@ code {
 }
 
 
-@keyframes translate-a {
-	from {transform: translateY(0px);}
-	to {transform: translateY(-1.35em);}
-}
-@keyframes translate-b {
-	from {transform: translateY(0px);}
-	to {transform: translateY(-.5em);}
-}
-@keyframes translate-c {
-	from {transform: translateY(0px);}
-	to {transform: translateY(.35em);}
-}
-@keyframes translate-d {
-	from {transform: translateY(0px);}
-	to {transform: translateY(1.2em);}
-}
-
-
-@keyframes translate-a-off {
-	to {transform: translateY(0px);}
-	from {transform: translateY(-1.35em);}
-}
-@keyframes translate-b-off {
-	to {transform: translateY(0px);}
-	from {transform: translateY(-.5em);}
-}
-@keyframes translate-c-off {
-	to {transform: translateY(0px);}
-	from {transform: translateY(.35em);}
-}
-@keyframes translate-d-off {
-	to {transform: translateY(0px);}
-	from {transform: translateY(1.2em);}
-}
-
-
-
-
-.color-styles-inline {
-	font-family: "Bungeee Inline";
-	color: #f28f8f;
-	z-index: 20;
-	animation-fill-mode: forwards;
-}
-.color-styles-regular {
-	font-family: "Bungeee Regular";
-	color: #d9432e;
-	z-index: 9;
-	animation-fill-mode: forwards;
-}
-.color-styles-outline {
-	font-family: "Bungeee Outline";
-	color: #762019;
-	z-index: 8;
-	animation-fill-mode: forwards;
-
-}
-.color-styles-shade {
-	font-family: "Bungeee Shade";
-	color: #e2ddd7;
-	color: #19586b;
-	z-index: 7;
-	animation-fill-mode: forwards;
-
-}
-#bungee-layers-figure:hover .color-styles-inline {
-	animation: translate-a .1s;
-	animation-direction: normal;
-	animation-delay: .1s;
-	animation-fill-mode: forwards;
-
-}
-#bungee-layers-figure:hover .color-styles-regular {
-	animation: translate-b .1s;
-	animation-direction: normal;
-	animation-fill-mode: forwards;
-
-}
-#bungee-layers-figure:hover .color-styles-outline {
-	animation: translate-c .1s;
-	animation-direction: normal;
-	animation-delay: .2s;
-	animation-fill-mode: forwards;
-
-}
-#bungee-layers-figure:hover .color-styles-shade {
-	animation: translate-d .1s;
-	animation-direction: normal;
-	animation-delay: .2s;
-	animation-fill-mode: forwards;
-
-}
-
-
-
 #color-basic figure div {
-	color: #EFE446;
+	color: #0E2027;
 }
 #color-basic .bungee-basic-regular {
 	font-family: "Bungeee Regular";
@@ -347,6 +276,15 @@ code {
 }
 .bungee-basic-shade {
 	font-family: "Bungeee Basic Shade";
+}
+
+.bungee-basic-regular, 
+.bungee-basic-hairline, 
+.bungee-basic-inline,
+.bungee-basic-outline,
+.bungee-basic-shade {
+    font-size: 5em;
+    line-height: .75em;
 }
 	
 
@@ -717,9 +655,17 @@ input[type="range"] {
 .dark {
 	background-color: #0E2027;
 }
+
+.red a, .blue a {
+    color: #EFE446;
+}
+.red a:hover, .blue a:hover {
+    color: #f9f287;
+}
+
 .blue,
 .otherblue,
-.dark {
+.dark, .red {
 	color: #FFF;
 }
 /*
@@ -867,7 +813,7 @@ html.colorswap h3:after {color: #FFF;}
 	}
 	#cover h2 {
 		/*text-align: center;*/
-		word-spacing: .25em;
+		word-spacing: .15em;
 	}
 	#cover p {
 		margin-left: auto;
@@ -934,8 +880,11 @@ html.colorswap h3:after {color: #FFF;}
 <article>
 <section class="red" id="cover">
 	<nav class="site-nav">
+		<div id="full-name"><a href="https://djr.com">David Jonathan Ross</a></div>
+
 		<ul>
-			<li><a href="https://djr.com">DJR</a></li>
+			<li id="short-name"><a href="https://djr.com">DJR</a></li>
+
 			<li><a class="typefaces" href="" onmouseover="mopen('m1')" onmouseout="mclosetime()">Typefaces</a>
 				<ul id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
 					<li><a href="https://djr.com/bungee/">Bungee</a></li>
@@ -1085,7 +1034,7 @@ html.colorswap h3:after {color: #FFF;}
 		<img src="images/bungee-alpha.svg" />
 	</figure>
 
-	<p>In vertical type, the downward flow of text becomes more important than the proportions of any individual letter. I drew Bungee’s round and diagonal characters with straight sides (see <em>O</em> and <em>A</em>), which reinforces their verticality and creates a well-defined the left and right edge. Letters that are unusually wide, narrow, or asymmetrical (such as <em>I</em>, <em>L</em>, <em>M</em>, and <em>W</em>) tend to be especially tricky. You can <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md#stylistic-set-09-john-downers-recommendations">avoid these letters</a> or use Bungee’s alternates to get the best results for your design.</p>
+	<p>In vertical type, the downward flow of text becomes more important than the proportions of any individual letter. I drew Bungee’s round and diagonal characters with straight sides (see <em>O</em> and <em>A</em>), which reinforces their verticality and creates words with well-defined left and right edges. Letters that are unusually wide, narrow, or asymmetrical (such as <em>I</em>, <em>L</em>, <em>M</em>, and <em>W</em>) tend to be especially tricky. You can <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md#stylistic-set-09-john-downers-recommendations">avoid these letters</a> or play with Bungee’s alternates to get the best results for your design.</p>
 </section><section id="stack-issues">
 	<figure class="big_fig triptych">
 		<img src="images/photos/martin-bros.jpg" alt="Martin Bros. Liquors, Cambridge, MA" /><img src="images/photos/street-sign.jpg" alt="Street sign, Manchester, NH" /><img src="images/photos/telephone.jpg" alt="Telephone box, Philadelphia, PA" />
@@ -1093,17 +1042,18 @@ html.colorswap h3:after {color: #FFF;}
 		<figcaption><p>Signs from Cambridge, MA, Manchester, NH, and Philadelphia.</p></figcaption>
 	</figure>
 	<p>Let’s get one thing straight: stacking the Latin alphabet is not always the best idea. The Latin alphabet is designed for horizontal writing, and vertical writing can create distortions that range from unattractive to unreadable. But in display typography, readability isn't everything. When used deftly and sparingly, stacked letters can help your words stand out among the crowd.</p>
+	
 </section><section class="red" id="stack-implementation">
 	<figure class="big_fig">
 		<img src="images/bungee-spacing.svg" alt="Bungee Spacing" />
 	</figure>
-	<p>Bungee implements its vertical forms via <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">OpenType features</a> that are more commonly used for East Asian scripts. These features can be activated by Vertical Text tools that are available in some desktop design applications, or by using CSS <code>writing-mode: vertical-rl</code> and <code>text-orientation: upright</code>. Bungee’s proportional spacing allows each letter to be as tall as it needs to be, and it even has vertical kerning.</p>
+	<p>Bungee implements its vertical forms <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">via OpenType features</a> that are more commonly used for East Asian scripts. These features can be activated by <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md#in-design-apps">Vertical Text tools</a> that are available in some desktop design applications, or by using CSS <code>writing-mode: vertical-rl</code> and <code>text-orientation: upright</code>. Bungee’s proportional spacing allows each letter to be as tall as it needs to be, and it even has vertical kerning.</p>
 	
 	</section><section class="" id="stack-process">
 	<figure class="big_fig">
 		<img src="images/photos/djr-sideways.jpg" alt="Kerning Bungee sideways." />
 	</figure>
-	<p>I began by drawing each of Bungee’s letterforms on its side, rotated 90° counter-clockwise. This allowed me to use horizontal tools to make a vertical design, but presented me with some unusual challenges. This rotated version of Bungee is still available for applications that cannot take advantage of its OpenType capabilities. By rotating the text block 90° clockwise, you can simulate vertical text in any environment.</p>
+	<p>I began by drawing each of Bungee’s letterforms on its side, rotated 90° counter-clockwise. This allowed me to use horizontal tools to make a vertical design, but also presented me with some unusual design challenges. The rotated version of Bungee is still available for applications that cannot take advantage of Bungee’s OpenType capabilities. By rotating the text block 90° clockwise, you can simulate vertical text in virtually any environment.</p>
 
 </section><section class="yellow specimen">
 	<figure class="collapsing_specimen">
@@ -1122,25 +1072,26 @@ html.colorswap h3:after {color: #FFF;}
 	<figure class="big_fig" id="bungee-layers-figure">
 		<img src="images/bungee-layers.gif" />
 	</figure>
-	<p>Bungee comes with four text layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> them to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned <code>content: attr(data-content);</code> in a <code>:before</code> or <code>:after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
+	<p>Bungee comes in four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> these styles and their ornaments to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned content in your <code>:before</code> or <code>:after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
 	
-</section><section class="dark" id="color-basic">
+</section><section class="red" id="color-basic">
 	<figure class="big_fig" id="bungee-basic-figure">
 		<div class="bungee-basic-regular">Regular</div>
 		<div class="bungee-basic-hairline">Hairline</div>
 		<div class="bungee-basic-inline">Inline</div>
 		<div class="bungee-basic-outline">Outline</div>
 		<div class="bungee-basic-shade">Shade</div>
+		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
-	<p>Bungee also comes with a basic set of five standalone fonts: Regular, Hairline, Inline, Outline, and Shade. These are black and white combinations of Bungee Layers that can be used in any typesetting software without advanced features. These five fonts are <a href="http://fonts.google.com/?selection.family=Bungee&query=bungee">available on Google Fonts</a>.</p>
+	<p>In addition to its layered styles, Bungee has five standalone fonts: black-and-white-only designs that can be used in any typesetting software without advanced features. These five styles are also <a href="http://fonts.google.com/?selection.family=Bungee&query=bungee">available on Google Fonts</a>.</p>
 	
 </section><section id="color-formats">
 	<figure class="big_fig">
 		<img src="images/bungee-color.gif" />
-		<figcaption></figcaption>
+		<figcaption><p>Bungee Color in TextEdit</p></figcaption>
 	</figure>
 
-	<p>Bungee is also available in 3 new color font formats: SVG (<a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">Mozilla</a>), COLR/CPAL (<a href="https://www.microsoft.com/typography/otspec/colr.htm">Microsoft</a>) and SBIX (<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">Apple</a>). These formats store color information in the font itself, allowing for effortless chromatic typesetting in even the most basic of applications. Support for these formats is far from universal, but I am excited about all of the possibilities that color fonts have to offer. I am hopeful that Bungee Color can help users and developers experiment with these formats.</p>
+	<p>Bungee also comes in 3 new color font formats: SVG (<a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">Mozilla</a>), COLR/CPAL (<a href="https://www.microsoft.com/typography/otspec/colr.htm">Microsoft</a>) and SBIX (<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">Apple</a>). These formats store color information in the font itself, allowing for effortless chromatic typesetting in even the most basic of applications. Support for these formats is far from universal, but I am excited about all of the possibilities that color fonts have to offer. I am hopeful that Bungee Color can help users and developers experiment with these formats.</p>
 </section><section class="yellow specimen" id="feature-specimen">
 	<figure class="big_fig collapsing_specimen"><img src="images/specimen-features-A.svg" alt="Feature Specimen" /><img src="images/specimen-features-B.svg" alt="Feature Specimen" />
 	</figure>
