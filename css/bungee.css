@@ -195,7 +195,6 @@
 
 .bungee.block span {
     position: relative;
-    font-feature-settings: "ss01";
     top: 0;
     left: 0.14em;
     letter-spacing: 0.28em;

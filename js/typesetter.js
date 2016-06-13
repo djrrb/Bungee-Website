@@ -279,19 +279,21 @@
             Bungee.init(preview);
             
             if (true) { // autofit.prop('checked')) {
-                if (orientation === "horizontal") {
-                    sizeToWidth(preview);
-                } else {
-                    preview.css('font-size', (parseFloat(preview.data('max-font-size')) || 288) + 'px');
-                    var padding = preview.position().top;
-                    var pheight = preview.height();
-                    var wheight = win.height() - padding*2;
-                    var ratio = wheight / pheight;
-                    if (ratio < 1) {
-                        var newsize = parseFloat(preview.css('font-size')) * ratio;
-                        preview.css('font-size', newsize+'px');
+                setTimeout(function() {
+                    if (orientation === "horizontal") {
+                        sizeToWidth(preview);
+                    } else {
+                        preview.css('font-size', (parseFloat(preview.data('max-font-size')) || 288) + 'px');
+                        var padding = preview.position().top;
+                        var pheight = preview.height();
+                        var wheight = win.height() - padding*2;
+                        var ratio = wheight / pheight;
+                        if (ratio < 1) {
+                            var newsize = parseFloat(preview.css('font-size')) * ratio;
+                            preview.css('font-size', newsize+'px');
+                        }
                     }
-                }
+                }, 10);
             }
 
             setURL();

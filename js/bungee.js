@@ -209,11 +209,11 @@ Alternate characters:
                 setTimeout(function() { master.css('visibility', ''); }, 100);
                 setTimeout(function() {
                     //move text after beginning shape
+                    var textsize = parseFloat(master.css('font-size'));
                     var left = master.find('.sign header').first();
                     var main = master.find('.sign figure').first();
-                    master.find('.text').css(leftProp, left[widthProp]() + 'px');
+                    master.find('.text').css(leftProp, (left[widthProp]()/textsize) + 'em');
                     //expand blocks to fill width
-                    var textsize = parseFloat(master.css('font-size'));
                     var textwidth = master.find('.layer.text').first()[widthProp]();// + 0.1*textsize;
                     var squarewidth = main[widthProp]();
                     var numbersquares = Math.ceil(textwidth/squarewidth);
@@ -221,7 +221,7 @@ Alternate characters:
                     for (var i=0; i<numbersquares; i++) {
                         banner.push(square);
                     }
-                    master.find('.sign figure').text(banner.join(''))[widthProp](textwidth);
+                    master.find('.sign figure').text(banner.join('')).css(widthProp, (textwidth/textsize) + 'em');
                 }, 10);
             } else if (block || master.hasClass('block')) {
                 //zero out any conflicting classes
@@ -242,6 +242,7 @@ Alternate characters:
                 if (orientation === 'horizontal') {
                     ffs.ss01 = '1';
                 } else {
+                    ffs.ss01 = '1';
                 }
             }
             
