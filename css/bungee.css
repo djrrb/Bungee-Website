@@ -100,9 +100,11 @@
     -ms-text-orientation: upright;
     text-orientation: upright;
     /* implement spacing and kerning */
+    /*
     -moz-font-feature-settings: "vpal";
     -webkit-font-feature-settings: "vpal";
     font-feature-settings: "vpal";
+    */
 }
 
 .bungee * {
@@ -160,10 +162,11 @@
 
 /* manipulations for block shapes and banners */
 
-.bungee.block .block {
+.bungee.block {
 }
 
 .bungee.vertical.block .block {
+    letter-spacing: 0.28em;
 }
 
 .bungee.sign .layer.sign {
@@ -209,12 +212,13 @@
 
 .bungee.vertical.block span {
     left: 0;
-    top: 0.14em;
+    top: 0.0em;
+    letter-spacing: 0.28em;
 }
 
 .bungee.vertical.block.shade span {
     left: 0.02em;
-    top: 0.12em;
+    top: -0.02em;
 }
 
 /* banners */
