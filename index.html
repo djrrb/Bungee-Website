@@ -14,6 +14,8 @@
 <script src="js/fit-to-width.js"></script>
 <script src="js/bungee-website.js"></script>
 <script src="js/spectrum.js"></script>
+
+<!-- copy contents to data-content -->
 <script>
 $(function() {
 	$('h1,h3,.button').each(function() {
@@ -21,6 +23,11 @@ $(function() {
 	});
 });
 </script>
+
+
+    <!-- ga -->
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-78434519-1', 'auto');ga('send', 'pageview');ga('require', 'ecommerce');</script>
+
 
 <script type="text/javascript">
 /* Press the ~ key to toggle the show_edges class */
@@ -123,9 +130,6 @@ $(document).keydown(function(e) {
 	font-style: normal;
 }
 
-#full-name {
-
-}
 
 	#short-name { display: inline-block }
 	#full-name { display: none }
@@ -259,17 +263,22 @@ code {
 }
 
 
-#color-basic figure div {
-	color: #0E2027;
+#color-basic figure div:nth-child(even) {
+	color: #771F15;
+}
+#color-basic figure div:nth-child(odd) {
+	color: #DC4227;
 }
 #color-basic .bungee-basic-regular {
 	font-family: "Bungeee Regular";
 }
 #color-basic .bungee-basic-hairline {
 	font-family: "Bungeee Inline";
+
 }
 #color-basic .bungee-basic-inline {
 	font-family: "Bungeee Basic Inline";
+	
 }
 #color-basic .bungee-basic-outline {
 	font-family: "Bungeee Basic Outline";
@@ -286,8 +295,22 @@ code {
     font-size: 5em;
     line-height: .75em;
 }
-	
 
+
+/* hacks */
+
+@media (min-width: 64em) and (min-height: 46em) {
+
+
+#color-basic .bungee-basic-regular {
+	margin-right: 1em;
+}
+
+#stack-edges {
+    margin-right: 1.5em;
+}
+	
+}
 
 </style>
 
@@ -911,7 +934,7 @@ html.colorswap h3:after {color: #FFF;}
 	<h2>Fonts for vertical and multicolor typography</h2>
 </section><section class="specimen yellow">
 	<figure class="collapsing_specimen">
-			<img src="images/specimen-vertical-B.svg" /><img src="images/specimen-vertical-A.svg" />
+			<img src="images/specimen-vertical-B.svg" alt="Parking, Permanent Press, Tires, Lights, Liquid Detergent" /><img src="images/specimen-vertical-A.svg" alt="Soaps, Spin Cycle, Poolside, Coin-Ops" />
 	</figure>
 </section><section id="tester">
 	<figure id='preview' data-max-font-size='288px'></figure>
@@ -1023,29 +1046,34 @@ html.colorswap h3:after {color: #FFF;}
 </section><section id="stack">
 	<h3>Stacking</h3>
 	<figure class="big_fig triptych">
-		<img src="images/photos/g-g-hardware.jpg" alt="G & G Hardware, Oakland, CA" /><img src="images/photos/tower-theater.jpg" alt="Tower Theater, Los Angeles, CA" /><img src="images/photos/little-city.jpg" alt="Little City, San Francisco, CA" />
-		<figcaption><p>Signs from Oakland, Los Angeles, and San Francisco.</p></figcaption>
+		<img src="images/photos/g-g-hardware.jpg" alt="G & G Hardware, Oakland, CA" /><img src="images/photos/little-city.jpg" alt="Little City, San Francisco, CA" /><img src="images/photos/tower-theater.jpg" alt="Tower Theater, Los Angeles, CA" />
+		<figcaption><p>Vertical signs in Oakland, San Francisco, and Los Angeles.</p></figcaption>
 	</figure>
 
 	<p>Bungee is a typeface that celebrates the urban sign. From crummy liquor stores to majestic theaters, vertical signage fills our cities. They stack the Latin alphabet, one letter on top of the other, in order to make dramatic use of limited space. Following their lead, I designed Bungee to be able to adapt to horizontal or vertical text, so it is always ready to take your text in a new direction.</p>
 
 </section><section class="blue" id="stack-edges">
 	<figure class="big_fig">
-		<img src="images/bungee-alpha.svg" />
+		<img src="images/bungee-alpha.svg" alt="Bungee’s vertical forms" />
 	</figure>
 
-	<p>In vertical type, the downward flow of text becomes more important than the proportions of any individual letter. I drew Bungee’s round and diagonal characters with straight sides (see <em>O</em> and <em>A</em>), which reinforces their verticality and creates words with well-defined left and right edges. Letters that are unusually wide, narrow, or asymmetrical (such as <em>I</em>, <em>L</em>, <em>M</em>, and <em>W</em>) tend to be especially tricky. You can <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md#stylistic-set-09-john-downers-recommendations">avoid these letters</a> or play with Bungee’s alternates to get the best results for your design.</p>
+	<p>In vertical type, the downward flow of text becomes more important than the proportions of any individual letter. I drew Bungee’s round and diagonal characters with straight sides (see <em>O</em> and <em>A</em>), which reinforces their verticality and creates words with well-defined left and right edges. Letters that are unusually wide, narrow, or asymmetrical (such as <em>I</em>, <em>L</em>, <em>M</em>, and <em>W</em>) can be especially tricky. You can <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md#stylistic-set-09-john-downers-recommendations">avoid these letters</a> or play with Bungee’s alternates to get the best results for your design.</p>
 </section><section id="stack-issues">
 	<figure class="big_fig triptych">
 		<img src="images/photos/martin-bros.jpg" alt="Martin Bros. Liquors, Cambridge, MA" /><img src="images/photos/street-sign.jpg" alt="Street sign, Manchester, NH" /><img src="images/photos/telephone.jpg" alt="Telephone box, Philadelphia, PA" />
 		
-		<figcaption><p>Signs from Cambridge, MA, Manchester, NH, and Philadelphia.</p></figcaption>
+		<figcaption><p>Unusual signs from Cambridge, MA, Manchester, NH, and Philadelphia.</p></figcaption>
 	</figure>
-	<p>Let’s get one thing straight: stacking the Latin alphabet is not always the best idea. The Latin alphabet is designed for horizontal writing, and vertical writing can create distortions that range from unattractive to unreadable. But in display typography, readability isn't everything. When used deftly and sparingly, stacked letters can help your words stand out among the crowd.</p>
+	<p>
+	
+	</p>
+	<!--<p>Let’s get one thing straight: stacking the Latin alphabet is not always the best idea. The Latin alphabet is designed for horizontal writing, and vertical writing can create distortions that range from bizarre to unreadable.</p><p>But, in display typography, readability isn't everything. When used deftly and sparingly, Bungee’s stacked letters can help your words stand out among the crowd.</p>-->
+	
+	<p>Let’s get one thing straight: the Latin alphabet is designed for horizontal writing, and stacking it is not always the greatest idea. Vertical text will create readability issues, and is best limited to short and familiar words. It will also raise some interesting questions about your text: How monowidth can the letters become before they get too distorted? Should I use lowercase? What should I do with punctuation, like an apostrophe or hyphen? </p>
 	
 </section><section class="red" id="stack-implementation">
 	<figure class="big_fig">
-		<img src="images/bungee-spacing.svg" alt="Bungee Spacing" />
+		<img src="images/bungee-spacing.svg" alt="Bungee’s Proportional Vertical Spacing" />
 	</figure>
 	<p>Bungee implements its vertical forms <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">via OpenType features</a> that are more commonly used for East Asian scripts. These features can be activated by <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md#in-design-apps">Vertical Text tools</a> that are available in some desktop design applications, or by using CSS <code>writing-mode: vertical-rl</code> and <code>text-orientation: upright</code>. Bungee’s proportional spacing allows each letter to be as tall as it needs to be, and it even has vertical kerning.</p>
 	
@@ -1053,16 +1081,16 @@ html.colorswap h3:after {color: #FFF;}
 	<figure class="big_fig">
 		<img src="images/photos/djr-sideways.jpg" alt="Kerning Bungee sideways." />
 	</figure>
-	<p>I began by drawing each of Bungee’s letterforms on its side, rotated 90° counter-clockwise. This allowed me to use horizontal tools to make a vertical design, but also presented me with some unusual design challenges. The rotated version of Bungee is still available for applications that cannot take advantage of Bungee’s OpenType capabilities. By rotating the text block 90° clockwise, you can simulate vertical text in virtually any environment.</p>
+	<p>I began by drawing each of Bungee’s letterforms on its side, rotated 90° counter-clockwise. This allowed me to use horizontal tools to make a vertical design, but also presented me with some unusual design challenges. You can use this rotated version of Bungee in applications that cannot take advantage of Bungee’s OpenType vertical capabilities. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md#rotated-text-box">By rotating the text box</a> 90° clockwise, you can simulate vertical text in almost any environment.</p>
 
 </section><section class="yellow specimen">
 	<figure class="collapsing_specimen">
-			<img src="images/specimen-horizontal-A.svg" /><img src="images/specimen-horizontal-B.svg" />
+			<img src="images/specimen-horizontal-A.svg" alt="Phở Đà Lạt, Rosa’s Liquors, Suits, Express, Boulangerie, Zapatería, Ray’s Diner" /><img src="images/specimen-horizontal-B.svg" alt="Barber, Hot Fresh Pizza, Cocktails, Vacancy, Luncheonette, Open 24 Hours, Motel" />
 	</figure>
 </section><section class="" id="color">
 	<h3>Color</h3>
 	<figure class="big_fig">
-		<img src="images/page-chromatic_etruscan.jpg" />
+		<img src="images/page-chromatic_etruscan.jpg" alt="Chromatic Etruscan No. 1" />
 		<figcaption><p>Chromatic Etruscan No. 1, <cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p></figcaption>
 	</figure>
 
@@ -1070,11 +1098,11 @@ html.colorswap h3:after {color: #FFF;}
 
 </section><section class="blue" id="color-styles">
 	<figure class="big_fig" id="bungee-layers-figure">
-		<img src="images/bungee-layers.gif" />
+		<img src="images/bungee-layers.gif" alt="Bungee’s Layers" />
 	</figure>
 	<p>Bungee comes in four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> these styles and their ornaments to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned content in your <code>:before</code> or <code>:after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
 	
-</section><section class="red" id="color-basic">
+</section><section class="" id="color-basic">
 	<figure class="big_fig" id="bungee-basic-figure">
 		<div class="bungee-basic-regular">Regular</div>
 		<div class="bungee-basic-hairline">Hairline</div>
@@ -1083,15 +1111,15 @@ html.colorswap h3:after {color: #FFF;}
 		<div class="bungee-basic-shade">Shade</div>
 		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
-	<p>In addition to its layered styles, Bungee has five standalone fonts: black-and-white-only designs that can be used in any typesetting software without advanced features. These five styles are also <a href="http://fonts.google.com/?selection.family=Bungee&query=bungee">available on Google Fonts</a>.</p>
+	<p>In addition to its layered , Bungee has five standalone styles that can be used in any typesetting software without advanced features. These five styles are also <a href="http://fonts.google.com/?selection.family=Bungee&query=bungee">available on Google Fonts</a>.</p>
 	
-</section><section id="color-formats">
+</section><section id="color-formats" class="red">
 	<figure class="big_fig">
-		<img src="images/bungee-color.gif" />
-		<figcaption><p>Bungee Color in TextEdit</p></figcaption>
+		<img src="images/bungee-color.gif" alt="BungeeColor in TextEdit" />
+		
 	</figure>
 
-	<p>Bungee also comes in 3 new color font formats: SVG (<a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">Mozilla</a>), COLR/CPAL (<a href="https://www.microsoft.com/typography/otspec/colr.htm">Microsoft</a>) and SBIX (<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">Apple</a>). These formats store color information in the font itself, allowing for effortless chromatic typesetting in even the most basic of applications. Support for these formats is far from universal, but I am excited about all of the possibilities that color fonts have to offer. I am hopeful that Bungee Color can help users and developers experiment with these formats.</p>
+	<p>Bungee Color gave me the opportunity to experiment with three working proposals for true color fonts: SVG (<a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">Mozilla</a>), COLR/CPAL (<a href="https://www.microsoft.com/typography/otspec/colr.htm">Microsoft</a>) and SBIX (<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">Apple</a>). Each proposal stores color information in the font itself, which means you can effortlessly create chromatic effects, even in the simplest of apps. Support for these formats is far from universal, but I am excited about about the possibilities that they offer, and am hopeful that Bungee Color can help users and developers explore them.</p>
 </section><section class="yellow specimen" id="feature-specimen">
 	<figure class="big_fig collapsing_specimen"><img src="images/specimen-features-A.svg" alt="Feature Specimen" /><img src="images/specimen-features-B.svg" alt="Feature Specimen" />
 	</figure>
@@ -1106,9 +1134,9 @@ html.colorswap h3:after {color: #FFF;}
 
 	<p>I sell most of my fonts commercially, but Bungee is well-suited to a libre license because of its support for emerging typographic features like chromatic layers and vertical writing. Bungee was <a href="http://www.economist.com/blogs/babbage/2013/08/polychromatic-digital-type">part of Microsoft’s early experiments with color fonts</a>, and I hope that as an open-source font, it will spark further experimentation with color fonts and foster further development in this field. More widespread use of color and verticality will only lead to better support for these features in desktop applications and on the web, and I hope that Bungee’s license allows it to become a valuable resource for typographers, designers, and developers (professional and amateur alike).</p>
 
-	<p>If you wish to support my work, please consider purchasing a license for <a href="https://djr.com">one of my retail typefaces</a>.</p>
+	<p>If you wish to support my work, consider purchasing a license for <a href="https://djr.com">one of my retail typefaces</a>!</p>
 
-	<p>This responsive website was created by <a href="http://www.nicksherman.com">Nick Sherman</a> and <a href="http://www.chrislewis.com">Chris Lewis</a>. Like Bungee itself, its layout can switch from vertical to horizontal (depending on the dimensions of your screen).</p>
+	<p>This responsive webpage was created by <a href="http://www.nicksherman.com">Nick Sherman</a> and <a href="http://www.chrislewis.com">Chris Lewis</a>. Like Bungee itself, its layout can switch from vertical to horizontal (depending on the dimensions of your screen).</p>
 
 	<p>Special thanks to Dave Crossland, Rob Giampetro, and Omer Ziv from <a href="http://www.google.com">Google</a>; David Berlow, Sam Berlow, Kent Lew, Cyrus Highsmith, and Jill Pichotta from <a href="http://fontbureau.typenetwork.com">The Font Bureau</a>; <a href="http://typemytype.com">Frederik Berlaen</a> for his tools and support, <a href="https://www.kutilek.de">Jens Kutílek</a> for RoboChrome; <a href="https://pixelambacht.nl">Roel Nieskens</a> for spelunking in Bungee Color; <a href="https://www.microsoft.com/en-us/Typography/default.aspx">Microsoft’s Typography team</a> for their early work on Bungee Color; Emily Richardson for coming up with the name; and <a href="http://13pt.com/corum/">Jon Corum</a>, John Downer, <a href="http://www.johnkramerdesign.biz">John Kramer</a>, <a href="http://kupferschrift.de/cms/">Indra Kupferschmid</a>, and <a href="http://andremora.com">André Mora</a>, for their thoughtful feedback and advice during the design process.</p>
 	
