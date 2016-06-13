@@ -242,7 +242,7 @@ Alternate characters:
                 if (orientation === 'horizontal') {
                     ffs.ss01 = '1';
                 } else {
-                    ffs.ss01 = '1';
+                    ffs.vpal = '0';
                 }
             }
             

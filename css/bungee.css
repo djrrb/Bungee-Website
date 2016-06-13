@@ -100,11 +100,9 @@
     -ms-text-orientation: upright;
     text-orientation: upright;
     /* implement spacing and kerning */
-    /*
     -moz-font-feature-settings: "vpal";
     -webkit-font-feature-settings: "vpal";
     font-feature-settings: "vpal";
-    */
 }
 
 .bungee * {
@@ -163,9 +161,15 @@
 /* manipulations for block shapes and banners */
 
 .bungee.block {
+    -moz-font-feature-settings: "ss01";
+    -webkit-font-feature-settings: "ss01";
+    font-feature-settings: "ss01";
 }
 
-.bungee.vertical.block .block {
+.bungee.vertical.block {
+    -moz-font-feature-settings: "vpal" 0;
+    -webkit-font-feature-settings: "vpal" 0;
+    font-feature-settings: "vpal" 0;
     letter-spacing: 0.28em;
 }
 
