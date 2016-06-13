@@ -217,29 +217,23 @@ ob_start();
 
 print "<!-- Text: " . str_replace('--', '- -', str_replace('--', '- -', $text)) . " (" . mb_strlen($text) . " bytes) -->";
 
-if ($orientation === 'vertical') {
-    print "<g transform='rotate(90) translate(0,-$height)'>";
-}
-
 # blocks
 $blockwidth = 0;
-if ($block) {
+if ($block and isset($layers['sign'])) {
     $blockwidth = $charwidths['regular'][$block];
-    foreach ($backgroundlayers as $style => $color) {
-        if (!isset($charwidths[$style][$block])) {
-            continue;
-        }
-        $x = $padding;
-        $y = $height-$padding-$baseline*$em2px;
-        for ($i=0,$l=mb_strlen($text); $i<$l; $i++) {
-            print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#{$style}-$block' style='stroke:none;fill:#$color' />";
-            $x += $charwidths[$style][$block]*$em2px;
-        }
+    $color = $layers['sign'];
+    if (!isset($charwidths[$style][$block])) {
+        continue;
+    }
+    $x = $padding;
+    $y = $height-$padding-$baseline*$em2px;
+    for ($i=0,$l=mb_strlen($text); $i<$l; $i++) {
+        print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#regular-$block' style='" . color2CSS($color) . "' />";
+        $x += $charwidths[$style][$block]*$em2px;
     }
 }
 
 # Text layers output
-ob_start(); 
 
 $prev = null;
 $shadenudge = isset($layers['shade']) ? 0.04 * $size : 0.0;
@@ -296,50 +290,49 @@ ob_start();
 #banner!
 $bannerwidth = 0;
 $beginwidth = 0;
-if ($begin or $end) {
+if (($begin or $end) and isset($layers['sign'])) {
     if ($begin) {
         $beginwidth = $charwidths['regular'][$begin];
     }
-    foreach ($backgroundlayers as $style => $color) {
-        $x = $padding;
-        $y = $height-$padding-$baseline*$em2px;
-        if ($begin) {
-            print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#{$style}-$begin' style='" . color2CSS($color) . "' />";
-            $x += $charwidths[$style][$begin]*$em2px;
-        }
-        $id = uniord("█");
-        #squeeze blocks into slightly smaller space
-        $blockwidth = $charwidths[$style][$id]*$em2px;
-        $remainder = fmod($textwidth, $blockwidth);
-        if ($remainder) {
-            $numberofblocks = ceil($textwidth / $blockwidth);
-            $advancewidth = (($numberofblocks-2)*$blockwidth + $remainder) / ($numberofblocks-1); //work shown upon request
-        } else {
-            $numberofblocks = $textwidth/$blockwidth;
-            $advancewidth = $blockwidth;
-        }
-        for ($i=0; $i<$numberofblocks; $i++) {
-            print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#{$style}-$id' style='" . color2CSS($color) . "' />";
-            $x += $advancewidth;
-        }
-        $x += $blockwidth - $advancewidth;
-        if ($end) {
-            print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#{$style}-$end' style='" . color2CSS($color) . "' />";
-            $x += $charwidths[$style][$end]*$em2px;
-        }
-        $bannerwidth = $x - $padding;
+    $color = $layers['sign'];
+    $x = $padding;
+    $y = $height-$padding-$baseline*$em2px;
+    if ($begin) {
+        print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#regular-$begin' style='" . color2CSS($color) . "' />";
+        $x += $charwidths[$style][$begin]*$em2px;
     }
+    $id = uniord("█");
+    #squeeze blocks into slightly smaller space
+    $blockwidth = $charwidths[$style][$id]*$em2px;
+    $remainder = fmod($textwidth, $blockwidth);
+    if ($remainder) {
+        $numberofblocks = ceil($textwidth / $blockwidth);
+        $advancewidth = (($numberofblocks-2)*$blockwidth + $remainder) / ($numberofblocks-1); //work shown upon request
+    } else {
+        $numberofblocks = $textwidth/$blockwidth;
+        $advancewidth = $blockwidth;
+    }
+    for ($i=0; $i<$numberofblocks; $i++) {
+        print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#regular-$id' style='" . color2CSS($color) . "' />";
+        $x += $advancewidth;
+    }
+    $x += $blockwidth - $advancewidth;
+    if ($end) {
+        print "<use transform='translate($x $y) scale($em2px -$em2px)' xlink:href='#regular-$end' style='" . color2CSS($color) . "' />";
+        $x += $charwidths[$style][$end]*$em2px;
+    }
+    $bannerwidth = $x - $padding;
 }
 
 $bannercontent = ob_get_clean();
 
+ob_start();
+
 #now we have all the information we need to calculate the final dimensions
 $width = round(max($textwidth, $bannerwidth) + 2*$padding);
 
-
-#background!
-if (isset($layers['background'])) {
-    print "<rect x='0' y='0' width='$width' height='$height' style='" . color2CSS($layers['background']) . "'/>";
+if ($orientation === 'vertical') {
+    print "<g transform='rotate(90) translate(0,-$height)'>";
 }
 
 print $bannercontent;
@@ -374,6 +367,12 @@ print $svgdefs; unset($svgdefs);
 
 #border
 #print "<rect x='0' y='0' width='$width' height='$height' stroke='black' fill='transparent'/>";
+
+#background!
+if (isset($layers['background'])) {
+    print "<rect x='0' y='0' width='$width' height='$height' style='" . color2CSS($layers['background']) . "' />";
+}
+
 
 print $svgcontent; unset($svgcontent);
 
