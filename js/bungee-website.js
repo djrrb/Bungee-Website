@@ -11,10 +11,10 @@ $(function() {
     // limit jumping around when resizing window
     var scrollRatio=0;
     var sectionOffsets = [];
-    var ignoreScroll = false;
     var scrollMode = 'vertical', pageWidth, pageHeight;
+    var goingToHash = false;
     function doScrollStuff() {
-        if (ignoreScroll) return;
+        if (goingToHash) return;
         var scrollTop = win.scrollTop();
         var scrollLeft = article.scrollLeft();
         scrollRatio = scrollMode==='horizontal' ? scrollLeft / pageWidth : scrollTop / pageHeight;
@@ -42,15 +42,18 @@ $(function() {
     //don't need to call watchScroll here; resize does it on window load
     
     // horizontal scroll to hash
-    function goToHash(hash) {
-        var pos, bookmark = $(typeof hash==="string" ? hash : window.location.hash);
+    function goToHash() {
+        if (goingToHash === window.location.hash) {
+            return;
+        }
+        var pos, bookmark = $(window.location.hash);
         if (bookmark.length) {
             pos = elementOffset(bookmark);
             if (Math.abs(article.scrollLeft()-pos) > win.width()/2) {
-                ignoreScroll = true;
+                goingToHash = window.location.hash;
                 article.animate({'scrollLeft':pos}, {
                     'duration':'0.5',
-                    'complete': function() { ignoreScroll = false; }
+                    'complete': function() { goingToHash = false; }
                 });
             }
         }
@@ -58,6 +61,7 @@ $(function() {
     }
 
     if (window.location.hash) {
+        goToHash();
         $(window).on('load', goToHash);
     }
     win.on('hashchange', goToHash);
