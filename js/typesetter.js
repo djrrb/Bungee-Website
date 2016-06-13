@@ -49,48 +49,23 @@
         var textcontrol = $('#controls input[name=text]');
         var backgroundcontrols = $('#background-controls input');
         
-        function doCode() {
+        var previewPreInit;
+        
+        function getCode() {
             var tab = "  ";
             var code = "";
-            
-            var styles = {};
-            
-            styles['.bungee'] = {
-                'font-size': preview.css('font-size')
-            };
-
-            preview.find('.layer').each(function() {
-                styles['.bungee .' + this.className.replace(/\s+/g, '.').replace('.layer', '')] = {
-                    'color': $(this).css('color')
-                }
-            });
             
             code += '<!-- put this stuff inside <head> -->\n';
             code += tab + '<!-- copy these files from resources/web folder -->\n';
             code += tab + '<link rel="stylesheet" href="bungee.css">\n';
             code += tab + '<script src="bungee.js"></script>\n';
-            code += tab + '<style>';
-            for (var cls in styles) {
-                code += '\n';
-                code += tab + tab + cls + ' {\n';
-                for (var rule in styles[cls]) {
-                    code += tab + tab + tab + rule + ': ' + styles[cls][rule] + ';\n';
-                }
-                code += tab + tab + '}\n';
-            }
-            code += tab + '</style>\n';
             code += '<!-- end of </head> content -->\n\n';
+
+            var el = previewPreInit[0];
+            el.removeAttribute('id');
+            el.removeAttribute('data-max-font-size');
             
-            var topclass = preview.prop('className');
-            var allfour = /\b(regular|inline|outline|shade)\b(?!-)/g;
-            if (topclass.match(allfour).length === 4) {
-                topclass = topclass.replace(allfour, ' ');
-            }
-            topclass = topclass.replace(/(^|\s)(horizontal|sign|block|banner)\b(?!-)/g, ' ');
-            topclass = topclass.replace(/\s\s+/g, ' ').trim();
-            code += '<div class="' + topclass + '">';
-            code += Bungee.cleanupText(textcontrol.val());
-            code += '</div>\n';
+            code += el.outerHTML + "\n\n";
             
             code = code.replace(/[<>&]/g, function(c) { 
                 switch(c) {
@@ -101,7 +76,7 @@
                 }
             });
             
-            $('#code').html(code);
+            return code;
         }
     
         function colorToLayerClass(color) {
@@ -276,6 +251,9 @@
 
             //update the preview!
             preview.prop('className', classes.join(' ')).text(text);
+            
+            previewPreInit = preview.clone();
+            
             Bungee.init(preview);
             
             if (true) { // autofit.prop('checked')) {
@@ -297,9 +275,9 @@
             }
 
             setURL();
+            $('#code').remove();
 
             if (false && evt) {
-                setTimeout(doCode);
                 if (evt.type !== 'input') {
                     // don't update SVG while slider is moving
                     setTimeout(doSVG);
@@ -390,7 +368,6 @@
         }
 
         updatePreview();
-        //doCode();
         //doSVG();
 
         // while sliding size slider, don't do a full update but just modify size
@@ -402,6 +379,18 @@
 
         allcontrols.on('change', updatePreview);
         textcontrol.on('keyup', updatePreview);
+
+        $('#view-code').on('click', function() {
+            var code = getCode();
+
+            $('#code').remove();
+            
+            var out = $("<fieldset id='code'></fieldset>");
+            out.html(code);
+            
+            $('#save-share').after(out);
+            return false;
+        })
 
     }); //window.onload
 })();

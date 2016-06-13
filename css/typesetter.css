@@ -59,7 +59,7 @@ input[type=text] {
     font-family: monospace;
     padding: 1em;
     border: 1px solid black;
-    white-space: pre;
+    white-space: pre-wrap;
     overflow: auto;
 }
 
