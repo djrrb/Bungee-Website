@@ -44,7 +44,6 @@
         var orientationcontrols = $('#controls input[name=orientation]');
         //var rotatedcontrol = $('#controls input[name=rotated]');
         var altcontrols = $('#controls input[name=alt]');
-        var sizecontrol = $('#controls input[name=size]');
         //var autofit = $('#controls input[name=autofit]');
         var textcontrol = $('#controls input[name=text]');
         var backgroundcontrols = $('#background-controls input');
@@ -96,7 +95,7 @@
             var reference = preview.find('.layer.text');
             var req = {};
             req.text = Bungee.cleanupText(textcontrol.val()); //reference.find('span').first().text().trim();
-            req.size = sizecontrol.val();
+            req.size = 144;
             req.orientation = orientationcontrols.filter(':checked').val();
             req.layers = {};
             layercontrols.filter(':checked').each(function() {
@@ -216,8 +215,6 @@
             //rotated mode
             //$('html')[rotatedcontrol.prop('checked') ? 'addClass' : 'removeClass']('no-vertical-text');
             
-            //preview.css('font-size', sizecontrol.val() + 'px');
-
             //backgrounds
             if (backgroundcontrols.is(actor)) {
                 if (actor.name === 'block' || actor.value === "") {
@@ -340,14 +337,6 @@
                     case 'text':
                         textcontrol.val(Bungee.cleanupText(decodeURIComponent(eq[1].replace(/\+/g, '%20'))));
                         break;
-/*
-                    case 'size':
-                        sizecontrol.val(eq[1]);
-                        break;
-                    case 'fit':
-                        autofit.prop('checked', !eq[1].match(/false|0|no/i));
-                        break;
-*/
                     case 'inline': case 'outline': case 'regular': case 'shade': case 'background': case 'sign':
                         input = $('#controls input.layercontrols[name=' + eq[0] + ']').val(eq[1]);
                         layer = layercontrols.filter('.' + eq[0]);
@@ -369,13 +358,6 @@
 
         updatePreview();
         //doSVG();
-
-        // while sliding size slider, don't do a full update but just modify size
-        /*
-        sizecontrol.on('input', function() {
-            preview.css('font-size', this.value + 'px');
-        });
-        */
 
         allcontrols.on('change', updatePreview);
         textcontrol.on('keyup', updatePreview);
