@@ -16,7 +16,7 @@
 <script src="js/spectrum.js"></script>
 <script>
 $(function() {
-	$('h1,h3').each(function() {
+	$('h1,h3,.button').each(function() {
 		$(this).attr('data-content', $(this).text());
 	});
 });
@@ -204,7 +204,7 @@ nav a:visited {
 .site-nav ul li ul li {
 	display: block;
 	margin: 0;
-	background: #771F15;
+	background-color: #771F15;
 }
 
 .site-nav ul li ul li a {
@@ -229,7 +229,7 @@ nav a:visited {
 code {
 	font-family: InputSansNarrowWeb;
 	font-size: .85;
-	background: rgba(1, 1, 1, .2);
+	background-color: rgba(1, 1, 1, .2);
 	padding: 0em .2em .2em .2em;
 	letter-spacing: -.025em;
 }
@@ -331,7 +331,7 @@ code {
 
 
 #color-basic figure div {
-	
+	color: #EFE446;
 }
 #color-basic .bungee-basic-regular {
 	font-family: "Bungeee Regular";
@@ -349,44 +349,6 @@ code {
 	font-family: "Bungeee Basic Shade";
 }
 	
-
-
-
-
-#get a.button {
-	font-family: 'Bungeee Regular';
-	line-height: .8;
-	text-decoration: none;
-	color: #fff;
-	background: #942b1f;
-	padding: .5em;
-	
-	display: block;
-
-	font-size: 4em;
-	margin-top: 1rem;
-	margin-bottom: .15em;
-	margin-left: .05em;
-	position: relative;
-	width: 100%;
-	z-index: 30;
-}
-#get a.button:hover {
-	background: #771F15;
-}
-#get a.button:after {
-	font-family: 'Bungeee Inline';
-	text-decoration: none;
-	color: #000;
-	opacity: .75;
-	content: attr(data-content);
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 35;
-}
-
-
 
 
 </style>
@@ -539,7 +501,6 @@ h2 {
 h3 {
 	font-family: 'Bungeee Shade';
 	font-size: 3em;
-
 	color: #e2ddd7;
 	color: #EFE446;
 	position: relative;
@@ -573,7 +534,6 @@ p {
 }
 figure {
 	max-width: 60em;
-	margin-top: 0;
 }
 figcaption {
 	font-size: .675em;
@@ -653,7 +613,6 @@ cite, em {
 	-webkit-box-shadow: 0 0 15px 3px #999;
 	-moz-box-shadow: 0 0 15px 3px #999;
 	box-shadow: 0 0 15px 3px #999;
-	margin-bottom: 1rem;
 }
 
 /*
@@ -670,6 +629,44 @@ cite, em {
 	color: #FFF;
 }
 */
+
+.button:link,
+.button:visited {
+	font-family: 'Bungeee Shade';
+	text-decoration: none;
+	white-space: nowrap;
+	font-size: 3em;
+	color: black;
+	position: relative;
+}
+.button:before {
+	font-family: 'Bungeee Regular';
+	color: #FFF;
+	content: attr(data-content);
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.button:hover {
+	font-family: 'Bungeee Shade';
+	font-family: 'Bungeee Outline';
+	color: black;
+	content: attr(data-content);
+	top: .12em;
+	left: -.12em;
+}
+.button:hover:before {
+	font-family: 'Bungeee Regular';
+	color: white;
+	content: attr(data-content);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+
 
 input[type="text"] {
 	width: 8em;
@@ -694,17 +691,17 @@ input[type="range"] {
 	background-color: #EFE446;
 }
 .blue {
-	background: #2b839d;
+	background-color: #2b839d;
 }
 .otherblue {
-	background: #22748c;
+	background-color: #22748c;
 }
-.black {
-	background: #000;
+.dark {
+	background-color: #0E2027;
 }
 .blue,
 .otherblue,
-.black {
+.dark {
 	color: #FFF;
 }
 /*
@@ -851,11 +848,21 @@ html.colorswap h3:after {color: #FFF;}
 		border-top: none;
 		/*border-left: 2em solid #25839E;*/
 	}
+	figure {
+		margin-top: 1rem;
+	}
 	.big_fig {
 		max-width: 100%;
 	}
 	.big_fig img {
 		max-height: calc(100vh - 14em);
+	}
+	#bungee-basic-figure {
+		margin-bottom: 4rem;
+	}
+	#bungee-basic-figure.big_fig div {
+		font-size: calc((100vh - 14em) / 5);
+		line-height: .8;
 	}
 
 	#cover {
@@ -916,6 +923,9 @@ html.colorswap h3:after {color: #FFF;}
 	#get h1 {
 		font-size: 7em;
 		left: .75em;
+	}
+	h3 {
+		font-size: 7em;
 	}
 	section.collapsing_content {
 		white-space: normal;
@@ -1083,7 +1093,7 @@ html.colorswap h3:after {color: #FFF;}
 		</fieldset>
 	</form>
 </section><section id="stack">
-	<h3>Stack</h3>
+	<h3>Stacking</h3>
 	<figure class="big_fig triptych">
 		<img src="images/photos/g-g-hardware.jpg" alt="G & G Hardware, Oakland, CA" /><img src="images/photos/tower-theater.jpg" alt="Tower Theater, Los Angeles, CA" /><img src="images/photos/little-city.jpg" alt="Little City, San Francisco, CA" />
 		<figcaption><p>Signs from Oakland, Los Angeles, and San Francisco.</p></figcaption>
@@ -1094,7 +1104,6 @@ html.colorswap h3:after {color: #FFF;}
 </section><section class="blue" id="stack-edges">
 	<figure class="big_fig">
 		<img src="images/bungee-alpha.svg" />
-		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 
 	<p>In vertical type, the downward flow of text becomes more important than the proportions of any individual letter. I drew Bungee’s round and diagonal characters with straight sides (see <em>O</em> and <em>A</em>), which reinforces their verticality and creates a well-defined the left and right edge. Letters that are unusually wide, narrow, or asymmetrical (such as <em>I</em>, <em>L</em>, <em>M</em>, and <em>W</em>) tend to be especially tricky. You can <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md#stylistic-set-09-john-downers-recommendations">avoid these letters</a> or use Bungee’s alternates to get the best results for your design.</p>
@@ -1108,16 +1117,12 @@ html.colorswap h3:after {color: #FFF;}
 </section><section class="red" id="stack-implementation">
 	<figure class="big_fig">
 		<img src="images/bungee-spacing.svg" alt="Bungee Spacing" />
-		<figcaption><p>&nbsp;</p></figcaption>
 	</figure>
 	<p>Bungee implements its vertical forms via <a href="https://github.com/djrrb/Bungee/blob/master/documentation/3-vertical-text.md">OpenType features</a> that are more commonly used for East Asian scripts. These features can be activated by Vertical Text tools that are available in some desktop design applications, or by using CSS <code>writing-mode: vertical-rl</code> and <code>text-orientation: upright</code>. Bungee’s proportional spacing allows each letter to be as tall as it needs to be, and it even has vertical kerning.</p>
 	
 	</section><section class="" id="stack-process">
 	<figure class="big_fig">
 		<img src="images/photos/djr-sideways.jpg" alt="Kerning Bungee sideways." />
-		<figcaption>
-			<p>&nbsp;</p>
-		</figcaption>
 	</figure>
 	<p>I began by drawing each of Bungee’s letterforms on its side, rotated 90° counter-clockwise. This allowed me to use horizontal tools to make a vertical design, but presented me with some unusual challenges. This rotated version of Bungee is still available for applications that cannot take advantage of its OpenType capabilities. By rotating the text block 90° clockwise, you can simulate vertical text in any environment.</p>
 
@@ -1140,8 +1145,8 @@ html.colorswap h3:after {color: #FFF;}
 	</figure>
 	<p>Bungee comes with four text layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> them to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned <code>content: attr(data-content);</code> in a <code>:before</code> or <code>:after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
 	
-</section><section class="black" id="color-basic">
-	<figure class="fit-to-width big_fig" id="bungee-basic-figure">
+</section><section class="dark" id="color-basic">
+	<figure class="big_fig" id="bungee-basic-figure">
 		<div class="bungee-basic-regular">Regular</div>
 		<div class="bungee-basic-hairline">Hairline</div>
 		<div class="bungee-basic-inline">Inline</div>
@@ -1179,10 +1184,10 @@ html.colorswap h3:after {color: #FFF;}
 	
 </section><section class="red" id="get">
 	<h3>Get Bungee</h3>
-	<ul>
-		<li><a href="bungee.zip" class="button fit-to-width">Download</a></li>
-		<li><a href="http://www.github.com/djrrb/bungee" class="button">Clone on GitHub</a></li>
-		<li><a href="http://fonts.google.com/?selection.family=Bungee&query=bungee" class="button fit-to-width">Bungee on Google Fonts</a></li>
+	<ul>		
+		<li><a class="button" href="bungee.zip">Download</a></li>
+		<li><a class="button" href="http://www.github.com/djrrb/bungee">Clone on GitHub</a></li>
+		<li><a class="button" href="http://fonts.google.com/?selection.family=Bungee&query=bungee">Bungee on Google Fonts</a></li>
 	</ul>
 
 
