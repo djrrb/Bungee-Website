@@ -427,6 +427,7 @@ h1, h2, h3 {
 
 h1 {
 	font-family: 'Bungeee Shade';
+	letter-spacing: -.08em;
 	line-height: .8;
 
 	color: #771F15;
@@ -468,13 +469,17 @@ h2 {
 h3 {
 	font-family: 'Bungeee Shade';
 	font-size: 3em;
-	color: #e2ddd7;
-	color: #EFE446;
+	letter-spacing: -.075em;
+	color: #E6AE17; /* dark orange */
+	color: #EFE446; /* dark yellow */
+	color: #E3CE9D; /* medium brown */
+	color: #e2ddd7; /* medium gray */
+	color: #DC4227; /* red */
 	position: relative;
 }
 h3:before {
 	font-family: 'Bungeee Regular';
-	color: #DC4227;
+	color: #FFF700; /* yellow */
 	content: attr(data-content);
 	position: absolute;
 	top: 0;
@@ -863,7 +868,7 @@ html.colorswap h3:after {color: #FFF;}
 	}
 
 	#cover {
-		width: 90vw;
+		width: 85vw;
 		max-width: 140vh;
 		padding-left: 3em;
 		padding-right: 3em;
@@ -983,7 +988,7 @@ html.colorswap h3:after {color: #FFF;}
 		</fieldset>
 		
 		<fieldset class="expander expanded" id='preset-controls'>
-			<h5>Presets</h5>
+			<h5>Preset color themes</h5>
 			<!--
 			<select id="preset-list" name="presets">
 				<option>Bodega</option>
