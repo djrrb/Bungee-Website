@@ -23,7 +23,7 @@
 
 form > fieldset {
 	background-color: #E9E9E9;
-	padding: .75em .5em;
+	padding: 1em .5em;
 	margin-top: 0;
 }
 form > fieldset + fieldset {
@@ -45,12 +45,14 @@ select {
 input[type=text] {
 	padding: .25em .5em;
 	margin-top: 0;
+/* 	margin-bottom: .33em; */
 	vertical-align: baseline;
 }
-
+#preview {
+	margin-top: 0;
+}
 #preview.vertical {
-    float: left;
-    margin-right: 0.25in;
+    padding-right: 5%;
 }
 
 #svg, #png {
@@ -59,7 +61,7 @@ input[type=text] {
 }
 
 #tester #code {
-    font-family: monospace;
+	line-height: 1.2;
     padding: 1em;
     border: 1px solid black;
     white-space: pre-wrap;

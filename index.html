@@ -490,7 +490,7 @@ h3:before {
 	top: 0;
 	left: 0;
 }*/
-h5, h6 {
+h5 {
 	font-weight: bold;
 }
 
@@ -534,12 +534,30 @@ cite, em {
 	padding-top: 2rem;
 	position: relative;
 }
+
+
+
+
 #tester {
 	background-color: #FFF;
 	overflow-x: hidden;
+	white-space: nowrap;
 }
 #tester img {
 	width: 50vw;
+}
+#preview,
+#controls {
+}
+#preview.horizontal,
+#preview.horizontal + #controls {
+	max-width: 100%;
+}
+#preview.vertical,
+#preview.vertical + #controls {
+	max-width: 50%;
+	display: inline-block;
+	vertical-align: top;
 }
 #preview {
 	padding: 0;
@@ -547,6 +565,15 @@ cite, em {
 }
 #controls {
 	font-size: .875em;
+	white-space: normal;
+}
+#controls h5 + ul {
+	margin-top: .25em;
+}
+#controls li {
+	display: inline-block;
+	margin-top: .5em;
+	margin-right: .75em;
 }
 .expander h5:before {
 	content: '▸ ';
@@ -570,9 +597,19 @@ cite, em {
 #orientation-controls {
 /* 	width: 33.33%; */
 }
+#text-control {
+	margin-top: 0;
+	margin-right: 1em;
+}
 #text-control h5 {
 	display: inline-block;
-	padding: .25em 0
+}
+#orientation-controls {
+	display: inline-block;
+	margin-top: .66em;
+}
+#orientation-controls li {
+	margin-top: 0;
 }
 #layer-controls {
 /* 	width: 50%; */
@@ -586,6 +623,11 @@ cite, em {
 #background-controls ul {
 	margin-top: .25em;
 }
+#background-controls fieldset {
+	margin-top: 0;
+	margin-bottom: 1.5em;
+	margin-right: 1.5em;
+}
 #background-controls label {
 	margin-top: .25em;
 }
@@ -597,15 +639,6 @@ cite, em {
 	-webkit-box-shadow: 0 0 15px 3px #0E2027;
 	-moz-box-shadow: 0 0 15px 3px #0E2027;
 	box-shadow: 0 0 15px 3px #0E2027;
-}
-
-#controls h5 + ul {
-	margin-top: .25em;
-}
-#controls li {
-	display: inline-block;
-	margin-top: .5em;
-	margin-right: .75em;
 }
 
 .button:link,
@@ -938,19 +971,12 @@ html.colorswap h3:after {color: #FFF;}
 			<img src="images/specimen-vertical-B.svg" alt="Parking, Permanent Press, Tires, Lights, Liquid Detergent" /><img src="images/specimen-vertical-A.svg" alt="Soaps, Spin Cycle, Poolside, Coin-Ops" />
 	</figure>
 </section><section id="tester">
-	<figure id='preview' data-max-font-size='288px'></figure>
-	<form id='controls' onsubmit='return false'>
-		
-		<fieldset id='text-control'>
-			<label>
-				<h5>Text:</h5> <input type='text' name='text' value='Examiner'>
-			</label>
-		</fieldset>
-		<fieldset class="expander" id='orientation-controls'>
-			<h5>Orientation</h5>
-			<ul class="content">
+	<figure class="horizontal" id='preview' data-max-font-size='288px'></figure><form id='controls' onsubmit='return false'>
+		<fieldset>
+			<label id='text-control'><h5>Text:</h5> <input type='text' name='text' value='Tester'></label>
+			<ul id='orientation-controls'>
 				<li><label><input type='radio' name='orientation' value='horizontal' checked>&nbsp;Horizontal</label></li>
-					<li><label><input type='radio' name='orientation' value='vertical'>&nbsp;Vertical</label></li>
+				<li><label><input type='radio' name='orientation' value='vertical'>&nbsp;Vertical</label></li>
 			</ul>
 		</fieldset>
 		
@@ -1020,8 +1046,8 @@ html.colorswap h3:after {color: #FFF;}
 		<fieldset class="expander" id='banner-controls'>
 			<h5>Background shapes</h5>
 			<div class="content" id='background-controls'>
-				<fieldset><h6>Banner head</h6> <script>Bungee.backgroundInputList('begin');</script></fieldset>
-				<fieldset><h6>Banner tail</h6> <script>Bungee.backgroundInputList('end');</script></fieldset>
+				<fieldset><h6>Banner start</h6> <script>Bungee.backgroundInputList('begin');</script></fieldset>
+				<fieldset><h6>Banner end</h6> <script>Bungee.backgroundInputList('end');</script></fieldset>
 				<fieldset><h6>Block shapes</h6> <script>Bungee.backgroundInputList('block');</script></fieldset>
 			</div>
 		</fieldset>
