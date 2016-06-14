@@ -237,7 +237,7 @@
                 if (true) { // autofit.prop('checked')) {
                     var oldsize = sizeToWidth.cssToPx(preview.data('max-font-size')) || 144;
                     preview.css('font-size', oldsize + 'px');
-                    function fitToWidth() {
+                    var fitToWidth = function() {
                         if (orientation === 'horizontal') {
                             sizeToWidth(preview); 
                         } else {
@@ -251,7 +251,7 @@
                         }
                     }
                     
-                    setTimeout(fitToWidth, 10);
+                    fitToWidth();
                     win.on('resize', fitToWidth);
                 }
             }
