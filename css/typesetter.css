@@ -98,11 +98,11 @@ input[type=text] {
 
 #palettes > li {
     display: inline-block;
-    margin-right: 0.25em;
+    margin-right: .2em !important;
 }
 
 .palette {
-	font-size: 2em;
+	font-size: 1.8em;
 	position: relative;
 	display: inline-block;
 	width: auto;
