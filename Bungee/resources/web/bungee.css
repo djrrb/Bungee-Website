@@ -1,0 +1,311 @@
+/* The Fonts */
+
+@font-face {
+	font-family: "Bungee Demo Regular";
+	src: url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Regular.eot?#ie") format("embedded-opentype"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Regular.woff2") format("woff2"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Regular.woff") format("woff"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Regular.svg#font") format("svg");
+}
+
+
+@font-face {
+	font-family: "Bungee Demo Outline";
+	src: url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Outline.eot?#ie") format("embedded-opentype"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Outline.woff2") format("woff2"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Outline.woff") format("woff"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Outline.svg#font") format("svg");
+}
+
+
+@font-face {
+	font-family: "Bungee Demo Inline";
+	src: url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Inline.eot?#ie") format("embedded-opentype"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Inline.woff2") format("woff2"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Inline.woff") format("woff"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Inline.svg#font") format("svg");
+}
+
+
+@font-face {
+	font-family: "Bungee Demo Shade";
+	src: url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Shade.eot?#ie") format("embedded-opentype"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Shade.woff2") format("woff2"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Shade.woff") format("woff"),
+		url("../../fonts/Bungee_Web/BungeeLayers/BungeeLayers-Shade.svg#font") format("svg");
+}
+
+
+@font-face {
+	font-family: "Bungee Demo Rotated Regular";
+	src: url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Regular.eot?#ie") format("embedded-opentype"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Regular.woff2") format("woff2"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Regular.woff") format("woff"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Regular.svg#font") format("svg");
+}
+
+
+@font-face {
+	font-family: "Bungee Demo Rotated Outline";
+	src: url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Outline.eot?#ie") format("embedded-opentype"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Outline.woff2") format("woff2"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Outline.woff") format("woff"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Outline.svg#font") format("svg");
+}
+
+
+@font-face {
+	font-family: "Bungee Demo Rotated Inline";
+	src: url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Inline.eot?#ie") format("embedded-opentype"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Inline.woff2") format("woff2"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Inline.woff") format("woff"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Inline.svg#font") format("svg");
+}
+
+
+@font-face {
+	font-family: "Bungee Demo Rotated Shade";
+	src: url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Shade.eot?#ie") format("embedded-opentype"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Shade.woff2") format("woff2"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Shade.woff") format("woff"),
+		url("../../fonts/Bungee_Web/BungeeLayersRotated/BungeeLayersRotated-Shade.svg#font") format("svg");
+}
+
+/* top-level element classes */
+
+.bungee, .bungee * {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2; /* needed for banners */
+}
+
+.bungee {
+    position: relative;
+    display: inline-block;
+    font-size: 72px;
+    white-space: nowrap;
+    padding: 0.25in;
+    text-rendering: optimizeLegibility;
+}
+
+.bungee.vertical {
+    /* change writing mode to vertical */
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    /* use upright orientation */
+    -webkit-text-orientation: upright;
+    -moz-text-orientation: upright;
+    -ms-text-orientation: upright;
+    text-orientation: upright;
+    /* implement spacing and kerning */
+    -moz-font-feature-settings: "vpal";
+    -webkit-font-feature-settings: "vpal";
+    font-feature-settings: "vpal";
+}
+
+.bungee * {
+    position: relative;
+    background: transparent;
+}
+
+.bungee .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.bungee .layer:first-child {
+    position: relative; /* to make it have an actual size */
+}
+
+.bungee .regular {
+    font-family: "Bungee Demo Regular";
+    z-index: 13;
+}
+
+.bungee .outline {
+    font-family: "Bungee Demo Outline";
+    z-index: 12;
+}
+
+.bungee .inline {
+    font-family: "Bungee Demo Inline";
+    z-index: 14;
+}
+
+.bungee .shade {
+    font-family: "Bungee Demo Shade";
+    z-index: 11;
+}
+
+.bungee.regular .regular {
+    opacity: 1;
+}
+
+.bungee.outline .outline {
+    opacity: 1;
+}
+
+.bungee.inline .inline {
+    opacity: 1;
+}
+
+.bungee.shade .shade {
+    opacity: 1;
+}
+
+
+/* manipulations for block shapes and banners */
+
+.bungee.block {
+    -moz-font-feature-settings: "ss01";
+    -webkit-font-feature-settings: "ss01";
+    font-feature-settings: "ss01";
+}
+
+.bungee.vertical.block {
+    -moz-font-feature-settings: "vpal" 0;
+    -webkit-font-feature-settings: "vpal" 0;
+    font-feature-settings: "vpal" 0;
+    letter-spacing: 0.28em;
+}
+
+.bungee.sign .layer.sign {
+    opacity: 1;
+}
+
+.bungee .sign.regular {
+    z-index: 2;
+}
+
+.bungee .sign.outline {
+    z-index: 1;
+}
+
+.bungee.banner header,
+.bungee.banner footer,
+.bungee.banner figure
+ {
+    display: inline-block;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+.bungee.banner figure {
+    overflow: hidden;
+}
+
+/* block shapes */
+
+.bungee.block span {
+    position: relative;
+    top: 0;
+    left: 0.14em;
+    letter-spacing: 0.28em;
+}
+
+.bungee.block.shade span {
+    /* offset slightly to compensate for shade */
+    position: relative;
+    left: 0.16em; /* left + 0.02 */
+    top: -0.02em; /* top - 0.02 */
+}
+
+.bungee.vertical.block span {
+    left: 0;
+    top: 0.0em;
+    letter-spacing: 0.28em;
+}
+
+.bungee.vertical.block.shade span {
+    left: 0.02em;
+    top: -0.02em;
+}
+
+/* banners */
+.bungee.banner span {
+}
+
+.bungee.banner.shade span {
+    left: 0.02em;
+    top: -0.02em;
+}
+
+.bungee.vertical.banner span {
+}
+
+.bungee.vertical.banner.shade span {
+    left: 0.02em; /* left + 0.02 */
+    top: -0.02em; /* top - 0.02 */
+}
+
+
+
+
+
+
+/* HACKS FOR OLDER BROWSERS */
+
+/* for browsers that don't support vertical mode */
+/* Javascript will set .no-vertical-text on <html> */
+
+.no-vertical-text .bungee.vertical {
+    /* reset these things just to be safe */
+    -ms-writing-mode: lr-tb;
+    -webkit-writing-mode: horizontal-tb;
+    -moz-writing-mode: horizontal-tb;
+    writing-mode: horizontal-tb;
+    /* and rotate the whole thing clockwise */
+    /* note this will break document flow unless you absolutely position it */
+    -moz-transform-origin: left bottom;
+    -moz-transform: translateY(-100%) rotate(90deg);
+    -ms-transform-origin: left bottom;
+    -ms-transform: translateY(-100%) rotate(90deg);
+    -webkit-transform-origin: left bottom;
+    -webkit-transform: translateY(-100%) rotate(90deg);
+    transform-origin: left bottom;
+    transform: translateY(-100%) rotate(90deg);
+}
+
+/* for no-vertical-text browsers, need to rotate all the transforms */
+
+.no-vertical-text .bungee.vertical .regular {
+    font-family: "Bungee Demo Rotated Regular";
+}
+
+.no-vertical-text .bungee.vertical .outline {
+    font-family: "Bungee Demo Rotated Outline";
+}
+
+.no-vertical-text .bungee.vertical .inline {
+    font-family: "Bungee Demo Rotated Inline";
+}
+
+.no-vertical-text .bungee.vertical .shade {
+    font-family: "Bungee Demo Rotated Shade";
+}
+
+.no-vertical-text .bungee.vertical.block {
+    letter-spacing: 0;
+}
+
+.no-vertical-text .bungee.vertical.block span {
+    letter-spacing: 0.41em;
+    left: 0.205em;
+}
+
+.no-vertical-text .bungee.vertical.block.shade span {
+    left: 0.185em; /* left - 0.02 */
+    top: -0.02em; /* top - 0.02 */
+}
+
+.no-vertical-text .bungee.vertical.banner span {
+}
+
+.no-vertical-text .bungee.vertical.banner.shade span {
+    left: -0.02em; /* left - 0.02 */
+    top: -0.02em; /* top - 0.02 */
+}
