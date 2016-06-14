@@ -462,20 +462,14 @@ h1::after {
 }
 
 h2 {
-	position: relative;
 	font-family: "Bungeee Regular";
 	font-size: 1.5em;
 	text-align: center;
-	/*color: #f1e888;*/
-	/*color: #fff;*/
 	color: #771F15;
 	line-height: 1.1em;
 	margin-top: 1.5em;
 	z-index: 30;
 }
-
-
-
 
 h3 {
 	font-family: 'Bungeee Shade';
@@ -496,7 +490,7 @@ h3::before {
 	top: 0;
 	left: 0;
 }
-/*h3:after {
+/*h3::after {
 	font-family: 'Bungeee Inline';
 	color: #EFE446;
 	color: #fff;
@@ -777,7 +771,7 @@ html.colorswap body {background-color: #EFE446;}
 html.colorswap .specimen {background-color: #f4ede0;}
 
 html.colorswap h3 {color: #DC4227;}
-html.colorswap h3:after {color: #FFF;}
+html.colorswap h3::after {color: #FFF;}
 
 .bungeee.regular {font-family: 'Bungeee Regular';}
 .bungeee.inline {font-family: 'Bungeee Inline';}
@@ -835,12 +829,11 @@ html.colorswap h3:after {color: #FFF;}
 }
 @media (min-width: 48em) {
 	html::before {content: 'M';}
-	h3 {font-size: 5em;}
 	h2 {font-size: 1.5em;}
 }
 @media (min-width: 64em) {
 }
-@media (min-width: 64em) and (min-height: 46em) and (min-aspect-ratio: 6/5) { /* Horizontal mode! */
+@media (min-width: 64em) and (min-height: 38em) and (min-aspect-ratio: 6/5) { /* Horizontal mode! */
 	html::before {content: 'L';}
 	article {
 		white-space: nowrap;
@@ -877,14 +870,10 @@ html.colorswap h3:after {color: #FFF;}
 	}
 
 	#cover {
-		max-width: 85vw;
-		max-width: 140vh;
+		max-width: 120vh;
+		width: 85vw;
 		padding-left: 3em;
 		padding-right: 3em;
-	}
-	#cover h2 {
-		/*text-align: center;*/
-		word-spacing: .15em;
 	}
 	#cover p {
 		margin-left: auto;
@@ -893,14 +882,22 @@ html.colorswap h3:after {color: #FFF;}
 	#tester {
 		max-width: 85vw;
 	}
+	#get {
+		max-width: 85vw;
+	}
 	.specimen img {
 		max-width: none;
 		height: calc(100vh - 4em);
 	}
 	h2 {
 		font-size: 2em;
+		word-spacing: .15em;
 	}
-	h3, #get h1 {
+	h2 span {
+		display: inline-block;
+		margin-top: 0;
+	}
+	h3 {
 		font-family: 'Bungeee Rotated Shade', Impact;
 		position: absolute;
 		left: 1.5em;
@@ -917,30 +914,27 @@ html.colorswap h3:after {color: #FFF;}
 		-o-transform:rotate(90deg);
 		white-space: nowrap;
 	}
-	h3::before, #get h1::before {
+	h3::before {
 		font-family: 'Bungeee Rotated Regular', Impact;
 	}
-	h3:after, #get h1:after {
+	h3::after {
 		font-family: 'Bungeee Rotated Inline', Impact;
 	}
 	.has-heading {
-		padding-left: 12em;
-	}
-	#get h1 {
-		top: -.5rem;
+		padding-left: 9em;
 	}
 	
 }
-@media (min-width: 64em) and (min-height: 64em) and (min-aspect-ratio: 4/3) {
-	#get h1 {
-		font-size: 7em;
-		left: .75em;
-	}
-	h3 {
-		font-size: 7em;
-	}
+@media (min-width: 64em) and (min-height: 45em) and (min-aspect-ratio: 6/5) {
+	h3 {font-size: 5em;}
 	.has-heading {
-		padding-left: 14em;
+		padding-left: 10em;
+	}
+}
+@media (min-width: 64em) and (min-height: 54em) and (min-aspect-ratio: 6/5) {
+	h3 {font-size: 6em;}
+	.has-heading {
+		padding-left: 12em;
 	}
 }
 @media (min-width: 80em) {
@@ -984,7 +978,7 @@ html.colorswap h3:after {color: #FFF;}
 		</ul>
 	</nav>
 	<h1 class="fit-to-width" data-max-font-size="45vh">Bun-<br />gee!</div>
-	<h2>Fonts for vertical and multicolor typography</h2>
+	<h2><span>Fonts for vertical and</span> <span>multicolor typography</span></h2>
 </section><section class="specimen yellow">
 	<figure class="collapsing_specimen">
 			<img src="images/specimen-vertical-B.svg" alt="Parking, Permanent Press, Tires, Lights, Liquid Detergent" /><img src="images/specimen-vertical-A.svg" alt="Soaps, Spin Cycle, Poolside, Coin-Ops" />
@@ -1152,7 +1146,7 @@ html.colorswap h3:after {color: #FFF;}
 	<figure class="big_fig" id="bungee-layers-figure">
 		<img src="images/bungee-layers.gif" alt="Bungee’s Layers" />
 	</figure>
-	<p>Bungee comes in four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> these styles and their ornaments to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned content in your <code>::before</code> or <code>:after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
+	<p>Bungee comes in four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> these styles and their ornaments to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned content in your <code>::before</code> or <code>::after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
 	
 </section><section class="" id="color-basic">
 	<figure class="big_fig" id="bungee-basic-figure">
