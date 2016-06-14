@@ -32,16 +32,12 @@ $(function() {
     
     // horizontal scroll to hash
     function goToHash() {
-        if (goingToHash === window.location.hash) {
-            return;
-        } else if (goingToHash) {
-            article.stop(true);
-        }
         var pos, bookmark = $(window.location.hash);
         if (bookmark.length) {
             pos = elementOffset(bookmark);
-            if (Math.abs(article.scrollLeft()-pos) > win.width()/2) {
+            if (goingToHash || Math.abs(article.scrollLeft()-pos) > win.width()/2) {
                 goingToHash = window.location.hash;
+                article.stop();
                 article.animate({'scrollLeft':pos}, {
                     'duration':'0.5',
                     'complete': function() { goingToHash = false; }
