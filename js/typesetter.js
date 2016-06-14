@@ -230,7 +230,7 @@
             
             if (suckyBrowser && orientation === 'vertical') {
                 // replace with SVG
-                preview.html("<img src='" + getSvgURL() + "' alt='SVG preview'>");
+                preview.html('<img src="' + getSvgURL() + '" alt="SVG preview">');
             } else {
                 Bungee.init(preview);
                 
