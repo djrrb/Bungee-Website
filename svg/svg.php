@@ -236,7 +236,6 @@ if ($block and isset($layers['sign'])) {
 
 # Text layers output
 
-$prev = null;
 $shadenudge = isset($layers['shade']) ? 0.04 * $size : 0.0;
 $textwidth = 0;
 foreach ($layers as $style => $color) {
@@ -255,6 +254,7 @@ foreach ($layers as $style => $color) {
             $y = $height-$ypadding - $baseline*$em2px;
             $x += $shadenudge * ($orientation === 'vertical' ? -1 : 1);
             $y -= $shadenudge;
+            $prev = null;
             for ($i=0,$l=mb_strlen($text); $i<$l; $i++) {
                 $c = mb_substr($text, $i, 1);
                 $id = uniord($c);
@@ -278,7 +278,7 @@ foreach ($layers as $style => $color) {
                 $x += $block ? $blockwidth*$em2px - $ss01fudge : $charwidths[$style][$id]*$em2px;
                 $prev = $id;
             }
-            $textwidth = $x - $xpadding;
+            $textwidth = max($textwidth, $x - $xpadding);
             break;
     }
 
