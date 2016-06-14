@@ -362,7 +362,7 @@ code {
 	box-sizing: border-box;
 }
 
-html:before { /* BREAKPOINT INDICATOR */
+html::before { /* BREAKPOINT INDICATOR */
 	content: 'XXS';
 	font-family: Verdana, sans-serif;
 	font-size: 9px;
@@ -372,7 +372,7 @@ html:before { /* BREAKPOINT INDICATOR */
 	left: 0px;
 	display: none;
 }
-html.debug:before {display: block;}
+html.debug::before {display: block;}
 html.debug * {outline: 1px dashed rgba(255,0,0, 0.5);}
 
 * + * { margin-top: 1rem;}
@@ -440,7 +440,7 @@ h1 {
 	width: 100%;
 	z-index: 30;
 }
-h1:before {
+h1::before {
 	content: attr(data-content);
 	font-family: 'Bungeee Regular';
 	position: absolute;
@@ -476,7 +476,7 @@ h3 {
 	position: relative;
 	margin-bottom: .5em;
 }
-h3:before {
+h3::before {
 	font-family: 'Bungeee Regular';
 	color: #FFF700; /* yellow */
 	color: #DC4227; /* red */
@@ -583,10 +583,10 @@ cite, em {
 	margin-top: .5em;
 	margin-right: .75em;
 }
-.expander h5:before {
+.expander h5::before {
 	content: '▸ ';
 }
-.expanded h5:before {
+.expanded h5::before {
 	content: '▾ ';
 }
 /*
@@ -668,7 +668,7 @@ cite, em {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.button:before {
+.button::before {
 	font-family: 'Bungeee Regular';
 	color: #FFF;
 	content: attr(data-content);
@@ -687,7 +687,7 @@ li:hover .button {
 /* 	text-shadow: 0 0 .1em #771F15; */
 }
 /*
-.button:hover:before {
+.button:hover::before {
 	font-family: 'Bungeee Regular';
 	font-family: 'Bungeee Inline';
 	color: white;
@@ -812,10 +812,10 @@ html.colorswap h3:after {color: #FFF;}
 
 
 @media (min-width: 20em) {
-	html:before {content: 'XS';}
+	html::before {content: 'XS';}
 }
 @media (min-width: 30em) {
-	html:before {content: 'S';}
+	html::before {content: 'S';}
 	h1 {font-size: 5em;}
 	h3 {font-size: 4em;}
 	.collapsing_specimen {
@@ -824,7 +824,7 @@ html.colorswap h3:after {color: #FFF;}
 	}
 }
 @media (min-width: 48em) {
-	html:before {content: 'M';}
+	html::before {content: 'M';}
 	h3 {font-size: 5em;}
 	h2 {font-size: 1.5em;}
 }
@@ -832,7 +832,7 @@ html.colorswap h3:after {color: #FFF;}
 	h3 {font-size: 6em;}
 }
 @media (min-width: 64em) and (min-height: 46em) and (min-aspect-ratio: 6/5) { /* Horizontal mode! */
-	html:before {content: 'L';}
+	html::before {content: 'L';}
 	article {
 		white-space: nowrap;
 /*
@@ -911,7 +911,7 @@ html.colorswap h3:after {color: #FFF;}
 		-o-transform:rotate(90deg);
 		white-space: nowrap;
 	}
-	h3:before, #get h1:before {
+	h3::before, #get h1::before {
 		font-family: 'Bungeee Rotated Regular', Impact;
 	}
 	h3:after, #get h1:after {
@@ -935,10 +935,10 @@ html.colorswap h3:after {color: #FFF;}
 	}
 }
 @media (min-width: 80em) {
-	html:before {content: 'XL';}
+	html::before {content: 'XL';}
 }
 @media (min-width: 96em) {
-	html:before {content: 'XXL';}
+	html::before {content: 'XXL';}
 }
 </style>
 </head>
@@ -1143,7 +1143,7 @@ html.colorswap h3:after {color: #FFF;}
 	<figure class="big_fig" id="bungee-layers-figure">
 		<img src="images/bungee-layers.gif" alt="Bungee’s Layers" />
 	</figure>
-	<p>Bungee comes in four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> these styles and their ornaments to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned content in your <code>:before</code> or <code>:after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
+	<p>Bungee comes in four layers: Regular, Inline, Outline, and Shade. <a href="https://github.com/djrrb/Bungee/blob/master/documentation/2-chromatic-layers.md">You can mix and match</a> these styles and their ornaments to create a variety of chromatic effects. In desktop apps, you can style each layer separately, and overlay them when you are finished. On the web, you can create layers using absolutely-positioned content in your <code>::before</code> or <code>:after</code> pseudo-class, or use <a href="https://github.com/djrrb/Bungee/tree/master/resources/web">bungee.js</a> to do the heavy lifting for you.</p>
 	
 </section><section class="" id="color-basic">
 	<figure class="big_fig" id="bungee-basic-figure">
