@@ -53,7 +53,7 @@
 		var fontSize;
 
 		//wrap the text in an inline element to measure text width
-		div.wrapInner("<span style='display:inline-block; font-family:inherit; font-weight:inherit; font-style:inherit; font-size:inherit; text-transform:inherit; white-space:nowrap;'></span>");
+		div.wrapInner("<span style='display:inline-block; font-family:inherit; font-stretch: inherit; font-weight:inherit; font-style:inherit; font-size:inherit; text-transform:inherit; letter-spacing: inherit; white-space:nowrap;'></span>");
 		var span = div.children('span');
 	
 		var fullwidth = div.width();
