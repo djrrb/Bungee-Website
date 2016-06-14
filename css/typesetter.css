@@ -1,8 +1,5 @@
 /* controls */
 
-#tester #controls > * {
-    padding-bottom: 0.5em;
-}
 
 #tester #background-controls li {
     list-style-type: none;
@@ -24,9 +21,13 @@
     background-color: white;
 }
 
-fieldset {
-	background-color: #CCC;
-	padding: .5em;
+form > fieldset {
+	background-color: #E9E9E9;
+	padding: .75em .5em;
+	margin-top: 0;
+}
+form > fieldset + fieldset {
+	border-top: 1px solid #CCC;
 }
 
 /* preview box */
@@ -43,6 +44,8 @@ select {
 }
 input[type=text] {
 	padding: .25em .5em;
+	margin-top: 0;
+	vertical-align: baseline;
 }
 
 #preview.vertical {
@@ -118,11 +121,11 @@ input[type=text] {
 
 #palettes > li {
     display: inline-block;
-    margin-right: 0.33em;
+    margin-right: 0.25em;
 }
 
 .palette {
-	font-size: 3em;
+	font-size: 2em;
 	position: relative;
 	display: inline-block;
 	width: auto;
@@ -143,7 +146,6 @@ input[type=text] {
 }
 input {
 	vertical-align: middle;
-	margin: 0;
 }
 .none, .color-picker-container .sp-clear {
 	background-color: #FFF !important;

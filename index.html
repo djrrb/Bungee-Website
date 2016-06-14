@@ -24,6 +24,19 @@ $(function() {
 });
 </script>
 
+<script>
+$(document).ready(function() {
+    $('.content').hide();
+    $('.expander h5').click(function () {
+	    $(this).parent().toggleClass("expanded");
+	    $(this).parent().siblings().removeClass("expanded");
+        $(this).next('.content').slideToggle(250);
+        $(this).parent().siblings().children().next('.content').slideUp(250);
+        return false;
+    });
+});
+</script>
+
 
     <!-- ga -->
     <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-78434519-1', 'auto');ga('send', 'pageview');ga('require', 'ecommerce');</script>
@@ -36,9 +49,11 @@ $(document).keydown(function(e) {
 	if (key == 192) {
 		$("html").toggleClass("debug");
 	}
+/*
 	if (key == 67) {
 		$("html").toggleClass("colorswap");
 	}
+*/
 });
 </script>
 
@@ -475,9 +490,8 @@ h3:before {
 	top: 0;
 	left: 0;
 }*/
-h5 {
+h5, h6 {
 	font-weight: bold;
-	display: inline;
 }
 
 p {
@@ -534,6 +548,13 @@ cite, em {
 #controls {
 	font-size: .875em;
 }
+.expander h5:before {
+	content: '▸ ';
+}
+.expanded h5:before {
+	content: '▾ ';
+}
+/*
 #text-control,
 #size-control,
 #orientation-controls,
@@ -543,20 +564,33 @@ cite, em {
 	vertical-align: top;
 	margin-top: 0;
 }
+*/
 #text-control,
 #size-control,
 #orientation-controls {
-	width: 33.33%;
+/* 	width: 33.33%; */
+}
+#text-control h5 {
+	display: inline-block;
+	padding: .25em 0
 }
 #layer-controls {
-	width: 50%;
+/* 	width: 50%; */
 }
 #banner-controls {
-	width: 50%;
+/* 	width: 50%; */
 }
-#background-controls ul,
+#background-controls {
+	
+}
+#background-controls ul {
+	margin-top: .25em;
+}
 #background-controls label {
 	margin-top: .25em;
+}
+#background-controls fieldset {
+	display: inline-block;
 }
 
 #color-formats img {
@@ -565,31 +599,14 @@ cite, em {
 	box-shadow: 0 0 15px 3px #0E2027;
 }
 
-/*
-#get {
-	background-color: #25839E;
+#controls h5 + ul {
+	margin-top: .25em;
 }
-#get h1 {
-	color: #1E444E;
-}
-#get li {
-	margin-top: .5rem;
-}
-#get a {
-	color: #FFF;
-}
-*/
-
-/*
-.CTA li {
+#controls li {
 	display: inline-block;
-	-moz-border-radius: .5em;
-	-webkit-border-radius: .5em;
-	border-radius: .5em;
-	padding: .25em .5em .75em 1em;
-	background-color: #666;
+	margin-top: .5em;
+	margin-right: .75em;
 }
-*/
 
 .button:link,
 .button:visited {
@@ -925,18 +942,20 @@ html.colorswap h3:after {color: #FFF;}
 	<form id='controls' onsubmit='return false'>
 		
 		<fieldset id='text-control'>
-			<label><h5>Text:</h5> <input type='text' name='text' value='Examiner'></label>
+			<label>
+				<h5>Text:</h5> <input type='text' name='text' value='Examiner'>
+			</label>
 		</fieldset>
-		<fieldset id='orientation-controls'>
-			<h5>Orientation:</h5>
-			<ul>
-			<li><label><input type='radio' name='orientation' value='horizontal' checked>&nbsp;Horizontal</label></li>
-			<li><label><input type='radio' name='orientation' value='vertical'>&nbsp;Vertical</label></li>
+		<fieldset class="expander" id='orientation-controls'>
+			<h5>Orientation</h5>
+			<ul class="content">
+				<li><label><input type='radio' name='orientation' value='horizontal' checked>&nbsp;Horizontal</label></li>
+					<li><label><input type='radio' name='orientation' value='vertical'>&nbsp;Vertical</label></li>
 			</ul>
 		</fieldset>
 		
-		<fieldset id='preset-controls'>
-			<h5>Presets: </h5>
+		<fieldset class="expander" id='preset-controls'>
+			<h5>Presets</h5>
 			<!--
 			<select id="preset-list" name="presets">
 				<option>Bodega</option>
@@ -970,13 +989,13 @@ html.colorswap h3:after {color: #FFF;}
 				<option>Open</option>
 			</select>
 			-->
-			<ul id="palettes">
+			<ul class="content" id="palettes">
 			</ul>
 		</fieldset>
 
-		<fieldset id='layer-controls'>
-			<h5>Colors:</h5>
-			<ul>
+		<fieldset class="expander" id='layer-controls'>
+			<h5>Colors</h5>
+			<ul class="content">
 				<li>
 					<label><span data-layer='regular' class="swatch regular" style="background-color: #DC4227;"></span>&ensp;Base</label>
 				</li>
@@ -996,18 +1015,20 @@ html.colorswap h3:after {color: #FFF;}
 					<label><span data-layer='background' class="swatch background" style="background-color: #FFFFFF;"></span>&ensp;Background</label>
 				</li>
 			</ul>
-		</fieldset><fieldset id='banner-controls'>
-			<ul>
-				<li id='background-controls'>
-					<fieldset><h5>Banner head:</h5> <script>Bungee.backgroundInputList('begin');</script></fieldset>
-					<fieldset><h5>Banner tail:</h5> <script>Bungee.backgroundInputList('end');</script></fieldset>
-					<fieldset><h5>Block shapes:</h5> <script>Bungee.backgroundInputList('block');</script></fieldset>
-				</li>
-			</ul>
 		</fieldset>
-		<fieldset id='stylistic-sets'>
-			<h5>Alternates:</h5>
-			<ul>
+		
+		<fieldset class="expander" id='banner-controls'>
+			<h5>Background shapes</h5>
+			<div class="content" id='background-controls'>
+				<fieldset><h6>Banner head</h6> <script>Bungee.backgroundInputList('begin');</script></fieldset>
+				<fieldset><h6>Banner tail</h6> <script>Bungee.backgroundInputList('end');</script></fieldset>
+				<fieldset><h6>Block shapes</h6> <script>Bungee.backgroundInputList('block');</script></fieldset>
+			</div>
+		</fieldset>
+		
+		<fieldset class="expander" id='stylistic-sets'>
+			<h5>Alternates</h5>
+			<ul class="content">
 				<li><label><input type='checkbox' name='alt' value='rounded'> Alternate A, M, N, W, X, Y</label></li>
 				<li><label><input type='checkbox' name='alt' value='e'> Round E</label></li>
 				<li><label><input type='checkbox' name='alt' value='i'> Simplified I</label></li>
@@ -1016,9 +1037,10 @@ html.colorswap h3:after {color: #FFF;}
 				<li><label><input type='checkbox' name='alt' value='quote'> Small apostrophe</label></li>
 			</ul>
 		</fieldset>
-		<fieldset id='save-share'>
+		
+		<fieldset class="expander" id='save-share'>
 			<h5>Save/Share</h5>
-			<ul>
+			<ul class="content">
 				<li><a href="" id='permalink'>Permalink</a></li>
 				<li><a href="" id='download-svg'>Download SVG</a></li>
 				<li><a href="" id='download-png'>Download PNG</a></li>
