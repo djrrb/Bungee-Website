@@ -427,7 +427,7 @@ h1, h2, h3 {
 
 h1 {
 	font-family: 'Bungeee Shade';
-	letter-spacing: -.08em;
+	letter-spacing: -.085em;
 	line-height: .8;
 
 	color: #771F15;
@@ -435,7 +435,6 @@ h1 {
 	font-size: 4em;
 	margin-top: 1rem;
 	margin-bottom: .15em;
-	margin-left: .05em;
 	position: relative;
 	width: 100%;
 	z-index: 30;
@@ -448,7 +447,11 @@ h1::before {
 	color: #FFF;
 	left: 0;
 }
-
+h1,
+h1:before {
+	padding-left: .075em;
+	padding-right: .05em;
+}
 
 h2 {
 	position: relative;
@@ -974,7 +977,7 @@ html.colorswap h3:after {color: #FFF;}
 			</li>
 		</ul>
 	</nav>
-	<h1 class="fit-to-width" data-max-font-size="50vh">Bun-<br />gee!</div>
+	<h1 class="fit-to-width" data-max-font-size="45vh">Bun-<br />gee!</div>
 	<h2>Fonts for vertical and multicolor typography</h2>
 </section><section class="specimen yellow">
 	<figure class="collapsing_specimen">
