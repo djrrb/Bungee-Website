@@ -34,7 +34,7 @@ form > fieldset + fieldset {
 
 #preview {
     display: block;
-    background-color: none;
+    background-color: transparent !important;
 }
 
 select {
