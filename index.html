@@ -373,7 +373,7 @@ html::before { /* BREAKPOINT INDICATOR */
 	display: none;
 }
 html.debug::before {display: block;}
-html.debug * {outline: 1px dashed rgba(255,0,0, 0.5);}
+html.debug * {outline: 1px dashed rgba(0,0,0, 0.5);}
 
 * + * { margin-top: 1rem;}
 .color-picker-container * + * { margin-top: 0; }
@@ -429,9 +429,7 @@ h1 {
 	font-family: 'Bungeee Shade';
 	letter-spacing: -.085em;
 	line-height: .8;
-
 	color: #771F15;
-
 	font-size: 4em;
 	margin-top: 1rem;
 	margin-bottom: .15em;
@@ -460,7 +458,7 @@ h1,
 h1::before,
 h1::after {
 	padding-left: .075em;
-	padding-right: .05em;
+	padding-right: 0;
 }
 
 h2 {
@@ -692,8 +690,7 @@ cite, em {
 li:hover .button {
 	font-family: 'Bungeee Shade';
 	font-family: 'Bungeee Outline';
-	color: black;
-	color: #771F15;
+	color: #771F15 !important;
 	content: attr(data-content);
 	top: .12em;
 	left: -.12em;
@@ -842,7 +839,6 @@ html.colorswap h3:after {color: #FFF;}
 	h2 {font-size: 1.5em;}
 }
 @media (min-width: 64em) {
-	h3 {font-size: 6em;}
 }
 @media (min-width: 64em) and (min-height: 46em) and (min-aspect-ratio: 6/5) { /* Horizontal mode! */
 	html::before {content: 'L';}
@@ -866,9 +862,6 @@ html.colorswap h3:after {color: #FFF;}
 		height: 100vh;
 		overflow-y: auto;
 	}
-	.has-heading {
-		padding-left: 10em;
-	}
 	section + section {
 		border-top: none;
 		/*border-left: 2em solid #25839E;*/
@@ -884,7 +877,7 @@ html.colorswap h3:after {color: #FFF;}
 	}
 
 	#cover {
-		width: 85vw;
+		max-width: 85vw;
 		max-width: 140vh;
 		padding-left: 3em;
 		padding-right: 3em;
@@ -929,6 +922,9 @@ html.colorswap h3:after {color: #FFF;}
 	}
 	h3:after, #get h1:after {
 		font-family: 'Bungeee Rotated Inline', Impact;
+	}
+	.has-heading {
+		padding-left: 12em;
 	}
 	#get h1 {
 		top: -.5rem;
