@@ -469,17 +469,17 @@ h2 {
 h3 {
 	font-family: 'Bungeee Shade';
 	font-size: 3em;
-	letter-spacing: -.075em;
 	color: #E6AE17; /* dark orange */
-	color: #EFE446; /* dark yellow */
-	color: #E3CE9D; /* medium brown */
 	color: #e2ddd7; /* medium gray */
-	color: #DC4227; /* red */
+	color: #EFE446; /* medium yellow */
+	color: #E3CE9D; /* medium brown */
 	position: relative;
+	margin-bottom: .5em;
 }
 h3:before {
 	font-family: 'Bungeee Regular';
 	color: #FFF700; /* yellow */
+	color: #DC4227; /* red */
 	content: attr(data-content);
 	position: absolute;
 	top: 0;
@@ -828,7 +828,10 @@ html.colorswap h3:after {color: #FFF;}
 	h3 {font-size: 5em;}
 	h2 {font-size: 1.5em;}
 }
-@media (min-width: 64em) and (min-height: 46em) and (min-aspect-ratio: 4/3) { /* Horizontal mode! */
+@media (min-width: 64em) {
+	h3 {font-size: 6em;}
+}
+@media (min-width: 64em) and (min-height: 46em) and (min-aspect-ratio: 6/5) { /* Horizontal mode! */
 	html:before {content: 'L';}
 	article {
 		white-space: nowrap;
@@ -851,7 +854,7 @@ html.colorswap h3:after {color: #FFF;}
 		overflow-y: auto;
 	}
 	.has-heading {
-		padding-left: 8em;
+		padding-left: 10em;
 	}
 	section + section {
 		border-top: none;
@@ -894,7 +897,7 @@ html.colorswap h3:after {color: #FFF;}
 	h3, #get h1 {
 		font-family: 'Bungeee Rotated Shade', Impact;
 		position: absolute;
-		left: 1.2em;
+		left: 1.5em;
 		top: .75rem;
 		
 		-ms-transform-origin: 0 1rem;
@@ -928,7 +931,7 @@ html.colorswap h3:after {color: #FFF;}
 		font-size: 7em;
 	}
 	.has-heading {
-		padding-left: 10em;
+		padding-left: 14em;
 	}
 }
 @media (min-width: 80em) {
@@ -971,7 +974,7 @@ html.colorswap h3:after {color: #FFF;}
 			</li>
 		</ul>
 	</nav>
-	<h1 class="fit-to-width">Bun-<br />gee!</div>
+	<h1 class="fit-to-width" data-max-font-size="50vh">Bun-<br />gee!</div>
 	<h2>Fonts for vertical and multicolor typography</h2>
 </section><section class="specimen yellow">
 	<figure class="collapsing_specimen">
