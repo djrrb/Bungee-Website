@@ -62,11 +62,17 @@ input[type=text] {
 }
 
 #code {
+    display: block;
 	line-height: 1.2;
     padding: 1em;
     border: 1px solid black;
     white-space: pre-wrap;
     overflow: auto;
+    background-color: rgba(255,255,255, 0.8);
+}
+
+#code code {
+    display: block;
 }
 
 #preview .layer {

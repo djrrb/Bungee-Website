@@ -348,10 +348,10 @@
 
             $('#code').remove();
             
-            var out = $("<fieldset id='code'></fieldset>");
+            var out = $("<code class='content' id='code'></code>");
             out.html(code);
             
-            $('#save-share').after(out);
+            $('#save-share').append(out);
             return false;
         })
 

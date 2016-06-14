@@ -28,10 +28,12 @@ $(document).ready(function() {
     $('.content').hide();
     $('.expanded .content').show();
     $('.expander h5').click(function () {
-	    $(this).parent().toggleClass("expanded");
-	    $(this).parent().siblings().removeClass("expanded");
-        $(this).next('.content').slideToggle(250);
-        $(this).parent().siblings().children().next('.content').slideUp(250);
+        var me = $(this).parent();
+        var others = me.siblings();
+	    me.toggleClass("expanded");
+	    others.removeClass("expanded");
+        me.find('.content').slideToggle(250);
+        others.find('.content').slideUp(250);
         return false;
     });
 });
