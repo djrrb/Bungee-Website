@@ -825,7 +825,7 @@ html.colorswap h3:after {color: #FFF;}
 	h3 {font-size: 5em;}
 	h2 {font-size: 1.5em;}
 }
-@media (min-width: 64em) and (min-height: 46em) and (orientation: landscape) { /* Horizontal mode! */
+@media (min-width: 64em) and (min-height: 46em) and (min-aspect-ratio: 4/3) { /* Horizontal mode! */
 	html:before {content: 'L';}
 	article {
 		white-space: nowrap;
@@ -865,7 +865,8 @@ html.colorswap h3:after {color: #FFF;}
 	}
 
 	#cover {
-		width: 80vw;
+		width: 85vw;
+		max-width: 140vh;
 		padding-left: 3em;
 		padding-right: 3em;
 	}
@@ -964,7 +965,7 @@ html.colorswap h3:after {color: #FFF;}
 			</li>
 		</ul>
 	</nav>
-	<h1 class="fit-to-width">Bun-<br />gee!</div>
+	<h1 class="fit-to-width" data-max-font-size="30vh">Bun-<br />gee!</div>
 	<h2>Fonts for vertical and multicolor typography</h2>
 </section><section class="specimen yellow">
 	<figure class="collapsing_specimen">
