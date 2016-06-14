@@ -157,17 +157,16 @@
     
 - name: sherman
   inline: 
-    hex: 'ECE74D'
+    hex: 'FFE10B'
     active: false
   outline:
-    hex: 'ECE74D'
-  shade:
-    hex: 'FF2A00'
+    hex: 'FFE10B'
   regular:
-    hex: 'ECE74D'
+    hex: 'FFE10B'
+  shade:
+    hex: 'FF0035'
   sign:
-    hex: '3E79E3'
+    hex: '008FD6'
     active: false
   background:
-    hex: '4588FF'
-    
+    hex: '009FEF'
