@@ -440,15 +440,25 @@ h1 {
 	z-index: 30;
 }
 h1::before {
-	content: attr(data-content);
+	content: "BUN-";
 	font-family: 'Bungeee Regular';
 	position: absolute;
 	top: 0;
 	color: #FFF;
 	left: 0;
 }
+h1::after {
+	content: "GEE!";
+	font-family: 'Bungeee Regular';
+	position: absolute;
+	top: 0.8em;
+	color: #FFF;
+	left: 0;
+}
+
 h1,
-h1:before {
+h1::before,
+h1::after {
 	padding-left: .075em;
 	padding-right: .05em;
 }
