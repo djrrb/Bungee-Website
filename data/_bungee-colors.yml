@@ -154,4 +154,21 @@
     hex: '26243a'
   background:
     hex: '111111'
+    
+- name: sherman
+  inline: 
+    hex: 'ff0000'
+    active: false
+  outline:
+    hex: 'ff0000'
+    active: false
+  shade:
+    hex: 'ff0000'
+  regular:
+    hex: 'ece749'
+  sign:
+    hex: '49ec6b'
+    active: false
+  background:
+    hex: '4288ff'
 
