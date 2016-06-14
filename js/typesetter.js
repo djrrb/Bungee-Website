@@ -48,7 +48,7 @@
         var textcontrol = $('#controls input[name=text]');
         var backgroundcontrols = $('#background-controls input');
 
-        var rotatedhack = $('html').hasClass('no-vertical-text');
+        var suckyBrowser = $('html').hasClass('no-vertical-text');
         
         var previewPreInit;
         
@@ -231,27 +231,30 @@
             
             previewPreInit = preview.clone();
             
-            Bungee.init(preview);
-            
-            if (true) { // autofit.prop('checked')) {
-                setTimeout(function() {
-                    if (orientation === "horizontal") {
-                        sizeToWidth(preview);
-                    } else {
-                        preview.css('font-size', (sizeToWidth.cssToPx(preview.data('max-font-size')) || 144) + 'px');
-                        var fakeTop = rotatedhack ? 'left' : 'top';
-                        var fakeWidth = rotatedhack ? 'height' : 'width';
-                        var fakeHeight = rotatedhack ? 'width' : 'height';
-                        var padding = preview.position()[fakeTop];
-                        var pheight = preview[fakeHeight]();
-                        var wheight = win.height() - padding*2;
-                        var ratio = wheight / pheight;
-                        if (ratio < 1) {
-                            var newsize = parseFloat(preview.css('font-size')) * ratio;
-                            preview.css('font-size', newsize+'px');
+            if (suckyBrowser && orientation === 'vertical') {
+                // replace with SVG
+                preview.html("<img src='" + getSvgURL() + "' alt='SVG preview'>");
+            } else {
+                Bungee.init(preview);
+                
+                if (true) { // autofit.prop('checked')) {
+                    setTimeout(function() { 
+                        if (orientation === 'horizontal') {
+                            sizeToWidth(preview); 
+                        } else {
+                            var oldsize = sizeToWidth.cssToPx(preview.data('max-font-size')) || 144;
+                            preview.css('font-size', oldsize + 'px');
+                            var padding = preview.position().top;
+                            var pheight = preview.height();
+                            var wheight = win.height() - padding*2;
+                            var ratio = wheight / pheight;
+                            console.log(pheight,wheight,ratio,oldsize, oldsize*ratio);
+                            if (ratio < 1) {
+                                preview.css('font-size', (oldsize * ratio)+'px');
+                            }
                         }
-                    }
-                }, 10);
+                    }, 10);
+                }
             }
 
             $('#code').remove();

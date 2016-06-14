@@ -34,7 +34,7 @@ form > fieldset + fieldset {
 
 #preview {
     display: block;
-    background-color: #FFFFFF;
+    background-color: none;
 }
 
 select {
@@ -130,4 +130,24 @@ input {
            rgba(255,0,0,1) 50%,
            rgba(255,0,0,0) calc(50% + 2px),
            rgba(255,0,0,0) 100%);
+}
+
+
+/* don't use vertical rotated hack */
+.no-vertical-text #preview.vertical {
+    -ms-writing-mode: lr-tb;
+    -webkit-writing-mode: horizontal-tb;
+    -moz-writing-mode: horizontal-tb;
+    writing-mode: horizontal-tb;
+    /* and rotate the whole thing clockwise */
+    /* note this will break document flow unless you absolutely position it */
+    -moz-transform: none;
+    -ms-transform: none;
+    -webkit-transform: none;
+    transform: none;
+    height: 95vh;
+}
+
+.no-vertical-text #preview.vertical img {
+    height: 100%;
 }
