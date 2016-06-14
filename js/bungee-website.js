@@ -14,20 +14,9 @@ $(function() {
     var scrollMode = 'vertical', pageWidth, pageHeight;
     var goingToHash = false;
     function doScrollStuff() {
-        if (goingToHash) return;
         var scrollTop = win.scrollTop();
         var scrollLeft = article.scrollLeft();
         scrollRatio = scrollMode==='horizontal' ? scrollLeft / pageWidth : scrollTop / pageHeight;
-    
-        //set URL hash for current section
-        for (var i in sectionOffsets) {
-            if (sectionOffsets[i][1] > scrollLeft+win.width()*0.1) {
-                if (i > 0 && window.location.hash !== sectionOffsets[i-1][0]) {
-                    history.replaceState({}, "", sectionOffsets[i-1][0]);
-                }
-                break;
-            }
-        }
     }
 
     function watchScroll() {
@@ -45,6 +34,8 @@ $(function() {
     function goToHash() {
         if (goingToHash === window.location.hash) {
             return;
+        } else if (goingToHash) {
+            article.stop(true);
         }
         var pos, bookmark = $(window.location.hash);
         if (bookmark.length) {
