@@ -112,6 +112,7 @@ input[type=text] {
 	margin-top: 0;
 	vertical-align: middle;
 	text-align: center;
+    background: transparent !important;
 }
 #palettes input {
     display: none;
