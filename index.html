@@ -74,6 +74,22 @@ $(document).keydown(function(e) {
 }
 
 @font-face {
+	font-family: InputSerifNarrowWeb;
+	src: url("https://djr.com/assets/fonts/Input/ascii/InputSerifNarrow-ExtraLight_TRIAL.eot");
+	src: url("https://djr.com/assets/fonts/Input/ascii/InputSerifNarrow-ExtraLight_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Input/ascii/InputSerifNarrow-ExtraLight_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Input/ascii/InputSerifNarrow-ExtraLight_TRIAL.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: InputMonoNarrowWeb;
+	src: url("https://djr.com/assets/fonts/Input/ascii/InputMonoNarrow-ExtraLight_TRIAL.eot");
+	src: url("https://djr.com/assets/fonts/Input/ascii/InputMonoNarrow-ExtraLight_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Input/ascii/InputMonoNarrow-ExtraLight_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Input/ascii/InputMonoNarrow-ExtraLight_TRIAL.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: OutputSansWebX;
 	src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Light_TRIAL.eot");
 	src: url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Light_TRIAL.eot?#iefix") format("embedded-opentype"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Light_TRIAL.woff2") format("woff2"), url("https://djr.com/assets/fonts/Output/ascii/OutputSans-Light_TRIAL.woff") format("woff");
@@ -255,7 +271,7 @@ nav a:visited {
 
 
 code {
-	font-family: InputSansNarrowWeb;
+	font-family: InputMonoNarrowWeb;
 	font-size: .85;
 	background-color: rgba(1, 1, 1, .2);
 	padding: 0em .2em .2em .2em;
@@ -469,6 +485,7 @@ p {
 	max-width: 40rem;
 }
 figure {
+	width: 100%;
 	max-width: 60em;
 }
 figcaption {
@@ -794,7 +811,7 @@ html.colorswap h3:after {color: #FFF;}
 		max-width: 100%;
 	}
 	.big_fig img {
-		max-height: calc(100vh - 14em);
+		max-height: calc(100vh - 15em);
 	}
 
 	#cover {
@@ -1037,7 +1054,7 @@ html.colorswap h3:after {color: #FFF;}
 	</p>
 	<!--<p>Let’s get one thing straight: stacking the Latin alphabet is not always the best idea. The Latin alphabet is designed for horizontal writing, and vertical writing can create distortions that range from bizarre to unreadable.</p><p>But, in display typography, readability isn't everything. When used deftly and sparingly, Bungee’s stacked letters can help your words stand out among the crowd.</p>-->
 	
-	<p>Tthe Latin alphabet is designed for horizontal writing, and stacking it is not always the best idea. But, when used deftly and sparingly, I believe Bungee’s vertical forms will help your text stand out among the crowd. Despite readability issues for long and unfamiliar words, changing the text orientation may lead to interesting design solutions and raise interesting questions: How should I handle word breaks and apostrophes? How monowidth is too monowidth? Should I even consider using lowercase?</p>
+	<p>The Latin alphabet is designed for horizontal writing, and stacking it is not always the best idea. But, when used deftly and sparingly, I believe Bungee’s vertical forms will help your text stand out among the crowd. Despite readability issues for long and unfamiliar words, changing the text orientation may lead to interesting design solutions and raise interesting questions: How should I handle word breaks and apostrophes? How monowidth is too monowidth? Should I even consider using lowercase?</p>
 	
 </section><section class="red" id="stack-implementation">
 	<figure class="big_fig">
@@ -1059,7 +1076,7 @@ html.colorswap h3:after {color: #FFF;}
 	<h3>Color</h3>
 	<figure class="big_fig">
 		<img src="images/page-chromatic_etruscan.jpg" alt="Chromatic Etruscan No. 1" />
-		<figcaption><p>Chromatic Etruscan No. 1, <cite>Specimens of Chromatic Wood Type, Borders, Etc.</cite> (1874), William H. Page &amp; Co.</p></figcaption>
+		<figcaption><p>Chromatic Etruscan No. 1 from Wm. H. Page &amp; Co.’s 1874 book of chromatic type specimens.</p></figcaption>
 	</figure>
 
 <p>Chromatic fonts are nothing new: sets of wood type intended for overprinting were produced as early as 1841, and quickly became a popular way to add visual interest to posters and broadsides. Today we find ourselves in a renaissance of chromatic type, with many <a href="https://www.boldmonday.com/typeface/nitti-mostro/">incredible</a> <a href="http://www.photolettering.com">digital</a> <a href="https://www.myfonts.com/fonts/matchandkerosene/detroit/">fonts</a> released each year that come with layers for chromatic typesetting.</p>
@@ -1083,7 +1100,7 @@ html.colorswap h3:after {color: #FFF;}
 	</figure>
 
 	<p>Bungee Color gave me the opportunity to experiment with three working proposals for true color fonts: SVG (<a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">Mozilla</a>), COLR/CPAL (<a href="https://www.microsoft.com/typography/otspec/colr.htm">Microsoft</a>) and SBIX (<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">Apple</a>). Each proposal stores color information in the font itself, so it is possible to create chromatic effects even in the most basic of apps. Support for these formats is far from universal, but I am excited about about the possibilities that they offer, and am hopeful that Bungee Color can help users and developers explore them.</p>
-</section><section class="yellow specimen" id="feature-specimen">
+</section><section class="yellow" id="feature-specimen">
 	<figure class="big_fig collapsing_specimen"><img src="images/specimen-features-A.svg" alt="Feature Specimen" /><img src="images/specimen-features-B.svg" alt="Feature Specimen" />
 	</figure>
 	<p>Bungee’s <a href="https://github.com/djrrb/Bungee/blob/master/documentation/4-stylistic-alternates.md">stylistic alternates</a> include simplified Deco forms, unserifed forms of <em>I</em> and <em>L</em>, and vertical ligatures for double-<em>II</em> and the Dutch <em>Ĳ</em>. Bungee also ships with a collection of <a href="https://github.com/djrrb/Bungee/blob/master/documentation/5-ornaments.md">arrows, pointing hands, and background shapes</a> that are inspired by the shapes and decorations on old commercial signs. Some of these background shapes will connect to form decorative banners, while others are meant to encircle a single letter.
