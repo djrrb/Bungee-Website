@@ -34,7 +34,11 @@ form > fieldset + fieldset {
 
 #preview {
     display: block;
-    background-color: transparent !important;
+    background-color: transparent;
+}
+
+#preview .background.layer {
+    display: none;
 }
 
 select {

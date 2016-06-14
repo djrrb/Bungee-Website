@@ -177,9 +177,6 @@
                     var layer = $(this);
                     layers.push(layer.data('layer') + '-' + colorToLayerClass(layer.spectrum('get')));
                 });
-                if (layercontrols.filter('.background.none').length) {
-                    layers.push('background-transparent');
-                }
             }
 
             //no layers == all layers
