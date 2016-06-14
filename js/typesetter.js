@@ -56,17 +56,18 @@
             var tab = "  ";
             var code = "";
             
-            code += '<!-- put this stuff inside <head> -->\n';
-            code += tab + '<!-- copy these files from resources/web folder -->\n';
-            code += tab + '<link rel="stylesheet" href="bungee.css">\n';
-            code += tab + '<script src="bungee.js"></script>\n';
-            code += '<!-- end of </head> content -->\n\n';
+            code += "<!DOCTYPE html><html><head>\n";
+            code += tab + '<link rel="stylesheet" href="https://bungee-project.djr.com/resources/web/bungee.css">\n';
+            code += tab + '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>\n';
+            code += tab + '<script src="https://bungee-project.djr.com/resources/web/bungee.js"></script>\n';
+            code += "</head><body>\n";
 
             var el = previewPreInit[0];
             el.removeAttribute('id');
             el.removeAttribute('data-max-font-size');
             
-            code += el.outerHTML + "\n\n";
+            code += tab + el.outerHTML.replace(/>(.*)</g, '>\n' + tab + tab + "$1\n" + tab + "<") + "\n";
+            code += "</body></html>";
             
             code = code.replace(/[<>&]/g, function(c) { 
                 switch(c) {
