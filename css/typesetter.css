@@ -154,4 +154,5 @@ input {
 
 .no-vertical-text #preview.vertical img {
     height: 100%;
+    width: auto !important;
 }
