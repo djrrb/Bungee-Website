@@ -34,7 +34,6 @@ form > fieldset + fieldset {
 
 #preview {
     display: block;
-    margin-top: 1rem;
     background-color: #FFFFFF;
 }
 
@@ -47,9 +46,6 @@ input[type=text] {
 	margin-top: 0;
 /* 	margin-bottom: .33em; */
 	vertical-align: baseline;
-}
-#preview {
-	margin-top: 0;
 }
 #preview.vertical {
     padding-right: 5%;

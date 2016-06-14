@@ -542,7 +542,6 @@ cite, em {
 #tester {
 	background-color: #FFF;
 	overflow-x: hidden;
-	max-width: 100vw;
 }
 #tester img {
 	width: 50vw;
@@ -865,7 +864,7 @@ html.colorswap h3:after {color: #FFF;}
 	}
 
 	#cover {
-		width: 85vw;
+		width: 90vw;
 		max-width: 140vh;
 		padding-left: 3em;
 		padding-right: 3em;
@@ -877,6 +876,9 @@ html.colorswap h3:after {color: #FFF;}
 	#cover p {
 		margin-left: auto;
 		margin-right: auto;
+	}
+	#tester {
+		max-width: 85vw;
 	}
 	.specimen img {
 		max-width: none;
@@ -972,7 +974,7 @@ html.colorswap h3:after {color: #FFF;}
 			<img src="images/specimen-vertical-B.svg" alt="Parking, Permanent Press, Tires, Lights, Liquid Detergent" /><img src="images/specimen-vertical-A.svg" alt="Soaps, Spin Cycle, Poolside, Coin-Ops" />
 	</figure>
 </section><section id="tester">
-	<figure class="horizontal" id='preview'></figure><form id='controls' onsubmit='return false'>
+	<figure class="horizontal" id='preview' data-max-font-size="30vh"></figure><form id='controls' onsubmit='return false'>
 		<fieldset>
 			<label id='text-control'><h5>Text:</h5> <input type='text' name='text' value='Tester'></label>
 			<ul id='orientation-controls'>
