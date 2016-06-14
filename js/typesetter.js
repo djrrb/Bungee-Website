@@ -237,7 +237,7 @@
                     if (orientation === "horizontal") {
                         sizeToWidth(preview);
                     } else {
-                        preview.css('font-size', (parseFloat(preview.data('max-font-size')) || 288) + 'px');
+                        preview.css('font-size', (sizeToWidth.cssToPx(preview.data('max-font-size')) || 144) + 'px');
                         var fakeTop = rotatedhack ? 'left' : 'top';
                         var fakeWidth = rotatedhack ? 'height' : 'width';
                         var fakeHeight = rotatedhack ? 'width' : 'height';
@@ -245,7 +245,6 @@
                         var pheight = preview[fakeHeight]();
                         var wheight = win.height() - padding*2;
                         var ratio = wheight / pheight;
-                        console.log(padding,pheight,wheight,ratio);
                         if (ratio < 1) {
                             var newsize = parseFloat(preview.css('font-size')) * ratio;
                             preview.css('font-size', newsize+'px');

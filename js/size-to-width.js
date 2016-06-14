@@ -24,11 +24,11 @@
 		}
 	
 		function cssToPx(width) {
-			if (parseFloat(width) == width) {
-				return parseFloat(width);
-			}
 			if (typeof width !== 'string') {
 				return width;
+			}
+			if (parseFloat(width) == width) {
+				return parseFloat(width);
 			}
 			var test = div.clone();
 			test.attr('id', '');
@@ -44,6 +44,8 @@
 			test.remove();
 			return result;
 		}
+		
+		setTimeout(function() { window.sizeToWidth.cssToPx = cssToPx; });
 
 		var maxFontSize = cssToPx(div.data('max-font-size'));
 		var maxWidth = cssToPx(div.data('max-width'));
