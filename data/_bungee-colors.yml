@@ -1,4 +1,36 @@
-- name: red
+- name: default
+  background:
+    hex: '2b859d'
+  inline:
+    hex: 'e8e8e7'
+  regular:
+    hex: 'ffffff'
+  shade:
+    hex: '215966'
+  outline:
+    hex: '215966'
+    active: false
+  sign:
+    hex: '247082'
+    active: false
+
+- name: red-on-white
+  background: 
+    hex: 'f8f5f4'
+  sign:
+    hex: 'f2eceb'
+    active: false
+  shade:
+    hex: 'ece4e1'
+  outline:
+    hex: 'ece4e1'
+    active: false
+  regular:
+    hex: 'd42b26'
+  inline:
+    hex: 'ef7575'
+  
+- name: red-on-dark
   inline:
     hex: 'FED0D2'
   regular:
@@ -30,7 +62,36 @@
     active: false
   background:
     hex: '184b57'
-
+    
+- name: teal
+  background: 
+    hex: '799089'
+  sign:
+    hex: '516b63'
+  shade:
+    hex: '39404c'
+    active: false
+  outline:
+    hex: '39404c'
+  regular:
+    hex: 'e8f3e7'
+  inline:
+    hex: 'add5b7'
+    
+- name: red-bg
+  inline:
+    hex: 'cccccc'
+  regular:
+    hex: 'e7e9db'
+  outline: 
+    hex: '090400'
+    active: false
+  shade:
+    hex: '090400'
+  sign:
+    hex: 'c31a03'
+  background:
+    hex: 'a02911'
 
 - name: blue
   inline:
@@ -48,8 +109,6 @@
   background:
     hex: 'FFFFFF'
 
-
-    
 - name: white-black-red
   inline:
     hex: 'EAE2B1'
@@ -63,21 +122,6 @@
     hex: '111111'
   background:
     hex: '333333'
-
-- name: red-yellow-white
-  inline: 
-    hex: 'e24d3d'
-  regular:
-    hex: 'ad1622'
-  outline:
-    hex: 'FFFFFF'
-  shade:
-    hex: 'efbb43'
-  sign: 
-    hex: 'efbb43'
-    active: false
-  background:
-    hex: 'FFFFFF'
 
 
 - name: cool-blues

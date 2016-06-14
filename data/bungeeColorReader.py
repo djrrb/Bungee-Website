@@ -18,7 +18,7 @@ def makeHex(c):
 
 
 
-path = u"/Users/david/Documents/web/Bungee-Website/data/bungee-colors.yml"
+path = u"/Users/david/Documents/web/Bungee-Website/data/_bungee-colors.yml"
 
 
 with open(path, 'r') as indexfile:

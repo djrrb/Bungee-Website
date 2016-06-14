@@ -1,0 +1,14 @@
+- name: red-yellow-white
+  inline: 
+    hex: 'e24d3d'
+  regular:
+    hex: 'ad1622'
+  outline:
+    hex: 'FFFFFF'
+  shade:
+    hex: 'efbb43'
+  sign: 
+    hex: 'efbb43'
+    active: false
+  background:
+    hex: 'FFFFFF'
