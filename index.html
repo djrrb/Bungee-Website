@@ -382,7 +382,7 @@ article {
 }
 section {
 	position: relative;
-	padding: 1rem 1rem 2rem 1rem;
+	padding: 5% 4% 6% 4%;
 	margin: 0;
 }
 section + section {
@@ -397,28 +397,6 @@ h1, h2, h3 {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
-/*
-h1 {
-	font-family: 'Bungeee Shade';
-	line-height: .8;
-	color: #771F15;
-	font-size: 4em;
-	margin-top: 1rem;
-	margin-bottom: .15em;
-	margin-left: .05em;
-	position: relative;
-	width: 100%;
-}
-h1:after {
-	font-family: 'Bungeee Regular';
-	color: #FFF;
-	content: attr(data-content);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-*/
 
 h1 {
 	font-family: 'Bungeee Shade';
@@ -609,11 +587,13 @@ cite, em {
 	color: black;
 	color: #771F15;
 	position: relative;
+/*
 	text-shadow:
 		-1px -1px 0 #771F15,  
 		1px -1px 0 #771F15,
 		-1px 1px 0 #771F15,
 		1px 1px 0 #771F15;
+*/
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -652,9 +632,6 @@ input[type="text"] {
 }
 input[type="range"] {
 	width: 4em;
-}
-.specimen {
-	padding-left: 1rem;
 }
 .specimen img {
 	margin: 0;
@@ -795,13 +772,15 @@ html.colorswap h3:after {color: #FFF;}
 	}
 	section {
 		position: relative;
-		padding-left: 10em;
-		padding-right: 5em;
+		padding: 3em 5em 4em 5em;
 		display: inline-block;
 		vertical-align: top;
 		white-space: normal;
 		height: 100vh;
 		overflow-y: auto;
+	}
+	.has-heading {
+		padding-left: 10em;
 	}
 	#tester {
 		padding-left: 5em;
@@ -819,13 +798,13 @@ html.colorswap h3:after {color: #FFF;}
 		max-width: 100%;
 	}
 	.big_fig img {
-		max-height: calc(100vh - 14em);
+		max-height: calc(100vh - 18em);
 	}
 	#bungee-basic-figure {
 		margin-bottom: 4rem;
 	}
 	#bungee-basic-figure.big_fig div {
-		font-size: calc((100vh - 14em) / 5);
+		font-size: calc((100vh - 18em) / 5);
 		line-height: .8;
 	}
 
@@ -842,13 +821,9 @@ html.colorswap h3:after {color: #FFF;}
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.specimen {
-		padding-left: 2rem;
-		padding-right: 2rem;
-	}
 	.specimen img {
 		max-width: none;
-		height: calc(100vh - 5em);
+		height: calc(100vh - 8em);
 	}
 	h2 {
 		font-size: 2em;
@@ -1043,7 +1018,7 @@ html.colorswap h3:after {color: #FFF;}
 			</ul>
 		</fieldset>
 	</form>
-</section><section id="stack">
+</section><section class="has-heading" id="stack">
 	<h3>Stacking</h3>
 	<figure class="big_fig triptych">
 		<img src="images/photos/g-g-hardware.jpg" alt="G & G Hardware, Oakland, CA" /><img src="images/photos/little-city.jpg" alt="Little City, San Francisco, CA" /><img src="images/photos/tower-theater.jpg" alt="Tower Theater, Los Angeles, CA" />
@@ -1088,7 +1063,7 @@ html.colorswap h3:after {color: #FFF;}
 	<figure class="collapsing_specimen">
 			<img src="images/specimen-horizontal-A.svg" alt="Phở Đà Lạt, Rosa’s Liquors, Suits, Express, Boulangerie, Zapatería, Ray’s Diner" /><img src="images/specimen-horizontal-B.svg" alt="Barber, Hot Fresh Pizza, Cocktails, Vacancy, Luncheonette, Open 24 Hours, Motel" />
 	</figure>
-</section><section class="" id="color">
+</section><section class="has-heading" id="color">
 	<h3>Color</h3>
 	<figure class="big_fig">
 		<img src="images/page-chromatic_etruscan.jpg" alt="Chromatic Etruscan No. 1" />
@@ -1127,7 +1102,7 @@ html.colorswap h3:after {color: #FFF;}
 	
 </p>
 	
-</section><section id="thanks">
+</section><section class="has-heading" id="thanks">
 	<h3>Thanks</h3>
 	
 	<p>Thanks to support from <a href="https://www.google.com/fonts">Google</a> and <a href="http://www.fontbureau.com">The Font Bureau</a>, Bungee is released under the <a href="http://scripts.sil.org/OFL">SIL Open Font License</a>, meaning that it is completely free and open-source.</p>
@@ -1140,7 +1115,7 @@ html.colorswap h3:after {color: #FFF;}
 
 	<p>Special thanks to Dave Crossland, Rob Giampetro, and Omer Ziv from <a href="http://www.google.com">Google</a>; David Berlow, Sam Berlow, Kent Lew, Cyrus Highsmith, and Jill Pichotta from <a href="http://fontbureau.typenetwork.com">The Font Bureau</a>; <a href="http://typemytype.com">Frederik Berlaen</a> for his tools and support, <a href="https://www.kutilek.de">Jens Kutílek</a> for RoboChrome; <a href="https://pixelambacht.nl">Roel Nieskens</a> for spelunking in Bungee Color; <a href="https://www.microsoft.com/en-us/Typography/default.aspx">Microsoft’s Typography team</a> for their early work on Bungee Color; <a href="http://www.retroscriptla.com">Emily Richardson</a> for coming up with the name; and <a href="http://13pt.com/corum/">Jon Corum</a>, John Downer, <a href="http://www.johnkramerdesign.biz">John Kramer</a>, <a href="http://kupferschrift.de/cms/">Indra Kupferschmid</a>, and <a href="http://andremora.com">André Mora</a>, for their thoughtful feedback and advice during the design process.</p>
 	
-</section><section class="red" id="get">
+</section><section class="has-heading red" id="get">
 	<h3>Get Bungee</h3>
 	<ul class="CTA">		
 		<li class="fit-to-width"><a class="button" href="https://github.com/djrrb/Bungee/releases/download/v1.0/Bungee-fonts.zip">Download now↓</a></li>
