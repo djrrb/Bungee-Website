@@ -851,8 +851,10 @@ html.colorswap h3::after {color: #FFF;}
 		flex-wrap: wrap;
 */
 		height: 100vh;
-		overflow-x: auto;
 		overflow-y: hidden;
+        /* two lines below for momentum on touch */
+		overflow-x: scroll;
+		-webkit-overflow-scrolling: touch;
 	}
 	section {
 		position: relative;
