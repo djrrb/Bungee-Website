@@ -235,22 +235,24 @@
                 Bungee.init(preview);
                 
                 if (true) { // autofit.prop('checked')) {
-                    setTimeout(function() { 
+                    var oldsize = sizeToWidth.cssToPx(preview.data('max-font-size')) || 144;
+                    preview.css('font-size', oldsize + 'px');
+                    function fitToWidth() {
                         if (orientation === 'horizontal') {
                             sizeToWidth(preview); 
                         } else {
-                            var oldsize = sizeToWidth.cssToPx(preview.data('max-font-size')) || 144;
-                            preview.css('font-size', oldsize + 'px');
                             var padding = preview.position().top;
                             var pheight = preview.height();
                             var wheight = win.height() - padding*2;
                             var ratio = wheight / pheight;
-                            console.log(pheight,wheight,ratio,oldsize, oldsize*ratio);
                             if (ratio < 1) {
                                 preview.css('font-size', (oldsize * ratio)+'px');
                             }
                         }
-                    }, 10);
+                    }
+                    
+                    setTimeout(fitToWidth, 10);
+                    win.on('resize', fitToWidth);
                 }
             }
 
