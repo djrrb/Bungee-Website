@@ -70,31 +70,6 @@ input[type=text] {
     transition: opacity 0.2s;
 }
 
-/* arbitrary colors; these need to be set by UI eventually */
-#preview .regular {
-	color: #DC4227;
-}
-
-#preview .outline {
-	color: #ad1622;
-}
-
-#preview .inline {
-	color: #FFFFFF;
-}
-
-#preview .shade {
-    color: rgba(128,128,128,0.3);
-}
-
-#preview .sign.regular {
-	color: #EFE446;
-}
-
-#preview .sign.outline {
-    color: #b2c021;
-}
-
 .swatch {
 	font-size: 1.5em;
 	line-height: 1;

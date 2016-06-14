@@ -305,6 +305,9 @@
             layer.after('<input type="hidden" class="layercolors" name="' + layer.data('layer') + '" value="' + layer.spectrum('get').toHex8() + '">');
         });
 
+        allcontrols.on('change', updatePreview);
+        textcontrol.on('keyup', updatePreview);
+
         //process initial url
         if (window.location.search.length > 1) {
             //$('input[type=checkbox], input[type=radio]').prop('checked', false);
@@ -332,12 +335,10 @@
                         break;
                 }
             });
+            updatePreview();
+        } else {
+            $('#preset-default').prop('checked', true).trigger('change');
         }
-
-        updatePreview();
-
-        allcontrols.on('change', updatePreview);
-        textcontrol.on('keyup', updatePreview);
 
         $('#view-code').on('click', function() {
             var code = getCode();
