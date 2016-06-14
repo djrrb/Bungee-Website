@@ -1,23 +1,23 @@
 /* controls */
 
 
-#tester #background-controls li {
+#background-controls li {
     list-style-type: none;
     display: inline;
     font-family: "Bungeee Regular";
     font-size: 1em;
 }
 
-#tester #background-controls input {
+#background-controls input {
     display: none;
 }
 
-#tester #background-controls input + label {
+#background-controls input + label {
     display: inline-block;
     padding: 0.25em;
 }
 
-#tester #background-controls input:checked + label {
+#background-controls input:checked + label {
     background-color: white;
 }
 
@@ -60,7 +60,7 @@ input[type=text] {
     border: 1px solid black;
 }
 
-#tester #code {
+#code {
 	line-height: 1.2;
     padding: 1em;
     border: 1px solid black;
