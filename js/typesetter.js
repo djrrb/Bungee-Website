@@ -47,6 +47,8 @@
         //var autofit = $('#controls input[name=autofit]');
         var textcontrol = $('#controls input[name=text]');
         var backgroundcontrols = $('#background-controls input');
+
+        var rotatedhack = $('html').hasClass('no-vertical-text');
         
         var previewPreInit;
         
@@ -192,9 +194,6 @@
             classes.push(orientation);
             $('.preview').removeClass('horizontal vertical').addClass(orientation);
 
-            //rotated mode
-            //$('html')[rotatedcontrol.prop('checked') ? 'addClass' : 'removeClass']('no-vertical-text');
-            
             //backgrounds
             if (backgroundcontrols.is(actor)) {
                 if (actor.name === 'block' || actor.value === "") {
@@ -239,10 +238,14 @@
                         sizeToWidth(preview);
                     } else {
                         preview.css('font-size', (parseFloat(preview.data('max-font-size')) || 288) + 'px');
-                        var padding = preview.position().top;
-                        var pheight = preview.height();
+                        var fakeTop = rotatedhack ? 'left' : 'top';
+                        var fakeWidth = rotatedhack ? 'height' : 'width';
+                        var fakeHeight = rotatedhack ? 'width' : 'height';
+                        var padding = preview.position()[fakeTop];
+                        var pheight = preview[fakeHeight]();
                         var wheight = win.height() - padding*2;
                         var ratio = wheight / pheight;
+                        console.log(padding,pheight,wheight,ratio);
                         if (ratio < 1) {
                             var newsize = parseFloat(preview.css('font-size')) * ratio;
                             preview.css('font-size', newsize+'px');
