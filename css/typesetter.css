@@ -53,6 +53,7 @@ input[type=text] {
 }
 #preview.vertical {
     padding-right: 5%;
+    width: auto;
 }
 
 #svg, #png {
