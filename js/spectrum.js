@@ -621,7 +621,7 @@
             visible = true;
 
             $(doc).bind("keydown.spectrum", onkeydown);
-            $(doc).bind("click.spectrum", clickout);
+            $(doc).bind("click.spectrum touchstart.spectrum", clickout);
             $(window).bind("resize.spectrum", resize);
             replacer.addClass("sp-active");
             container.removeClass("sp-hidden");
@@ -666,7 +666,7 @@
             visible = false;
 
             $(doc).unbind("keydown.spectrum", onkeydown);
-            $(doc).unbind("click.spectrum", clickout);
+            $(doc).unbind("click.spectrum touchstart.spectrum", clickout);
             $(window).unbind("resize.spectrum", resize);
 
             replacer.removeClass("sp-active");
