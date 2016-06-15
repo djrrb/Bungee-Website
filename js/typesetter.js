@@ -242,8 +242,8 @@
                             sizeToWidth(preview); 
                         } else {
                             var padding = preview.position().top;
-                            var pheight = preview.height();
-                            var wheight = win.height() - padding*2;
+                            var pheight = preview.prop('scrollHeight');
+                            var wheight = win.height() - padding*3.1;
                             var ratio = wheight / pheight;
                             if (ratio < 1) {
                                 preview.css('font-size', (oldsize * ratio)+'px');
