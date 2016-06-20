@@ -3,6 +3,7 @@
     "use strict";
 
     var win = $(window);
+    var presetsLoaded=false, winLoaded=false;
 
     //populate presets from colors file
     $.ajax('data/bungee-colors.json', {
@@ -31,11 +32,15 @@
                     $('#palettes').append("<li><input type='radio' name='preset' id='preset-" + preset.name + "' value='" + preset.name + "'><label for='preset-" + preset.name + "' class='" + classes.join(' ') + "'>R</label></li>")
                 }
                 $('#palettes .bungee').each(window.Bungee.init);
+                presetsLoaded = true;
+                if (winLoaded) {
+                    onLoad();
+                }
             });
         }
     });
 
-    win.on('load', function() {
+    function onLoad() {
         var Bungee = window.Bungee;
         var preview = $('#preview').addClass('bungee');
         var allcontrols = $('#controls input, #controls select');
@@ -360,5 +365,12 @@
             return true;
         });
 
-    }); //window.onload
+    } //onLoad
+
+    win.on('load', function() {
+        winLoaded = true;
+        if (presetsLoaded) {
+            onLoad();
+        }
+    });
 })();
