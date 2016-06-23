@@ -49,10 +49,11 @@ $(document).ready(function() {
 /* Press the ~ key to toggle the show_edges class */
 $(document).keydown(function(e) {
 	var key = e.which;
+/*
 	if (key == 192) {
 		$("html").toggleClass("debug");
 	}
-/*
+
 	if (key == 67) {
 		$("html").toggleClass("colorswap");
 	}
@@ -1188,7 +1189,7 @@ html.colorswap h3::after {color: #FFF;}
 		<img src="images/bungee-color.gif" alt="BungeeColor in TextEdit" />
 	</figure>
 
-	<p>Bungee Color gave me the opportunity to experiment with three working proposals for true color fonts: SVG (<a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">Mozilla</a>), COLR/CPAL (<a href="https://www.microsoft.com/typography/otspec/colr.htm">Microsoft</a>) and SBIX (<a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">Apple</a>). Each proposal stores color information in the font itself, so it is possible to create chromatic effects even in the most basic of apps. Support for these formats is far from universal, but I am excited about the possibilities that they offer, and am hopeful that Bungee Color can help users and developers explore them.</p>
+	<p>Bungee is also available in three flavors of <a href="https://github.com/djrrb/Bungee/blob/master/documentation/6-color-fonts.md">true OpenType color fonts</a>: <a href="https://hacks.mozilla.org/2014/10/svg-colors-in-opentype-fonts/">OT-SVG</a>, <a href="https://www.microsoft.com/typography/otspec/colr.htm">COLR/CPAL</a>, and <a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6sbix.html">SBIX</a>. These fonts store color information inside the font itself, so it is possible to create chromatic effects even in the most basic typesetting environments. This technology is still developing, and support for color fonts is far from universal. Still, I am excited about the possibilities, and I hope that Bungee Color will help designers and developers explore and expand upon what color fonts have to offer.</p>
 </section><section class="yellow" id="feature-specimen">
 	<figure class="big_fig collapsing_specimen"><img src="images/specimen-features-A.svg" alt="Feature Specimen" /><img src="images/specimen-features-B.svg" alt="Feature Specimen" />
 	</figure>
